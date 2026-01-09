@@ -1,21 +1,15 @@
-
-print('-----Installing Package Requirements for Formatting OECD Matrix-----')
-import os
-os.system('apt-get update && apt-get install -y python3-opencv')
-os.system('pip install opencv-python')
-os.system('pip install ghostscript==9.20')
-os.system('pip install "camelot-py[base]"')
-
 import camelot # camelot.io as
 import pandas as pd
-import datetime
+# import datetime
+from datetime import datetime
 
 import sys, os
 sys.path.append('/root/country/country_scoring')
 sys.path.append('/root/country')
 
-from src import addresses
-from src import helper_objects
+from src.utils import config, io
+
+
 
 def get_date_dict(oecd_df_clean: pd.DataFrame, selected_date: str = 'first_date') -> dict:
     """get dictionary that maps name of columns of the clean oecd df, to their corresponding date chosen by selected_date.
@@ -32,11 +26,11 @@ def get_date_dict(oecd_df_clean: pd.DataFrame, selected_date: str = 'first_date'
         first_date = date_string.split('\n')[0]
         last_date = date_string.split('\n')[1]
         try:
-            first_date = datetime.datetime.strptime(first_date, '%d-%b-%Y').date()
-            last_date = datetime.datetime.strptime(last_date, '%d-%b-%Y').date()
+            first_date = datetime.strptime(first_date, '%d-%b-%Y').date()
+            last_date = datetime.strptime(last_date, '%d-%b-%Y').date()
         except ValueError:
-            first_date = datetime.datetime.strptime(first_date, '%d-%b-%y').date()
-            last_date = datetime.datetime.strptime(last_date, '%d-%b-%y').date()
+            first_date = datetime.strptime(first_date, '%d-%b-%y').date()
+            last_date = datetime.strptime(last_date, '%d-%b-%y').date()
 
         mid_date = first_date + (last_date - first_date)/2
 
@@ -83,7 +77,8 @@ def clean_oecd_value(value: str) -> str:
 
     return v    
 
-def get_quarters(start_year: int = 1999, end_year: int = 2024) -> list:
+
+def get_quarterly_dates(start_year: int = 1999, end_year: int = 2024) -> list:
     """Given start and end year, return a list of the date of each quarter between the years, last year excluded.
 
     Args:
@@ -105,7 +100,7 @@ def get_quarters(start_year: int = 1999, end_year: int = 2024) -> list:
 
     return quarters
 
-def get_years(start_year: int = 1999, end_year: int = 2024) -> list:
+def get_yearly_dates(start_year: int = 1999, end_year: int = 2024) -> list:
     """Given start and end year, return a list of the date of each years start date between the years, last year excluded.
 
     Args:
@@ -127,31 +122,18 @@ def get_years(start_year: int = 1999, end_year: int = 2024) -> list:
 
     return years
 
-def get_grade(country_ratings: pd.Series, date_mid: datetime) -> str:
-    """from the series that map, date to rating for specific country, returns the best rating for that quarter.
+def get_last_grade_idx(dates_columns: pd.Series, date_selected: datetime) -> int:
+    """get latest grade date before selected date
 
     Args:
-        country_ratings (pd.Series): row, mapping datr to rating.
-        date_mid (datetime): the middle date of quarter, if multiple grades, get rating before the middle date.
-
+        dates_columns (pd Series (Index) of dates): all date columns.
+        date_selected (datetime): selected date, to select last previous from.
     Returns:
-        str: rating given for specific quarter, gotten from the country_ratings.
+        int: index of last date column before selected date.
     """
-    grades = list(country_ratings.unique())
-    #print(country_ratings)
-    #print(grades)
+    idx_last_date = dates_columns[dates_columns < date_selected.date()].argmax()
 
-    grade = ''
-    if len(grades) != 1:
-        for date, grade in country_ratings.items():
-            if date <= date_mid:
-                grade = grade
-            else:
-                break
-    else:
-        grade = grades[0]
-
-    return grade
+    return idx_last_date
 
 def pages_to_df(tables) -> pd.DataFrame:
     """converts camelot pages to one whole df.
@@ -201,124 +183,120 @@ def pages_to_df(tables) -> pd.DataFrame:
     df_oecd = pd.concat(total_list, axis=1)
     return df_oecd
 
-def get_dates_in_interval(dates_columns: list, date1: datetime, date2: datetime) -> list:
-    """from dates columns list, return the list of dates in between date1 and date2, return the last date before date1, if no date in interval.
-
-    Args:
-        dates_columns (list): datetime objects.
-        date1 (datetime): lower bound of date interval.
-        date2 (datetime): upper bound of date interval.
-
-    Returns:
-        list: datetime objects in interval.
-    """
-    dates_in_interval = []
-    last_date_before = ''
-    for date in dates_columns:
-
-        if date1 <= date and date <= date2:
-            dates_in_interval.append(date)
-        elif date > date2:
-            break
-        else:
-            last_date_before = date
-
-    if len(dates_in_interval) == 0:
-        dates_in_interval = [last_date_before]
-
-    return dates_in_interval
-
-def oecd_df_to_format(oecd_df_clean: pd.DataFrame, format: str = 'Q') -> pd.DataFrame:
+def oecd_df_to_format(oecd_df_clean: pd.DataFrame, date_freq: str = 'Q') -> pd.DataFrame:
     """convert input df into formated df, specified by format.
 
     Args:
         oecd_df_clean (DataFrame): formated raw matrix of OECD ratings.
-        format (string): Time interval to format the matrix in.
+        date_freq (str, optional): Frequency at which ratings are recorded, 'M' for monthly and 'Y' for yearly.
         
     Returns:
         DataFrame: df with format, rows are countries, and columns are quarters if format Q, years if format Y, and original raw format if else.
     """
 
-    if format == 'Q':
-        dates = get_quarters(start_year=1999, end_year=helper_objects.current_year+1)
-    elif format == 'Y':    
-        dates = get_years(start_year=1999, end_year=helper_objects.current_year+1)
+    first_date = oecd_df_clean.columns.min()
+    last_date = oecd_df_clean.columns.max()
+
+    if date_freq == 'Q':
+        dates_interval_l = get_quarterly_dates(start_year=1999, end_year=last_date.year + 1)
+    elif date_freq == 'Y':    
+        dates_interval_l = get_yearly_dates(start_year=1999, end_year=last_date.year + 1)
     else:
-        print('format', format, 'not coded')
+        print('Date Frequency', date_freq, 'not implemented.')
         return oecd_df_clean
 
     formated_dates = []
-    for d in dates:
+    for d in dates_interval_l:
         formated_dates.append(d.strftime('%Y-%m-%d'))
 
-    iso_codes = oecd_df_clean.index
-    dates_columns = oecd_df_clean.columns
-
-    formated_df = pd.DataFrame(columns=formated_dates, index=iso_codes)
-    for i in range(len(dates)-1):
-        date_i = dates[i]
-        date_j = dates[i+1]
-        date_mid = (date_i + (date_j - date_i)/2).date()
-
-        dates_in_interval = get_dates_in_interval(dates_columns, date_i, date_j)
-        #print(dates_in_interval)
-        dft = oecd_df_clean[dates_in_interval]
-        for iso in iso_codes:
-            country_grades = dft.loc[iso]
-            grade = get_grade(country_grades, date_mid)
-            formated_df.at[iso, formated_dates[i]] = grade
+    formated_df = pd.DataFrame(columns=formated_dates, index=oecd_df_clean.index)
+    for i in range(len(formated_dates)-1):
+        idx_last_date = get_last_grade_idx(oecd_df_clean.columns, date_i = dates_interval_l[i])
+        formated_df.loc[:, formated_dates[i]] = oecd_df_clean[idx_last_date] 
 
     formated_df = formated_df.dropna(how='all', axis=1)        
     
     return formated_df
 
-def get_oecd_rating_matrix(oecd_raw_file_name: str = 'oecd_country_ratings', format: str = 'Q') -> pd.DataFrame:
-    """get input pdf file as df, with rows as countries and columns as date.
+def get_latest_pdf_name(fnames: list) -> str:
+    """get latest file name, based off date in name.
 
     Args:
-        oecd_raw_file_name (str, optional): name of the OECD pdf file, if oecd_rating_matrix, then get raw pre-cleaned matrix. Defaults to 'oecd_country_ratings'.
-        quarterly (bool, optional): if true, convert df to quarterly, that is get 1 grade per country per year. Defaults to True.
+        fnames (list of string): List of file names to find latest in.
+    Returns:
+        string: name of file with latest date.
+    """
+
+    return max(
+        fnames,
+        key=lambda f: datetime.strptime(f.split('.')[0], "%d-%m-%Y")
+    )
+
+def create_raw_oecd_rating_dataset(oecd_fname):
+    """create raw dataset from pdf.
+
+    Args:
+        oecd_fname (str, optional): name of the OECD pdf file to create dataset from, latest if none specified/found.
 
     Returns:
         DataFrame: formated df with rows as countries and columns as date.
     """
-    
-    if oecd_raw_file_name == 'oecd_rating_matrix':
-        oecd_rating_matrix = pd.read_csv(addresses.country_BE_address + 'intermed_data/oecd/' + oecd_raw_file_name + '_raw.csv', index_col=0)
-        oecd_rating_matrix.columns = pd.to_datetime(oecd_rating_matrix.columns)
-    else:
-        try:
-            file =  'data/' + oecd_raw_file_name + '.pdf' # helper_objects.oecd_raw_data_address +
-        
-            tables = camelot.read_pdf(
-                filepath=file,
-                pages='all'
-            )  
 
-        except FileNotFound:
-            file =  addresses.country_BE_address + 'raw_data/' + oecd_raw_file_name + '.pdf' # helper_objects.oecd_raw_data_address +
-        
-            tables = camelot.read_pdf(
-                filepath=file,
-                pages='all'
-            )  
+    pdf_address = config.RAW_DATA_DIR / 'oecd_country_ratings_pdfs'
 
-        oecd_df = pages_to_df(tables)
+    try:
+        pdf_file_address = pdf_address / (oecd_fname + '.pdf')
+        tables = io.load_pdf(pdf_file_address, pages='all')
+    except FileNotFoundError:
+        pdf_file_names = os.listdir(pdf_address)
+        new_oecd_fname = get_latest_pdf_name(pdf_file_names)
+        pdf_file_address = pdf_address / oecd_fname
+        tables = io.load_pdf(pdf_file_address, pages='all')
 
-        # Clean OECD values
-        oecd_rating_matrix = oecd_df.apply(
-            lambda column: column.apply(clean_oecd_value)
-        )
+        oecd_fname = new_oecd_fname.split('.')[0]
 
-        # Clean column names
-        oecd_rating_matrix = oecd_rating_matrix.rename(
-            columns=get_date_dict(oecd_rating_matrix)
-        )
+    oecd_df = pages_to_df(tables)
 
-    # Format Matrix to the time interval needed, format can be raw, yearly (Y), and quarterly (Q)
-    oecd_rating_matrix = oecd_df_to_format(
-        oecd_df_clean=oecd_rating_matrix, 
-        format=format
+    # Clean OECD values
+    oecd_rating_dataset = oecd_df.apply(
+        lambda column: column.apply(clean_oecd_value)
     )
 
-    return oecd_rating_matrix
+    # Clean column names
+    oecd_rating_dataset = oecd_rating_dataset.rename(
+        columns=get_date_dict(oecd_rating_dataset)
+    )
+
+    return oecd_fname, oecd_rating_dataset
+
+def get_clean_oecd_rating_df(oecd_fname: str = '30-06-2023', date_freq: str = 'Q') -> pd.DataFrame:
+    """get input pdf file as df, with rows as countries and columns as date.
+
+    Args:
+        oecd_fname (str, optional): name of the OECD file, first check if dataset already exists (in csv format) otherwise create from pdf, latest if none specified.
+        date_freq (str, optional): Frequency at which ratings are recorded, 'M' for monthly and 'Y' for yearly.
+
+    Returns:
+        DataFrame: formated df with rows as countries and columns as date.
+    """
+
+    df_address = config.RAW_DATA_DIR / 'oecd_country_ratings_dfs'
+
+    raw_oecd_rating_dataset_name = df_address / (oecd_fname + '.csv')
+    try:
+        raw_oecd_rating_dataset = io.load_csv(raw_oecd_rating_dataset_name, index_col=0)
+        raw_oecd_rating_dataset.columns = pd.to_datetime(raw_oecd_rating_dataset.columns)
+
+    except FileNotFoundError:
+        # No dataset form raw data, need to convert pdf to dataset (csv) form
+        oecd_fname, oecd_rating_dataset = create_raw_oecd_rating_dataset(oecd_fname)
+        raw_oecd_rating_dataset_name = df_address / (oecd_fname + '.csv')
+        io.save_csv(oecd_rating_dataset, raw_oecd_rating_dataset_name, index=True)
+
+    # Format Dataset to the sepecified time interval needed, format can be raw, yearly (Y), and quarterly (Q)
+    oecd_rating_dataset = oecd_df_to_format(
+        oecd_df_clean=oecd_rating_dataset, 
+        date_freq=date_freq
+    )
+
+    return oecd_rating_dataset

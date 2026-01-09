@@ -5,6 +5,25 @@ sys.path.append('/root/country')
 
 from src import addresses
 
+def get_oecd_countries(data_address):
+    try:
+        oecd_df = pd.read_csv(addresses.country_BE_address + 'intermed_data/oecd/oecd_rating_matrix_raw.csv')
+    except FileNotFoundError:
+        raise FileNotFoundError('No OECD Matrix, so we can\'t get oecd_countries. Run set_oecd script') 
+        
+    oecd_countries = list(oecd_df['ISO3_COUNTRY_CODE'].unique())
+    oecd_countries_df = pd.DataFrame(oecd_countries, columns=['ISO3_COUNTRY_CODE']).sort_values(by=['ISO3_COUNTRY_CODE'], ascending=True).reset_index(drop=True)
+    
+    return oecd_countries_df
+
+try:
+    oecd_countries = list(pd.read_csv(addresses.country_BE_address + 'raw_data/oecd_countries.csv', index_col=0)['ISO3_COUNTRY_CODE'])
+except FileNotFoundError:
+    oecd_countries = helper_functions.get_oecd_countries(intermed_data_address)
+    oecd_countries.to_csv(addresses.country_BE_address + 'raw_data/oecd_countries.csv')
+    
+Countries = CountriesInfo(addresses.country_BE_address + 'raw_data/country_mapping.csv')
+
 class CountriesInfo:
     def __init__(self, address):
         self.address = address
