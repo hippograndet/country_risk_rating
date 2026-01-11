@@ -3,9 +3,9 @@ import pandas as pd
 # import datetime
 from datetime import datetime
 
-import sys, os
-sys.path.append('/root/country/country_scoring')
-sys.path.append('/root/country')
+import os
+# sys.path.append('/root/country/country_scoring')
+# sys.path.append('/root/country')
 
 from src.utils import config, io
 
@@ -26,20 +26,20 @@ def get_date_dict(oecd_df_clean: pd.DataFrame, selected_date: str = 'first_date'
         first_date = date_string.split('\n')[0]
         last_date = date_string.split('\n')[1]
         try:
-            first_date = datetime.strptime(first_date, '%d-%b-%Y').date()
-            last_date = datetime.strptime(last_date, '%d-%b-%Y').date()
+            first_date = datetime.strptime(first_date, '%d-%b-%Y')
+            last_date = datetime.strptime(last_date, '%d-%b-%Y')
         except ValueError:
-            first_date = datetime.strptime(first_date, '%d-%b-%y').date()
-            last_date = datetime.strptime(last_date, '%d-%b-%y').date()
+            first_date = datetime.strptime(first_date, '%d-%b-%y')
+            last_date = datetime.strptime(last_date, '%d-%b-%y')
 
-        mid_date = first_date + (last_date - first_date)/2
+        # mid_date = first_date + (last_date - first_date)/2
 
         if selected_date == 'first_date':
             date_dict_total[date_string] = first_date
         elif selected_date == 'last_date':
             date_dict_total[date_string] = last_date
-        elif selected_date == 'mid_date':
-            date_dict_total[date_string] = mid_date
+        # elif selected_date == 'mid_date':
+        #     date_dict_total[date_string] = mid_date
         else:
             date_dict_total[date_string] = first_date
 
@@ -92,10 +92,10 @@ def get_quarterly_dates(start_year: int = 1999, end_year: int = 2024) -> list:
     end_date = '01/01/' + str(end_year)
 
     quarters = list(pd.date_range(
-        pd.to_datetime(start_date), 
-        pd.to_datetime(end_date), 
+        datetime.strptime(start_date, '%d/%m/%Y'), 
+        datetime.strptime(end_date, '%d/%m/%Y'), 
         freq='QS', 
-        #inclusive='both'
+            #inclusive='both'
     ))
 
     return quarters
@@ -114,10 +114,10 @@ def get_yearly_dates(start_year: int = 1999, end_year: int = 2024) -> list:
     end_date = '01/01/' + str(end_year)
 
     years = list(pd.date_range(
-        pd.to_datetime(start_date), 
-        pd.to_datetime(end_date), 
-        freq='YS',  
-        #inclusive='both'
+        datetime.strptime(start_date, '%d/%m/%Y'), 
+        datetime.strptime(end_date, '%d/%m/%Y'), 
+        freq='YS', 
+            #inclusive='both'
     ))
 
     return years
@@ -131,7 +131,12 @@ def get_last_grade_idx(dates_columns: pd.Series, date_selected: datetime) -> int
     Returns:
         int: index of last date column before selected date.
     """
-    idx_last_date = dates_columns[dates_columns < date_selected.date()].argmax()
+    prev_dates = dates_columns[dates_columns <= date_selected]
+    if len(prev_dates) == 0:
+        # No previous dates
+        idx_last_date = -1
+    else:
+        idx_last_date = prev_dates.argmax()
 
     return idx_last_date
 
@@ -194,13 +199,13 @@ def oecd_df_to_format(oecd_df_clean: pd.DataFrame, date_freq: str = 'Q') -> pd.D
         DataFrame: df with format, rows are countries, and columns are quarters if format Q, years if format Y, and original raw format if else.
     """
 
-    first_date = oecd_df_clean.columns.min()
-    last_date = oecd_df_clean.columns.max()
+    earliest_date = oecd_df_clean.columns.min()
+    latest_date = oecd_df_clean.columns.max()
 
     if date_freq == 'Q':
-        dates_interval_l = get_quarterly_dates(start_year=1999, end_year=last_date.year + 1)
+        dates_interval_l = get_quarterly_dates(start_year=1999, end_year=latest_date.year + 1)
     elif date_freq == 'Y':    
-        dates_interval_l = get_yearly_dates(start_year=1999, end_year=last_date.year + 1)
+        dates_interval_l = get_yearly_dates(start_year=1999, end_year=latest_date.year + 1)
     else:
         print('Date Frequency', date_freq, 'not implemented.')
         return oecd_df_clean
@@ -211,8 +216,11 @@ def oecd_df_to_format(oecd_df_clean: pd.DataFrame, date_freq: str = 'Q') -> pd.D
 
     formated_df = pd.DataFrame(columns=formated_dates, index=oecd_df_clean.index)
     for i in range(len(formated_dates)-1):
-        idx_last_date = get_last_grade_idx(oecd_df_clean.columns, date_i = dates_interval_l[i])
-        formated_df.loc[:, formated_dates[i]] = oecd_df_clean[idx_last_date] 
+        idx_last_date = get_last_grade_idx(oecd_df_clean.columns, dates_interval_l[i])
+        if idx_last_date == -1:
+            formated_df.loc[:, formated_dates[i]] = '-'
+        else:
+            formated_df.loc[:, formated_dates[i]] = oecd_df_clean[oecd_df_clean.columns[idx_last_date]]
 
     formated_df = formated_df.dropna(how='all', axis=1)        
     
@@ -280,22 +288,22 @@ def get_clean_oecd_rating_df(oecd_fname: str = '30-06-2023', date_freq: str = 'Q
         DataFrame: formated df with rows as countries and columns as date.
     """
 
-    df_address = config.RAW_DATA_DIR / 'oecd_country_ratings_dfs'
-
+    df_address = config.RAW_DATA_DIR / 'oecd_country_ratings_datasets'
     raw_oecd_rating_dataset_name = df_address / (oecd_fname + '.csv')
+    raw_oecd_rating_dataset = pd.DataFrame()
     try:
         raw_oecd_rating_dataset = io.load_csv(raw_oecd_rating_dataset_name, index_col=0)
         raw_oecd_rating_dataset.columns = pd.to_datetime(raw_oecd_rating_dataset.columns)
-
+        print('Reading CSV')
     except FileNotFoundError:
         # No dataset form raw data, need to convert pdf to dataset (csv) form
-        oecd_fname, oecd_rating_dataset = create_raw_oecd_rating_dataset(oecd_fname)
+        oecd_fname, raw_oecd_rating_dataset = create_raw_oecd_rating_dataset(oecd_fname)
         raw_oecd_rating_dataset_name = df_address / (oecd_fname + '.csv')
-        io.save_csv(oecd_rating_dataset, raw_oecd_rating_dataset_name, index=True)
+        io.save_csv(raw_oecd_rating_dataset, raw_oecd_rating_dataset_name, index=True)
 
     # Format Dataset to the sepecified time interval needed, format can be raw, yearly (Y), and quarterly (Q)
     oecd_rating_dataset = oecd_df_to_format(
-        oecd_df_clean=oecd_rating_dataset, 
+        oecd_df_clean=raw_oecd_rating_dataset, 
         date_freq=date_freq
     )
 
