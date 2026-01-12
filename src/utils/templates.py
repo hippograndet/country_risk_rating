@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-from src import config
+from src.utils import config
 
 def get_template_quarterly_df(isos, last_year=2023):
     rows = []
