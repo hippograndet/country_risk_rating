@@ -1,8 +1,6 @@
 import pandas as pd
 
-import sys
-sys.path.append('~/Desktop/TINUBU/country/country_scoring')
-from src import helper_objects
+from src.utils import config, countries, templates
 
 def format_indicator_df(df_indicator_standard: pd.DataFrame, provider: str, dataset: str, indicator: str) -> pd.DataFrame:
     """given standardized indicator df, format to df with YEAR, QUARTER, ISO3 and Indicator columns.
@@ -19,8 +17,7 @@ def format_indicator_df(df_indicator_standard: pd.DataFrame, provider: str, data
     df_indicator = df_indicator_standard.reset_index()
 
     # Keep only non-na quarterly or annualy values from countries with OECD grade.
-    df_indicator_clean = df_indicator[df_indicator['ISO3_COUNTRY_CODE'].isin(helper_objects.oecd_countries)]
-    df_indicator_clean = df_indicator_clean[df_indicator_clean['FREQ'] == 'A']
+    df_indicator_clean = df_indicator[df_indicator['FREQ'] == 'A']
     df_indicator_clean = df_indicator_clean[~df_indicator_clean['value'].isna()]
 
     if not df_indicator_clean.empty:
@@ -38,16 +35,14 @@ def format_indicator_df(df_indicator_standard: pd.DataFrame, provider: str, data
         df_indicator_clean['COUNTRY_PERIOD_INDEX'] = df_indicator_clean['ISO3_COUNTRY_CODE'] + '-' + df_indicator_clean['YEAR'].astype(str)
         df_indicator_clean = df_indicator_clean.set_index('COUNTRY_PERIOD_INDEX')
 
-        df_indicator_clean = df_indicator_clean.drop_duplicates(subset=helper_objects.info_columns)
-        df_indicator_clean = df_indicator_clean[helper_objects.info_columns + ['value']]
+        df_indicator_clean = df_indicator_clean.drop_duplicates(subset=config.info_columns)
+        df_indicator_clean = df_indicator_clean[config.info_columns + ['value']]
 
         # Indicator value column name with have format: provider-dataset-indicator.
         indicator_new_name = provider + '-' + dataset + '-' + indicator
         df_indicator_final = df_indicator_clean.rename(columns={'value': indicator_new_name})
 
-        template_df = helper_objects.template_yearly_df
-        valid_values = df_indicator_final[df_indicator_final.index.isin(template_df.index)]
-        df_indicator_final = template_df.join(valid_values[indicator_new_name])
+        return df_indicator_final[indicator_new_name]
     else:
         df_indicator_final = df_indicator_clean
 
@@ -78,6 +73,7 @@ def format_indicator_standard(df_indicator: pd.DataFrame, provider: str) -> pd.D
             'original_period': 'PERIOD',
             'Indicator': 'INDICATOR DESCRIPTION'
         })
-        df_indicator_clean['ISO3_COUNTRY_CODE'] = df_indicator_clean['ISO2_COUNTRY_CODE'].map(helper_objects.Countries.get_ISO3_from_ISO2)
+        df_indicator_clean = df_indicator_clean[df_indicator_clean['ISO2_COUNTRY_CODE'].str.len() == 2]
+        df_indicator_clean['ISO3_COUNTRY_CODE'] = df_indicator_clean['ISO2_COUNTRY_CODE'].map(countries.country_registry.get_ISO3_from_ISO2)
 
     return df_indicator_clean

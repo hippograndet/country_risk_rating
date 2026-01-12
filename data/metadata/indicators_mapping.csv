@@ -1,0 +1,216 @@
+PROVIDER;DATASET;INDICATOR_NAME;INDICATOR_CODE;INDICATOR_DESCRIPTION;CATEGORY;SUB_CATEGORY
+WB;WDI;WB-WDI-EG.ELC.ACCS.ZS;EG.ELC.ACCS.ZS;Access to electricity (% of population);Doing Business;NA
+WB;WDI;WB-WDI-EG.ELC.ACCS.UR.ZS;EG.ELC.ACCS.UR.ZS;Access to electricity, urban (% of urban population);Doing Business;NA
+WB;WDI;WB-WDI-TM.VAL.MRCH.CD.WT;TM.VAL.MRCH.CD.WT;Merchandise imports (current US$);Economical;Trade
+WB;WDI;WB-WDI-TX.VAL.MRCH.CD.WT;TX.VAL.MRCH.CD.WT;Merchandise exports (current US$);Economical;Trade
+WB;WDI;WB-WDI-BX.KLT.DINV.CD.WD;BX.KLT.DINV.CD.WD;Foreign direct investment, net inflows (BoP, current US$);Economical;Trade
+WB;WDI;WB-WDI-SL.TLF.TOTL.IN;SL.TLF.TOTL.IN;Labor force, total;Economical;NA
+WB;WDI;WB-WDI-SL.TLF.CACT.ZS;SL.TLF.CACT.ZS;Labor force participation rate, total (% of total population ages 15+) (modeled ILO estimate);Economical;NA
+WB;WDI;WB-WDI-TG.VAL.TOTL.GD.ZS;TG.VAL.TOTL.GD.ZS;Merchandise trade (% of GDP);Economical;Trade
+WB;WDI;WB-WDI-BX.KLT.DINV.WD.GD.ZS;BX.KLT.DINV.WD.GD.ZS;Foreign direct investment, net inflows (% of GDP);Economical;Trade
+WB;WDI;WB-WDI-TX.UVI.MRCH.XD.WD;TX.UVI.MRCH.XD.WD;Export unit value index (2015 = 100);Economical;Trade
+WB;WDI;WB-WDI-TM.UVI.MRCH.XD.WD;TM.UVI.MRCH.XD.WD;Import unit value index (2015 = 100);Economical;Trade
+WB;WDI;WB-WDI-NY.GSR.NFCY.CD;NY.GSR.NFCY.CD;Net primary income (Net income from abroad) (current US$);Economical;NA
+WB;WDI;WB-WDI-NV.IND.TOTL.ZS;NV.IND.TOTL.ZS;Industry (including construction), value added (% of GDP);Economical;NA
+WB;WDI;WB-WDI-NV.IND.TOTL.CD;NV.IND.TOTL.CD;Industry (including construction), value added (current US$);Economical;NA
+WB;WDI;WB-WDI-NY.ADJ.DNGY.CD;NY.ADJ.DNGY.CD;Adjusted savings: energy depletion (current US$);Economical;NA
+WB;WDI;WB-WDI-TX.VAL.MRCH.RS.ZS;TX.VAL.MRCH.RS.ZS;Merchandise exports by the reporting economy, residual (% of total merchandise exports);Economical;Trade
+WB;WDI;WB-WDI-TX.VAL.MRCH.HI.ZS;TX.VAL.MRCH.HI.ZS;Merchandise exports to high-income economies (% of total merchandise exports);Economical;Trade
+WB;WDI;WB-WDI-TM.VAL.MRCH.WL.CD;TM.VAL.MRCH.WL.CD;Merchandise imports by the reporting economy (current US$);Economical;Trade
+WB;WDI;WB-WDI-TM.VAL.MRCH.RS.ZS;TM.VAL.MRCH.RS.ZS;Merchandise imports by the reporting economy, residual (% of total merchandise imports);Economical;Trade
+WB;WDI;WB-WDI-TX.VAL.MRCH.WL.CD;TX.VAL.MRCH.WL.CD;Merchandise exports by the reporting economy (current US$);Economical;Trade
+WB;WDI;WB-WDI-TM.VAL.MRCH.HI.ZS;TM.VAL.MRCH.HI.ZS;Merchandise imports from high-income economies (% of total merchandise imports);Economical;Trade
+WB;WDI;WB-WDI-NV.SRV.TOTL.ZS;NV.SRV.TOTL.ZS;Services, value added (% of GDP);Economical;NA
+WB;WDI;WB-WDI-NV.SRV.TOTL.CD;NV.SRV.TOTL.CD;Services, value added (current US$);Economical;NA
+WB;WDI;WB-WDI-TM.VAL.MRCH.R5.ZS;TM.VAL.MRCH.R5.ZS;Merchandise imports from low- and middle-income economies in South Asia (% of total merchandise imports);Economical;NA
+WB;WDI;WB-WDI-TM.VAL.MRCH.R2.ZS;TM.VAL.MRCH.R2.ZS;Merchandise imports from low- and middle-income economies in Europe & Central Asia (% of total merchandise imports);Economical;NA
+WB;WDI;WB-WDI-TM.VAL.MRCH.R3.ZS;TM.VAL.MRCH.R3.ZS;Merchandise imports from low- and middle-income economies in Latin America & the Caribbean (% of total merchandise imports);Economical;NA
+WB;WDI;WB-WDI-TX.VAL.MRCH.R1.ZS;TX.VAL.MRCH.R1.ZS;Merchandise exports to low- and middle-income economies in East Asia & Pacific (% of total merchandise exports);Economical;NA
+WB;WDI;WB-WDI-TM.VAL.MRCH.OR.ZS;TM.VAL.MRCH.OR.ZS;Merchandise imports from low- and middle-income economies outside region (% of total merchandise imports);Economical;Trade
+WB;WDI;WB-WDI-TX.VAL.MRCH.OR.ZS;TX.VAL.MRCH.OR.ZS;Merchandise exports to low- and middle-income economies outside region (% of total merchandise exports);Economical;Trade
+WB;WDI;WB-WDI-TM.VAL.MRCH.AL.ZS;TM.VAL.MRCH.AL.ZS;Merchandise imports from economies in the Arab World (% of total merchandise imports);Economical;Trade
+WB;WDI;WB-WDI-AG.PRD.CROP.XD;AG.PRD.CROP.XD;Crop production index (2014-2016 = 100);Economical;Ressources
+WB;WDI;WB-WDI-AG.PRD.LVSK.XD;AG.PRD.LVSK.XD;Livestock production index (2014-2016 = 100);Economical;Ressources
+WB;WDI;WB-WDI-AG.PRD.FOOD.XD;AG.PRD.FOOD.XD;Food production index (2014-2016 = 100);Economical;Ressources
+WB;WDI;WB-WDI-TX.VAL.MRCH.AL.ZS;TX.VAL.MRCH.AL.ZS;Merchandise exports to economies in the Arab World (% of total merchandise exports);Economical;Trade
+WB;WDI;WB-WDI-TM.VAL.MRCH.R6.ZS;TM.VAL.MRCH.R6.ZS;Merchandise imports from low- and middle-income economies in Sub-Saharan Africa (% of total merchandise imports);Economical;Trade
+WB;WDI;WB-WDI-TX.VAL.MRCH.R6.ZS;TX.VAL.MRCH.R6.ZS;Merchandise exports to low- and middle-income economies in Sub-Saharan Africa (% of total merchandise exports);Economical;Trade
+WB;WDI;WB-WDI-TM.VAL.MRCH.R4.ZS;TM.VAL.MRCH.R4.ZS;Merchandise imports from low- and middle-income economies in Middle East & North Africa (% of total merchandise imports);Economical;Trade
+WB;WDI;WB-WDI-AG.LND.CROP.ZS;AG.LND.CROP.ZS;Permanent cropland (% of land area);Economical;Ressources
+WB;WDI;WB-WDI-NV.AGR.TOTL.KD.ZG;NV.AGR.TOTL.KD.ZG;Agriculture, forestry, and fishing, value added (annual % growth);Economical;Ressources
+WB;WDI;WB-WDI-TX.VAL.MRCH.R5.ZS;TX.VAL.MRCH.R5.ZS;Merchandise exports to low- and middle-income economies in South Asia (% of total merchandise exports);Economical;Trade
+WB;WDI;WB-WDI-NV.AGR.TOTL.KD;NV.AGR.TOTL.KD;Agriculture, forestry, and fishing, value added (constant 2015 US$);Economical;Ressources
+WB;WDI;WB-WDI-NY.GDP.COAL.RT.ZS;NY.GDP.COAL.RT.ZS;Coal rents (% of GDP);Economical;Ressources
+WB;WDI;WB-WDI-NY.GDP.PETR.RT.ZS;NY.GDP.PETR.RT.ZS;Oil rents (% of GDP);Economical;Ressources
+WB;WDI;WB-WDI-NY.GDP.NGAS.RT.ZS;NY.GDP.NGAS.RT.ZS;Natural gas rents (% of GDP);Economical;Ressources
+WB;WDI;WB-WDI-NY.ADJ.DMIN.GN.ZS;NY.ADJ.DMIN.GN.ZS;Adjusted savings: mineral depletion (% of GNI);Economical;Ressources
+WB;WDI;WB-WDI-NY.TRF.NCTR.CD;NY.TRF.NCTR.CD;Net secondary income (Net current transfers from abroad) (current US$);Economical;Trade
+WB;WDI;WB-WDI-NY.ADJ.DNGY.GN.ZS;NY.ADJ.DNGY.GN.ZS;Adjusted savings: energy depletion (% of GNI);Economical;Ressources
+WB;WDI;WB-WDI-TX.QTY.MRCH.XD.WD;TX.QTY.MRCH.XD.WD;Export volume index (2000 = 100);Economical;Trade
+WB;WDI;WB-WDI-TX.VAL.MRCH.R2.ZS;TX.VAL.MRCH.R2.ZS;Merchandise exports to low- and middle-income economies in Europe & Central Asia (% of total merchandise exports);Economical;Trade
+WB;WDI;WB-WDI-TX.VAL.MRCH.R3.ZS;TX.VAL.MRCH.R3.ZS;Merchandise exports to low- and middle-income economies in Latin America & the Caribbean (% of total merchandise exports);Economical;Trade
+WB;WDI;WB-WDI-NV.IND.TOTL.KD.ZG;NV.IND.TOTL.KD.ZG;Industry (including construction), value added (annual % growth);Economical;NA
+WB;WDI;WB-WDI-NV.IND.TOTL.KD;NV.IND.TOTL.KD;Industry (including construction), value added (constant 2015 US$);Economical;NA
+WB;WDI;WB-WDI-TM.QTY.MRCH.XD.WD;TM.QTY.MRCH.XD.WD;Import volume index (2000 = 100);Economical;Trade
+WB;WDI;WB-WDI-ER.FSH.PROD.MT;ER.FSH.PROD.MT;Total fisheries production (metric tons);Economical;Ressources
+WB;WDI;WB-WDI-ER.FSH.AQUA.MT;ER.FSH.AQUA.MT;Aquaculture production (metric tons);Economical;Ressources
+WB;WDI;WB-WDI-NV.IND.MANF.ZS;NV.IND.MANF.ZS;Manufacturing, value added (% of GDP);Economical;Ressources
+WB;WDI;WB-WDI-TX.VAL.MRCH.R4.ZS;TX.VAL.MRCH.R4.ZS;Merchandise exports to low- and middle-income economies in Middle East & North Africa (% of total merchandise exports);Economical;Trade
+WB;WDI;WB-WDI-NY.ADJ.DFOR.CD;NY.ADJ.DFOR.CD;Adjusted savings: net forest depletion (current US$);Economical;Ressources
+WB;WDI;WB-WDI-NV.IND.MANF.CD;NV.IND.MANF.CD;Manufacturing, value added (current US$);Economical;NA
+WB;WDI;WB-WDI-NV.SRV.TOTL.KD;NV.SRV.TOTL.KD;Services, value added (constant 2015 US$);Economical;NA
+WB;WDI;WB-WDI-BX.TRF.PWKR.DT.GD.ZS;BX.TRF.PWKR.DT.GD.ZS;Personal remittances, received (% of GDP);Economical;NA
+WB;WDI;WB-WDI-NV.SRV.TOTL.KD.ZG;NV.SRV.TOTL.KD.ZG;Services, value added (annual % growth);Economical;NA
+WB;WDI;WB-WDI-EG.ELC.ACCS.RU.ZS;EG.ELC.ACCS.RU.ZS;Access to electricity, rural (% of rural population);Economical;Ressources
+WB;WDI;WB-WDI-NE.CON.PRVT.ZS;NE.CON.PRVT.ZS;Households and NPISHs final consumption expenditure (% of GDP);Economical;Ressources
+WB;WDI;WB-WDI-SM.POP.NETM;SM.POP.NETM;Net migration;ESG;NA
+WB;WDI;WB-WDI-SE.PRM.DURS;SE.PRM.DURS;Primary education, duration (years);ESG;Education
+WB;WDI;WB-WDI-SE.PRM.AGES;SE.PRM.AGES;Primary school starting age (years);ESG;Education
+WB;WDI;WB-WDI-SE.SEC.DURS;SE.SEC.DURS;Secondary education, duration (years);ESG;Education
+WB;WDI;WB-WDI-SH.DYN.1014;SH.DYN.1014;Probability of dying among adolescents ages 10-14 years (per 1,000);ESG;Health
+WB;WDI;WB-WDI-SH.DYN.1519;SH.DYN.1519;Probability of dying among adolescents ages 15-19 years (per 1,000);ESG;Health
+WB;WDI;WB-WDI-SH.DYN.2024;SH.DYN.2024;Probability of dying among youth ages 20-24 years (per 1,000);ESG;Health
+WB;WDI;WB-WDI-SH.DYN.MORT;SH.DYN.MORT;Mortality rate, under-5 (per 1,000 live births);ESG;Health
+WB;WDI;WB-WDI-SH.DYN.NMRT;SH.DYN.NMRT;Mortality rate, neonatal (per 1,000 live births);ESG;Health
+WB;WDI;WB-WDI-SP.DYN.IMRT.IN;SP.DYN.IMRT.IN;Mortality rate, infant (per 1,000 live births);ESG;Health
+WB;WDI;WB-WDI-SH.DYN.0509;SH.DYN.0509;Probability of dying among children ages 5-9 years (per 1,000);ESG;Health
+WB;WDI;WB-WDI-SL.EMP.1524.SP.ZS;SL.EMP.1524.SP.ZS;Employment to population ratio, ages 15-24, total (%) (modeled ILO estimate);ESG;Employment
+WB;WDI;WB-WDI-SL.TLF.ACTI.1524.ZS;SL.TLF.ACTI.1524.ZS;Labor force participation rate for ages 15-24, total (%) (modeled ILO estimate);ESG;Employment
+WB;WDI;WB-WDI-SL.UEM.TOTL.ZS;SL.UEM.TOTL.ZS;Unemployment, total (% of total labor force) (modeled ILO estimate);ESG;Employment
+WB;WDI;WB-WDI-SL.UEM.TOTL.FE.ZS;SL.UEM.TOTL.FE.ZS;Unemployment, female (% of female labor force) (modeled ILO estimate);ESG;Employment
+WB;WDI;WB-WDI-SL.EMP.TOTL.SP.ZS;SL.EMP.TOTL.SP.ZS;Employment to population ratio, 15+, total (%) (modeled ILO estimate);ESG;Employment
+WB;WDI;WB-WDI-SL.UEM.1524.ZS;SL.UEM.1524.ZS;Unemployment, youth total (% of total labor force ages 15-24) (modeled ILO estimate);ESG;Employment
+WB;WDI;WB-WDI-SL.TLF.CACT.FM.ZS;SL.TLF.CACT.FM.ZS;Ratio of female to male labor force participation rate (%) (modeled ILO estimate);ESG;Employment
+WB;WDI;WB-WDI-SP.RUR.TOTL.ZG;SP.RUR.TOTL.ZG;Rural population growth (annual %);ESG;Employment
+WB;WDI;WB-WDI-SG.LAW.INDX;SG.LAW.INDX;Women Business and the Law Index Score (scale 1-100);ESG;NA
+WB;WDI;WB-WDI-NV.AGR.TOTL.ZS;NV.AGR.TOTL.ZS;Agriculture, forestry, and fishing, value added (% of GDP);ESG;Environment
+WB;WDI;WB-WDI-NV.AGR.TOTL.CD;NV.AGR.TOTL.CD;Agriculture, forestry, and fishing, value added (current US$);ESG;Environment
+WB;WDI;WB-WDI-SP.DYN.TO65.MA.ZS;SP.DYN.TO65.MA.ZS;Survival to age 65, male (% of cohort);ESG;Health
+WB;WDI;WB-WDI-SP.DYN.LE00.IN;SP.DYN.LE00.IN;Life expectancy at birth, total (years);ESG;Health
+WB;WDI;WB-WDI-AG.LND.AGRI.ZS;AG.LND.AGRI.ZS;Agricultural land (% of land area);ESG;Environment
+WB;WDI;WB-WDI-AG.LND.ARBL.ZS;AG.LND.ARBL.ZS;Arable land (% of land area);ESG;Environment
+WB;WDI;WB-WDI-AG.LND.FRST.ZS;AG.LND.FRST.ZS;Forest area (% of land area);ESG;Environment
+WB;WDI;WB-WDI-AG.LND.ARBL.HA.PC;AG.LND.ARBL.HA.PC;Arable land (hectares per person);ESG;Environment
+WB;WDI;WB-WDI-NY.ADJ.DCO2.CD;NY.ADJ.DCO2.CD;Adjusted savings: carbon dioxide damage (current US$);ESG;Polution
+WB;WDI;WB-WDI-NY.GDP.FRST.RT.ZS;NY.GDP.FRST.RT.ZS;Forest rents (% of GDP);ESG;Environment
+WB;WDI;WB-WDI-NY.GDP.MINR.RT.ZS;NY.GDP.MINR.RT.ZS;Mineral rents (% of GDP);ESG;Environment
+WB;WDI;WB-WDI-NY.GDP.TOTL.RT.ZS;NY.GDP.TOTL.RT.ZS;Total natural resources rents (% of GDP);ESG;Environment
+WB;WDI;WB-WDI-SE.COM.DURS;SE.COM.DURS;Compulsory education, duration (years);ESG;Education
+WB;WDI;WB-WDI-NY.ADJ.DCO2.GN.ZS;NY.ADJ.DCO2.GN.ZS;Adjusted savings: carbon dioxide damage (% of GNI);ESG;Polution
+WB;WDI;WB-WDI-NY.ADJ.AEDU.CD;NY.ADJ.AEDU.CD;Adjusted savings: education expenditure (current US$);ESG;Education
+WB;WDI;WB-WDI-EG.FEC.RNEW.ZS;EG.FEC.RNEW.ZS;Renewable energy consumption (% of total final energy consumption);ESG;Polution
+WB;WDI;WB-WDI-SH.H2O.BASW.ZS;SH.H2O.BASW.ZS;People using at least basic drinking water services (% of population);ESG;Health
+WB;WDI;WB-WDI-NY.ADJ.DPEM.CD;NY.ADJ.DPEM.CD;Adjusted savings: particulate emission damage (current US$);ESG;Polution
+WB;WDI;WB-WDI-NY.ADJ.DPEM.GN.ZS;NY.ADJ.DPEM.GN.ZS;Adjusted savings: particulate emission damage (% of GNI);ESG;Polution
+IMF;FM;IMF-FM-GGR_G01_GDP_PT;GGR_G01_GDP_PT;Revenue (% of GDP);Financial;NA
+IMF;FM;IMF-FM-G_X_G01_GDP_PT;G_X_G01_GDP_PT;Expenditure (% of GDP);Financial;NA
+IMF;FM;IMF-FM-GGXCNL_G01_GDP_PT;GGXCNL_G01_GDP_PT;Net lending/borrowing (also referred as overall balance) (% of GDP);Financial;NA
+IMF;FM;IMF-FM-GGXONLB_G01_GDP_PT;GGXONLB_G01_GDP_PT;Primary net lending/borrowing (also referred as primary balance) (% of GDP);Financial;NA
+IMF;FM;IMF-FM-G_XWDG_G01_GDP_PT;G_XWDG_G01_GDP_PT;Gross debt (% of GDP);Financial;NA
+WB;WDI;WB-WDI-PA.NUS.ATLS;PA.NUS.ATLS;DEC alternative conversion factor (LCU per US$);Financial;NA
+WB;WDI;WB-WDI-NY.GDP.PCAP.CD;NY.GDP.PCAP.CD;GDP per capita (current US$);Financial;NA
+WB;WDI;WB-WDI-NY.GDP.MKTP.CD;NY.GDP.MKTP.CD;GDP (current US$);Financial;NA
+WB;WDI;WB-WDI-NY.GDP.DEFL.ZS.AD;NY.GDP.DEFL.ZS.AD;GDP deflator: linked series (base year varies by country);Financial;NA
+WB;WDI;WB-WDI-NY.GDP.DEFL.ZS;NY.GDP.DEFL.ZS;GDP deflator (base year varies by country);Financial;NA
+WB;WDI;WB-WDI-NY.GDP.MKTP.KD.ZG;NY.GDP.MKTP.KD.ZG;GDP growth (annual %);Financial;NA
+WB;WDI;WB-WDI-NY.GDP.DEFL.KD.ZG.AD;NY.GDP.DEFL.KD.ZG.AD;Inflation, GDP deflator: linked series (annual %);Financial;NA
+WB;WDI;WB-WDI-NY.GDP.DEFL.KD.ZG;NY.GDP.DEFL.KD.ZG;Inflation, GDP deflator (annual %);Financial;NA
+WB;WDI;WB-WDI-NY.GDP.PCAP.KD.ZG;NY.GDP.PCAP.KD.ZG;GDP per capita growth (annual %);Financial;NA
+WB;WDI;WB-WDI-NY.GDP.PCAP.KD;NY.GDP.PCAP.KD;GDP per capita (constant 2015 US$);Financial;NA
+WB;WDI;WB-WDI-NY.GDP.MKTP.KD;NY.GDP.MKTP.KD;GDP (constant 2015 US$);Financial;NA
+WB;WDI;WB-WDI-NY.GNP.MKTP.CD;NY.GNP.MKTP.CD;GNI (current US$);Financial;NA
+WB;WDI;WB-WDI-NY.GNP.PCAP.CD;NY.GNP.PCAP.CD;GNI per capita, Atlas method (current US$);Financial;NA
+WB;WDI;WB-WDI-NY.GNP.ATLS.CD;NY.GNP.ATLS.CD;GNI, Atlas method (current US$);Financial;NA
+WB;WDI;WB-WDI-PA.NUS.PPP;PA.NUS.PPP;PPP conversion factor, GDP (LCU per international $);Financial;NA
+WB;WDI;WB-WDI-PA.NUS.PPPC.RF;PA.NUS.PPPC.RF;Price level ratio of PPP conversion factor (GDP) to market exchange rate;Financial;NA
+WB;WDI;WB-WDI-NY.GDP.PCAP.PP.CD;NY.GDP.PCAP.PP.CD;GDP per capita, PPP (current international $);Financial;NA
+WB;WDI;WB-WDI-NY.GDP.MKTP.PP.CD;NY.GDP.MKTP.PP.CD;GDP, PPP (current international $);Financial;NA
+WB;WDI;WB-WDI-NY.GNP.PCAP.PP.CD;NY.GNP.PCAP.PP.CD;GNI per capita, PPP (current international $);Financial;NA
+WB;WDI;WB-WDI-NY.GNP.MKTP.PP.CD;NY.GNP.MKTP.PP.CD;GNI, PPP (current international $);Financial;NA
+WB;WDI;WB-WDI-NY.GDP.MKTP.PP.KD;NY.GDP.MKTP.PP.KD;GDP, PPP (constant 2017 international $);Financial;NA
+WB;WDI;WB-WDI-NY.GDP.PCAP.PP.KD;NY.GDP.PCAP.PP.KD;GDP per capita, PPP (constant 2017 international $);Financial;NA
+WB;WDI;WB-WDI-SL.GDP.PCAP.EM.KD;SL.GDP.PCAP.EM.KD;GDP per person employed (constant 2017 PPP $);Financial;NA
+WB;WDI;WB-WDI-NY.ADJ.DKAP.CD;NY.ADJ.DKAP.CD;Adjusted savings: consumption of fixed capital (current US$);Financial;NA
+WB;WDI;WB-WDI-NY.ADJ.AEDU.GN.ZS;NY.ADJ.AEDU.GN.ZS;Adjusted savings: education expenditure (% of GNI);Financial;NA
+WB;WDI;WB-WDI-NY.ADJ.DKAP.GN.ZS;NY.ADJ.DKAP.GN.ZS;Adjusted savings: consumption of fixed capital (% of GNI);Financial;NA
+WB;WDI;WB-WDI-FP.CPI.TOTL;FP.CPI.TOTL;Consumer price index (2010 = 100);Financial;NA
+WB;WDI;WB-WDI-PA.NUS.PRVT.PP;PA.NUS.PRVT.PP;PPP conversion factor, private consumption (LCU per international $);Financial;NA
+WB;WDI;WB-WDI-FP.CPI.TOTL.ZG;FP.CPI.TOTL.ZG;Inflation, consumer prices (annual %);Financial;NA
+WB;WDI;WB-WDI-NE.TRD.GNFS.ZS;NE.TRD.GNFS.ZS;Trade (% of GDP);Financial;NA
+WB;WDI;WB-WDI-NE.RSB.GNFS.ZS;NE.RSB.GNFS.ZS;External balance on goods and services (% of GDP);Financial;NA
+WB;WDI;WB-WDI-NE.EXP.GNFS.ZS;NE.EXP.GNFS.ZS;Exports of goods and services (% of GDP);Financial;NA
+WB;WDI;WB-WDI-NE.IMP.GNFS.ZS;NE.IMP.GNFS.ZS;Imports of goods and services (% of GDP);Financial;NA
+WB;WDI;WB-WDI-NE.EXP.GNFS.CD;NE.EXP.GNFS.CD;Exports of goods and services (current US$);Financial;NA
+WB;WDI;WB-WDI-NE.IMP.GNFS.CD;NE.IMP.GNFS.CD;Imports of goods and services (current US$);Financial;NA
+WB;WDI;WB-WDI-NE.RSB.GNFS.CD;NE.RSB.GNFS.CD;External balance on goods and services (current US$);Financial;NA
+WB;WDI;WB-WDI-NE.CON.TOTL.ZS;NE.CON.TOTL.ZS;Final consumption expenditure (% of GDP);Financial;NA
+WB;WDI;WB-WDI-NY.GDS.TOTL.ZS;NY.GDS.TOTL.ZS;Gross domestic savings (% of GDP);Financial;NA
+WB;WDI;WB-WDI-NE.CON.TOTL.CD;NE.CON.TOTL.CD;Final consumption expenditure (current US$);Financial;NA
+WB;WDI;WB-WDI-NY.GDS.TOTL.CD;NY.GDS.TOTL.CD;Gross domestic savings (current US$);Financial;NA
+WB;WDI;WB-WDI-NE.GDI.TOTL.ZS;NE.GDI.TOTL.ZS;Gross capital formation (% of GDP);Financial;NA
+WB;WDI;WB-WDI-NE.GDI.TOTL.CD;NE.GDI.TOTL.CD;Gross capital formation (current US$);Financial;NA
+IMF;FDI;IMF-FDI-FD_FMA_IX;FD_FMA_IX;Financial Markets Access Index;Financial;NA
+IMF;FDI;IMF-FDI-FD_FI_IX;FD_FI_IX;Financial Institutions Index;Financial;NA
+IMF;FDI;IMF-FDI-FD_FIE_IX;FD_FIE_IX;Financial Institutions Efficiency Index;Financial;NA
+IMF;FDI;IMF-FDI-FD_FID_IX;FD_FID_IX;Financial Institutions Depth Index;Financial;NA
+IMF;FDI;IMF-FDI-FD_FIA_IX;FD_FIA_IX;Financial Institutions Access Index;Financial;NA
+IMF;FDI;IMF-FDI-FD_FD_IX;FD_FD_IX;Financial Development Index;Financial;NA
+IMF;FDI;IMF-FDI-FD_FM_IX;FD_FM_IX;Financial Markets Index;Financial;NA
+IMF;FDI;IMF-FDI-FD_FMD_IX;FD_FMD_IX;Financial Markets Depth Index;Financial;NA
+IMF;FDI;IMF-FDI-FD_FME_IX;FD_FME_IX;Financial Markets Efficiency Index;Financial;NA
+WB;WDI;WB-WDI-NE.DAB.TOTL.ZS;NE.DAB.TOTL.ZS;Gross national expenditure (% of GDP);Financial;NA
+WB;WDI;WB-WDI-NE.DAB.TOTL.CD;NE.DAB.TOTL.CD;Gross national expenditure (current US$);Financial;NA
+WB;WDI;WB-WDI-FI.RES.TOTL.CD;FI.RES.TOTL.CD;Total reserves (includes gold, current US$);Financial;NA
+WB;WDI;WB-WDI-SP.POP.65UP.TO.ZS;SP.POP.65UP.TO.ZS;Population ages 65 and above (% of total population);General;Population
+WB;WDI;WB-WDI-SP.URB.TOTL.IN.ZS;SP.URB.TOTL.IN.ZS;Urban population (% of total population);General;Population
+WB;WDI;WB-WDI-SP.URB.GROW;SP.URB.GROW;Urban population growth (annual %);General;Population
+WB;WDI;WB-WDI-SP.RUR.TOTL.ZS;SP.RUR.TOTL.ZS;Rural population (% of total population);General;Population
+WB;WDI;WB-WDI-SP.POP.TOTL;SP.POP.TOTL;Population, total;General;Population
+WB;WDI;WB-WDI-SP.POP.DPND.YG;SP.POP.DPND.YG;Age dependency ratio, young (% of working-age population);General;Population
+WB;WDI;WB-WDI-SP.POP.DPND.OL;SP.POP.DPND.OL;Age dependency ratio, old (% of working-age population);General;Population
+WB;WDI;WB-WDI-SP.POP.DPND;SP.POP.DPND;Age dependency ratio (% of working-age population);General;Population
+WB;WDI;WB-WDI-SP.POP.GROW;SP.POP.GROW;Population growth (annual %);General;Population
+WB;WDI;WB-WDI-AG.SRF.TOTL.K2;AG.SRF.TOTL.K2;Surface area (sq. km);General;Geography
+WB;WDI;WB-WDI-AG.LND.TOTL.K2;AG.LND.TOTL.K2;Land area (sq. km);General;Geography
+WB;WDI;WB-WDI-EN.POP.DNST;EN.POP.DNST;Population density (people per sq. km of land area);General;Population
+WB;WDI;WB-WDI-SP.DYN.CDRT.IN;SP.DYN.CDRT.IN;Death rate, crude (per 1,000 people);General;Population
+WB;WDI;WB-WDI-SP.DYN.CBRT.IN;SP.DYN.CBRT.IN;Birth rate, crude (per 1,000 people);General;Population
+WB;WDI;WB-WDI-TT.PRI.MRCH.XD.WD;TT.PRI.MRCH.XD.WD;Net barter terms of trade index (2000 = 100);Logistics;NA
+WB;WDI;WB-WDI-BX.TRF.PWKR.CD.DT;BX.TRF.PWKR.CD.DT;Personal remittances, received (current US$);Logistics;NA
+WB;WDI;WB-WDI-SM.POP.REFG.OR;SM.POP.REFG.OR;Refugee population by country or territory of origin;Political;NA
+WB;WGI;WB-WGI-VA.PER.RNK.LOWER;VA.PER.RNK.LOWER;Voice and Accountability: Percentile Rank, Lower Bound of 90% Confidence Interval;Political;NA
+WB;WGI;WB-WGI-VA.PER.RNK;VA.PER.RNK;Voice and Accountability: Percentile Rank;Political;NA
+WB;WGI;WB-WGI-VA.NO.SRC;VA.NO.SRC;Voice and Accountability: Number of Sources;Political;NA
+WB;WGI;WB-WGI-VA.EST;VA.EST;Voice and Accountability: Estimate;Political;NA
+WB;WGI;WB-WGI-VA.PER.RNK.UPPER;VA.PER.RNK.UPPER;Voice and Accountability: Percentile Rank, Upper Bound of 90% Confidence Interval;Political;NA
+WB;WGI;WB-WGI-VA.STD.ERR;VA.STD.ERR;Voice and Accountability: Standard Error;Political;NA
+WB;WGI;WB-WGI-PV.STD.ERR;PV.STD.ERR;Political Stability and Absence of Violence/Terrorism: Standard Error;Political;NA
+WB;WGI;WB-WGI-PV.PER.RNK;PV.PER.RNK;Political Stability and Absence of Violence/Terrorism: Percentile Rank;Political;NA
+WB;WGI;WB-WGI-PV.NO.SRC;PV.NO.SRC;Political Stability and Absence of Violence/Terrorism: Number of Sources;Political;NA
+WB;WGI;WB-WGI-PV.EST;PV.EST;Political Stability and Absence of Violence/Terrorism: Estimate;Political;NA
+WB;WGI;WB-WGI-PV.PER.RNK.UPPER;PV.PER.RNK.UPPER;Political Stability and Absence of Violence/Terrorism: Percentile Rank, Upper Bound of 90% Confidence Interval;Political;NA
+WB;WGI;WB-WGI-PV.PER.RNK.LOWER;PV.PER.RNK.LOWER;Political Stability and Absence of Violence/Terrorism: Percentile Rank, Lower Bound of 90% Confidence Interval;Political;NA
+WB;WGI;WB-WGI-RL.STD.ERR;RL.STD.ERR;Rule of Law: Standard Error;Political;NA
+WB;WGI;WB-WGI-RL.EST;RL.EST;Rule of Law: Estimate;Political;NA
+WB;WGI;WB-WGI-RL.NO.SRC;RL.NO.SRC;Rule of Law: Number of Sources;Political;NA
+WB;WGI;WB-WGI-RL.PER.RNK;RL.PER.RNK;Rule of Law: Percentile Rank;Political;NA
+WB;WGI;WB-WGI-RL.PER.RNK.LOWER;RL.PER.RNK.LOWER;Rule of Law: Percentile Rank, Lower Bound of 90% Confidence Interval;Political;NA
+WB;WGI;WB-WGI-RL.PER.RNK.UPPER;RL.PER.RNK.UPPER;Rule of Law: Percentile Rank, Upper Bound of 90% Confidence Interval;Political;NA
+WB;WGI;WB-WGI-CC.PER.RNK;CC.PER.RNK;Control of Corruption: Percentile Rank;Political;NA
+WB;WGI;WB-WGI-CC.PER.RNK.UPPER;CC.PER.RNK.UPPER;Control of Corruption: Percentile Rank, Upper Bound of 90% Confidence Interval;Political;NA
+WB;WGI;WB-WGI-CC.NO.SRC;CC.NO.SRC;Control of Corruption: Number of Sources;Political;NA
+WB;WGI;WB-WGI-CC.PER.RNK.LOWER;CC.PER.RNK.LOWER;Control of Corruption: Percentile Rank, Lower Bound of 90% Confidence Interval;Political;NA
+WB;WGI;WB-WGI-CC.STD.ERR;CC.STD.ERR;Control of Corruption: Standard Error;Political;NA
+WB;WGI;WB-WGI-CC.EST;CC.EST;Control of Corruption: Estimate;Political;NA
+WB;WGI;WB-WGI-RQ.EST;RQ.EST;Regulatory Quality: Estimate;Political;NA
+WB;WGI;WB-WGI-RQ.PER.RNK.UPPER;RQ.PER.RNK.UPPER;Regulatory Quality: Percentile Rank, Upper Bound of 90% Confidence Interval;Political;NA
+WB;WGI;WB-WGI-RQ.PER.RNK.LOWER;RQ.PER.RNK.LOWER;Regulatory Quality: Percentile Rank, Lower Bound of 90% Confidence Interval;Political;NA
+WB;WGI;WB-WGI-RQ.NO.SRC;RQ.NO.SRC;Regulatory Quality: Number of Sources;Political;NA
+WB;WGI;WB-WGI-RQ.PER.RNK;RQ.PER.RNK;Regulatory Quality: Percentile Rank;Political;NA
+WB;WGI;WB-WGI-RQ.STD.ERR;RQ.STD.ERR;Regulatory Quality: Standard Error;Political;NA
+WB;WGI;WB-WGI-GE.STD.ERR;GE.STD.ERR;Government Effectiveness: Standard Error;Political;NA
+WB;WGI;WB-WGI-GE.PER.RNK.LOWER;GE.PER.RNK.LOWER;Government Effectiveness: Percentile Rank, Lower Bound of 90% Confidence Interval;Political;NA
+WB;WGI;WB-WGI-GE.PER.RNK;GE.PER.RNK;Government Effectiveness: Percentile Rank;Political;NA
+WB;WGI;WB-WGI-GE.NO.SRC;GE.NO.SRC;Government Effectiveness: Number of Sources;Political;NA
+WB;WGI;WB-WGI-GE.EST;GE.EST;Government Effectiveness: Estimate;Political;NA
+WB;WGI;WB-WGI-GE.PER.RNK.UPPER;GE.PER.RNK.UPPER;Government Effectiveness: Percentile Rank, Upper Bound of 90% Confidence Interval;Political;NA

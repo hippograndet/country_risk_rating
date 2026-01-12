@@ -1,15 +1,12 @@
 import pandas as pd
 import os
 
-import sys
-sys.path.append('~/Desktop/TINUBU/country')
+from src import config
 
-from src import addresses
-    
 def get_template_quarterly_df(isos, last_year=2023):
     rows = []
     for iso in isos:
-        for year in range(1999, last_year+1):
+        for year in range(config.start_year, last_year+1):
             for q in range(0, 5):
                 quarter = 'Q' + str(q)
                 index = iso + '-' + str(year) + '-' + quarter
@@ -30,7 +27,7 @@ def get_template_quarterly_df(isos, last_year=2023):
 def get_template_yearly_df(isos, last_year=2023):
     rows = []
     for iso in isos:
-        for year in range(1999, last_year+1):
+        for year in range(config.start_year, last_year+1):
 
             index = iso + '-' + str(year)
 

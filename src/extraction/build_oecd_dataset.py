@@ -77,7 +77,6 @@ def clean_oecd_value(value: str) -> str:
 
     return v    
 
-
 def get_quarterly_dates(start_year: int = 1999, end_year: int = 2024) -> list:
     """Given start and end year, return a list of the date of each quarter between the years, last year excluded.
 
@@ -203,9 +202,9 @@ def oecd_df_to_format(oecd_df_clean: pd.DataFrame, date_freq: str = 'Q') -> pd.D
     latest_date = oecd_df_clean.columns.max()
 
     if date_freq == 'Q':
-        dates_interval_l = get_quarterly_dates(start_year=1999, end_year=latest_date.year + 1)
+        dates_interval_l = get_quarterly_dates(start_year=config.start_year, end_year=latest_date.year + 1)
     elif date_freq == 'Y':    
-        dates_interval_l = get_yearly_dates(start_year=1999, end_year=latest_date.year + 1)
+        dates_interval_l = get_yearly_dates(start_year=config.start_year, end_year=latest_date.year + 1)
     else:
         print('Date Frequency', date_freq, 'not implemented.')
         return oecd_df_clean

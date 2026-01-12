@@ -1,0 +1,230 @@
+,Info,Info,Legal Systems,Legal Systems,Legal Systems,Legal Systems,Legal Systems,Languages,Languages,Languages,Languages,Languages,Geography,Geography,Geography,Geography,Geography,Geography,Geography,Geography,Economy
+,Country Name,ISO code,Civil Law,Common Law,Customary,Muslim,Mixed,Official language,Regional language,Minority language,National language,Widely spoken,x_coord,y_coord,Region,Sub Region,Intermediate Region,Region Code,Sub Region Code,Intermediate Region Code,Income Group
+0,AFGHANISTAN,AFG,0,0,0,1,0,Pashto/Dari,Uzbek/Turkmen/Pashai/Nuristani/Balochi/Pamiri,,Pashto,,33.93911,67.709953,Asia,Southern Asia,Southern Asia,142.0,34.0,0.0,Low income
+1,ALBANIA,ALB,1,0,0,0,0,Albanian,,Greek/Macedonian/Aromanian,,Italian,41.153332,20.168331,Europe,Southern Europe,Southern Europe,150.0,39.0,0.0,Upper middle income
+2,ALGERIA,DZA,1,0,0,1,1,Arabic/Tamazight,,,Arabic/Tamazight,French,28.033886,1.659626,Africa,Northern Africa,Northern Africa,2.0,15.0,0.0,Lower middle income
+3,ANDORRA,AND,0,0,1,0,0,Catalan,,Spanish/French/Portuguese,,,42.546245,1.601554,Europe,Southern Europe,Southern Europe,150.0,39.0,0.0,High income
+4,ANGOLA,AGO,1,0,0,0,0,Portuguese,,,Kimbundu/Umbundu/Kikongo/Chokwe/Kwanyama/Ganguela,,-11.202692,17.873887,Africa,Sub-Saharan Africa,Middle Africa,2.0,202.0,17.0,Lower middle income
+5,ANTIGUA AND BARBUDA,ATG,0,1,0,0,0,English,,,,,17.060816,-61.796428,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,High income
+6,ARGENTINA,ARG,1,0,0,0,0,Spanish,Spanish/Guaraní/Kom/Moquoit/Wichi,,,,-38.416097,-63.616672,Americas,Latin America and the Caribbean,South America,19.0,419.0,5.0,Upper middle income
+7,ARMENIA,ARM,1,0,0,0,0,Armenian,,,Armenian,,40.069099,45.038189,Asia,Western Asia,Western Asia,142.0,145.0,0.0,Upper middle income
+8,AUSTRALIA,AUS,0,1,0,0,0,English,,,,,-25.274398,133.775136,Oceania,Australia and New Zealand,Australia and New Zealand,9.0,53.0,0.0,High income
+9,AUSTRIA,AUT,1,0,0,0,0,German,Croatian/Hungarian/Slovene,Slovene/Czech/Hungarian/Slovak/Romani/Serbian,German,,47.516231,14.550072,Europe,Western Europe,Western Europe,150.0,155.0,0.0,High income
+10,AZERBAIJAN,AZE,1,0,0,0,0,Azerbaijani,,,Azerbaijani,,40.143105,47.576927,Asia,Western Asia,Western Asia,142.0,145.0,0.0,Upper middle income
+11,BAHAMAS,BHS,0,1,0,0,0,English,,,,,25.03428,-77.39628,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,High income
+12,BAHRAIN,BHR,1,1,1,1,1,Arabic,,,,,25.930414,50.637772,Asia,Western Asia,Western Asia,142.0,145.0,0.0,High income
+13,BANGLADESH,BGD,0,1,0,1,1,Bengali,,,Bengali,,23.684994,90.356331,Asia,Southern Asia,Southern Asia,142.0,34.0,0.0,Lower middle income
+14,BARBADOS,BRB,0,1,0,0,0,English,,,,,13.193887,-59.543198,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,High income
+15,BELARUS,BLR,1,0,0,0,0,Belarusian/Russian,,,,,53.709807,27.953389,Europe,Eastern Europe,Eastern Europe,150.0,151.0,0.0,Upper middle income
+16,BELGIUM,BEL,1,0,0,0,0,Dutch/French/German,Dutch/French/German,,,,50.503887,4.469936,Europe,Western Europe,Western Europe,150.0,155.0,0.0,High income
+17,BELIZE,BLZ,0,1,0,0,0,English,Spanish,,,Kriol,17.189877,-88.49765,Americas,Latin America and the Caribbean,Central America,19.0,419.0,13.0,Lower middle income
+18,BENIN,BEN,1,0,0,0,0,French,,,,,9.30769,2.315834,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,Lower middle income
+19,BHUTAN,BTN,0,1,1,0,1,Dzongkha,,,,,27.514162,90.433601,Asia,Southern Asia,Southern Asia,142.0,34.0,0.0,Lower middle income
+20,BOLIVIA,BOL,1,0,0,0,0,Spanish,,,,,-16.290154,-63.588653,Americas,Latin America and the Caribbean,South America,19.0,419.0,5.0,Lower middle income
+21,BOSNIA AND HERZEGOVINA,BIH,1,0,0,0,0,Bosnian/Croatian/Serbian,,,,,43.915886,17.679076,Europe,Southern Europe,Southern Europe,150.0,39.0,0.0,Upper middle income
+22,BOTSWANA,BWA,1,1,0,0,1,English/Tswana,,,Tswana,,-22.328474,24.684866,Africa,Sub-Saharan Africa,Southern Africa,2.0,202.0,18.0,Upper middle income
+23,BRAZIL,BRA,1,0,0,0,0,Portuguese,German/East Pomeranian/Riograndenser/Talian/Nheengatu/Guaraní,,Portuguese,,-14.235004,-51.92528,Americas,Latin America and the Caribbean,South America,19.0,419.0,5.0,Upper middle income
+24,BRUNEI,BRN,0,1,1,1,1,Malay/English,,,,,4.535277,114.727669,Asia,South-eastern Asia,South-eastern Asia,142.0,35.0,0.0,High income
+25,BULGARIA,BGR,1,0,0,0,0,Bulgarian,,,,,42.733883,25.48583,Europe,Eastern Europe,Eastern Europe,150.0,151.0,0.0,Upper middle income
+26,BURKINA FASO,BFA,1,0,1,0,1,French,,,Fula/Jula/More,,12.238333,-1.561593,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,Low income
+27,BURUNDI,BDI,1,0,1,0,1,French/Kirundi/English,,,Kirundi,Swahili,-3.373056,29.918886,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Low income
+28,CAMBODIA,KHM,1,0,0,0,0,Khmer,,,,,12.565679,104.990963,Asia,South-eastern Asia,South-eastern Asia,142.0,35.0,0.0,Lower middle income
+29,CAMEROON,CMR,1,1,1,0,1,English/French,,,,,7.369722,12.354722,Africa,Sub-Saharan Africa,Middle Africa,2.0,202.0,17.0,Lower middle income
+30,CANADA,CAN,1,1,0,0,1,English/French,Chipewyan/Cree/Gwich'in/Inuinnaqtun/Inuktitut/Inuvialuktun,Chipewyan/Cree/Inuinnaqtun/Inuktitut/Inuvialuktun/Slavey/Tłı̨chǫ,,,56.130366,-106.346771,Americas,Northern America,Northern America,19.0,21.0,0.0,High income
+31,CAPE VERDE,CPV,1,0,0,0,0,Portuguese,,,Creole,,16.002082,-24.013197,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,Lower middle income
+32,CENTRAL AFRICAN REPUBLIC,CAF,1,0,0,0,0,French,,Sango,,,6.611111,20.939444,Africa,Sub-Saharan Africa,Middle Africa,2.0,202.0,17.0,Low income
+33,CHAD,TCD,1,0,1,0,1,Arabic/French,,,,,15.454166,18.732207,Africa,Sub-Saharan Africa,Middle Africa,2.0,202.0,17.0,Low income
+34,CHILE,CHL,1,0,0,0,0,Spanish,,,Spanish,,-35.675147,-71.542969,Americas,Latin America and the Caribbean,South America,19.0,419.0,5.0,High income
+35,CHINA,CHN,1,0,1,0,1,Mandarin,English/Portuguese,Mongolian/Uyghur/Tibetan/Zhuang/Kazakh/Korean,,Cantonese,35.86166,104.195397,Asia,Eastern Asia,Eastern Asia,142.0,30.0,0.0,Upper middle income
+36,COLOMBIA,COL,1,0,0,0,0,Spanish,,,,,4.570868,-74.297333,Americas,Latin America and the Caribbean,South America,19.0,419.0,5.0,Upper middle income
+37,COMOROS,COM,1,0,0,1,1,Arabic/Comorian/French,,,,,-11.875001,43.872219,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Lower middle income
+38,CONGO,COG,1,0,1,0,1,French,,Lingala/Munukutuba,,,-0.228021,15.827659,Africa,Sub-Saharan Africa,Middle Africa,2.0,202.0,17.0,Lower middle income
+39,"CONGO, POPULAR DEMOCRATIC REPUBLIC OF",COD,1,0,1,0,1,French,,Lingala/Kikongo,Swahili/Tshiluba,,-4.038333,21.758664,Africa,Sub-Saharan Africa,Middle Africa,2.0,202.0,17.0,Low income
+40,COOK ISLANDS,COK,0,1,0,0,0,English/Māori,,,,,-21.236736,-159.777671,Oceania,Polynesia,Polynesia,9.0,61.0,0.0,High income
+41,COSTA RICA,CRI,1,0,0,0,0,Spanish,,Creole,,,9.748917,-83.753428,Americas,Latin America and the Caribbean,Central America,19.0,419.0,13.0,Upper middle income
+42,IVORY COAST,CIV,1,0,1,0,1,French,,,,,7.539989,-5.54708,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,Lower middle income
+43,CROATIA,HRV,1,0,0,0,0,Croatian,Serbian/Hungarian/Czech/Slovak/Romanian,,Italian/Romani/Slovene,,45.1,15.2,Europe,Southern Europe,Southern Europe,150.0,39.0,0.0,High income
+44,CUBA,CUB,1,0,0,0,0,Spanish,,,,,21.521757,-77.781167,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,Upper middle income
+45,CYPRUS,CYP,1,1,0,0,1,Greek/Turkish,,,Armenian/Arabic,English,35.126413,33.429859,Asia,Western Asia,Western Asia,142.0,145.0,0.0,High income
+46,CZECH REPUBLIC,CZE,1,0,0,0,0,Czech/Slovak,,Belarusian/Bulgarian/Croatian/German/Greek/Hungarian/Polish/Romani/Russian/Rusyn/Serbian/Ukrainian/Vietnamese,Czech,,49.817492,15.472962,Europe,Eastern Europe,Eastern Europe,150.0,151.0,0.0,High income
+47,DENMARK,DNK,1,0,0,0,0,Danish,Faroese/Kalaallisut,German,,,56.26392,9.501785,Europe,Northern Europe,Northern Europe,150.0,154.0,0.0,High income
+48,DJIBOUTI,DJI,1,0,1,1,1,Arabic/French,,,,,11.825138,42.590275,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Lower middle income
+49,DOMINICA,DMA,0,1,0,0,0,English,,,,,15.414999,-61.370976,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,Upper middle income
+50,DOMINICAN REPUBLIC,DOM,1,0,0,0,0,Spanish,,,,,18.735693,-70.162651,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,Upper middle income
+51,TIMOR-LESTE,TLS,1,0,1,1,1,Portuguese/Tetum,,,,,-8.874217,125.727539,Asia,South-eastern Asia,South-eastern Asia,142.0,35.0,0.0,Lower middle income
+52,ECUADOR,ECU,1,0,0,0,0,Spanish/Quechua,,Kichwa/Shuar,,,-1.831239,-78.183406,Americas,Latin America and the Caribbean,South America,19.0,419.0,5.0,Upper middle income
+53,EGYPT,EGY,1,0,0,1,1,Arabic,,Coptic,Egyptian,Egyptian,26.820553,30.802498,Africa,Northern Africa,Northern Africa,2.0,15.0,0.0,Lower middle income
+54,EL SALVADOR,SLV,1,0,0,0,0,Spanish,,,,,13.794185,-88.89653,Americas,Latin America and the Caribbean,Central America,19.0,419.0,13.0,Lower middle income
+55,EQUATORIAL GUINEA,GNQ,1,0,1,0,1,French/Portuguese/Spanish,,,,,1.650801,10.267895,Africa,Sub-Saharan Africa,Middle Africa,2.0,202.0,17.0,Upper middle income
+56,ERITREA,ERI,1,0,1,1,1,Tigrinya,,,,Arabic/Italian,15.179384,39.782334,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Low income
+57,ESTONIA,EST,1,0,0,0,0,Estonian,,,,Russian,58.595272,25.013607,Europe,Northern Europe,Northern Europe,150.0,154.0,0.0,High income
+58,ETHIOPIA,ETH,1,0,1,0,1,Afar/Amharic/Oromo/Somali/Tigrinya/English,,,Afar/Amharic/Benshangu/Gumuz/Harari/Kunama/Oromo/Sidamo/Somali/Tigrinya/English,,9.145,40.489673,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Low income
+59,FAROE ISLANDS,FRO,1,0,0,0,0,Faroese/Danish,,,,,61.892635,-6.911806,Europe,Northern Europe,Northern Europe,150.0,154.0,0.0,High income
+60,FIJI,FJI,0,1,0,0,0,English/Fijian/Hindi,,,,,-16.578193,179.414413,Oceania,Melanesia,Melanesia,9.0,54.0,0.0,Upper middle income
+61,FINLAND,FIN,1,0,0,0,0,Finnish/Swedish,,Sami,Finnish/Swedish,,61.92411,25.748151,Europe,Northern Europe,Northern Europe,150.0,154.0,0.0,High income
+62,FRANCE,FRA,1,0,0,0,0,French,Corsican,,,,46.227638,2.213749,Europe,Western Europe,Western Europe,150.0,155.0,0.0,High income
+63,FRENCH GUYANA,GUF,1,0,0,0,0,French,,Arawak/Palijur/Saramaka/Aluku/Hmong/English/Portuguese/Mandarin/Spanish,,Creole,3.933889,-53.125782,Americas,Latin America and the Caribbean,South America,19.0,419.0,5.0,High income
+64,FRENCH POLYNESIA,PYF,1,0,0,0,0,French,,Marquesan/Mangareva,,Tahitan,-17.679742,149.406843,Oceania,Polynesia,Polynesia,9.0,61.0,0.0,High income
+65,GABON,GAB,1,0,1,0,1,French,,,,,-0.803689,11.609444,Africa,Sub-Saharan Africa,Middle Africa,2.0,202.0,17.0,Upper middle income
+66,GAMBIA,GMB,0,1,1,1,1,English,,,,,13.443182,-15.310139,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,Low income
+67,GEORGIA,GEO,1,0,0,0,0,Georgian,,,,,42.315407,43.356892,Asia,Western Asia,Western Asia,142.0,145.0,0.0,Upper middle income
+68,GERMANY,DEU,1,0,0,0,0,German,Danish/Sorbian/North Frisian/Saterland Frisian/Low German,Danish/Sorbian/North Frisian/Romani,,,51.165691,10.451526,Europe,Western Europe,Western Europe,150.0,155.0,0.0,High income
+69,GHANA,GHA,0,1,1,0,1,English,Fante/Asante Twi/Akuapem Twi/Adangme/Dagaare/Dagbani/Ewe/Ga/Gonja/Kasem/Nzema,,,,7.946527,-1.023194,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,Lower middle income
+70,GIBRALTAR,GIB,0,1,0,0,0,English,,Arabic/Maltese,,Spanish,36.137741,-5.345374,Europe,Southern Europe,Southern Europe,150.0,39.0,0.0,High income
+71,GREECE,GRC,1,0,0,0,0,Greek,Llanito,,,,39.074208,21.824312,Europe,Southern Europe,Southern Europe,150.0,39.0,0.0,High income
+72,GRENADA,GRD,0,1,0,0,0,English,,,,,12.262776,-61.604171,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,Upper middle income
+73,GREENLAND,GRL,1,0,0,0,0,Danish/Greenlandic,,,,,71.706936,-42.604303,Americas,Northern America,Northern America,19.0,21.0,0.0,High income
+74,GUADELOUPE,GLP,1,0,0,0,0,French,,English,,Creole,16.995971,-62.067641,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,High income
+75,GUAM,GUM,0,1,0,0,0,English/Chamoru,,Spanish,,Filipino,13.444304,144.793731,Oceania,Micronesia,Micronesia,9.0,57.0,0.0,High income
+76,GUATEMALA,GTM,1,0,0,0,0,Spanish,,,,,15.783471,-90.230759,Americas,Latin America and the Caribbean,Central America,19.0,419.0,13.0,Upper middle income
+77,GUERNSEY,GGY,0,0,1,0,0,English,,Guernésiais/French,,,49.465691,-2.585278,Europe,Northern Europe,Channel Islands,150.0,154.0,830.0,High income
+78,GUINEA,GIN,1,0,1,0,1,French,,,,Fula/Maninka/Susu,9.945587,-9.696645,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,Low income
+79,GUINEA-BISSAU,GNB,1,0,1,0,1,Portuguese,,,,,11.803749,-15.180413,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,Low income
+80,GUYANA,GUY,1,1,0,0,1,English,,,,Creole,4.860416,-58.93018,Americas,Latin America and the Caribbean,South America,19.0,419.0,5.0,Upper middle income
+81,HAITI,HTI,1,0,0,0,0,French/Creole,,,,,18.971187,-72.285215,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,Lower middle income
+82,HONDURAS,HND,1,0,0,0,0,Spanish,Garifuna/English/Miskito,,,,15.199999,-86.241905,Americas,Latin America and the Caribbean,Central America,19.0,419.0,13.0,Lower middle income
+83,HONG KONG,HKG,0,1,1,0,1,Cantonese/English,,Mandarin,,,22.396428,114.109497,Asia,Eastern Asia,Eastern Asia,142.0,30.0,0.0,High income
+84,HUNGARY,HUN,1,0,0,0,0,Hungarian,,Croatian/German/Romanian/Serbian/Slovak/Slovene,,,47.162494,19.503304,Europe,Eastern Europe,Eastern Europe,150.0,151.0,0.0,High income
+85,ICELAND,ISL,1,0,0,0,0,Icelandic,,,,,64.963051,-19.020835,Europe,Northern Europe,Northern Europe,150.0,154.0,0.0,High income
+86,INDIA,IND,0,1,1,1,1,English/Hindi,,,,Hindi/Bengali/Tamil/Telugu/Malayalam/Kannada,20.593684,78.96288,Asia,Southern Asia,Southern Asia,142.0,34.0,0.0,Lower middle income
+87,INDONESIA,IDN,1,0,1,1,1,Indonesian,Javanese,,Indonesian,Javanese/Indonesian/Sundanese/Madurese/Minangkabau,-0.789275,113.921327,Asia,South-eastern Asia,South-eastern Asia,142.0,35.0,0.0,Lower middle income
+88,IRAN,IRN,1,0,0,1,1,Persian,,,Persian,Persian,32.427908,53.688046,Asia,Southern Asia,Southern Asia,142.0,34.0,0.0,Lower middle income
+89,IRAQ,IRQ,1,0,0,1,1,Arabic,Armenian/Assyrian/Iraqi/Kurdish,,,,33.223191,43.679291,Asia,Western Asia,Western Asia,142.0,145.0,0.0,Upper middle income
+90,IRELAND,IRL,0,1,0,0,0,Irish/English,,,Irish,,53.41291,-8.24389,Europe,Northern Europe,Northern Europe,150.0,154.0,0.0,High income
+91,ISRAEL,ISR,1,1,0,1,1,Hebrew,Arabic,,,Russian/English,31.046051,34.851612,Asia,Western Asia,Western Asia,142.0,145.0,0.0,High income
+92,ITALY,ITA,1,0,0,0,0,Italian,French/German/Ladin/Slovene/Albanian/Sardinian/Corsican/Greek,Ladin/Slovene,,,41.87194,12.56738,Europe,Southern Europe,Southern Europe,150.0,39.0,0.0,High income
+93,JAMAICA,JAM,0,1,0,0,0,English,,,Jamaican,,18.109581,-77.297508,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,Upper middle income
+94,JAPAN,JPN,1,0,1,0,1,Japanese,,,Japanese,,36.204824,138.252924,Asia,Eastern Asia,Eastern Asia,142.0,30.0,0.0,High income
+95,JERSEY,JEY,0,0,1,0,0,English,,Portuguese/Jèrriais,,French,49.214439,-2.13125,Europe,Northern Europe,Channel Islands,150.0,154.0,830.0,High income
+96,JORDAN,JOR,1,0,1,1,1,Arabic,,,,,30.585164,36.238414,Asia,Western Asia,Western Asia,142.0,145.0,0.0,Upper middle income
+97,KAZAKHSTAN,KAZ,1,0,0,0,0,Kazakh/Russian,,,Kazakh,,48.019573,66.923684,Asia,Central Asia,Central Asia,142.0,143.0,0.0,Upper middle income
+98,KENYA,KEN,0,1,1,1,1,English,,,Swahili,,-0.023559,37.906193,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Lower middle income
+99,KIRIBATI,KIR,0,1,0,0,0,English,,,Kiribati,,-3.370417,-168.734039,Oceania,Micronesia,Micronesia,9.0,57.0,0.0,Lower middle income
+100,"KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF",PRK,1,0,1,0,1,Korean,,,,,40.339852,127.510093,Asia,Eastern Asia,Eastern Asia,142.0,30.0,0.0,Low income
+101,"KOREA, REPUBLIC OF",KOR,1,0,1,0,1,Korean,,,,,35.3985008,127.937111,Asia,Eastern Asia,Eastern Asia,142.0,30.0,0.0,High income
+102,KOSOVO,XKX,1,0,0,0,0,Albanian/Serbian,Turkish,,Albanian/Serbian,,42.602636,20.902977,Europe,Southern Europe,Southern Europe,150.0,39.0,,Upper middle income
+103,KUWAIT,KWT,1,0,1,1,1,Arabic,,,Arabic/Persian,,29.31166,47.481766,Asia,Western Asia,Western Asia,142.0,145.0,0.0,High income
+104,KYRGYZSTAN,KGZ,1,0,0,0,0,Kyrgyz/Russian,,,Kyrgyz,,41.20438,74.766098,Asia,Central Asia,Central Asia,142.0,143.0,0.0,Lower middle income
+105,LAOS,LAO,1,0,0,0,0,Lao,,,,,19.85627,102.495496,Asia,South-eastern Asia,South-eastern Asia,142.0,35.0,0.0,Lower middle income
+106,LATVIA,LVA,1,0,0,0,0,Latvian,,,,Russian,56.879635,24.603189,Europe,Northern Europe,Northern Europe,150.0,154.0,0.0,High income
+107,LEBANON,LBN,1,0,0,1,1,Arabic,Arabic,Armenian,Arabic/English/French,Arabic/English/French,33.854721,35.862285,Asia,Western Asia,Western Asia,142.0,145.0,0.0,Upper middle income
+108,LESOTHO,LSO,1,1,1,0,1,Sotho/English,,,Sotho,,-29.609988,28.233608,Africa,Sub-Saharan Africa,Southern Africa,2.0,202.0,18.0,Lower middle income
+109,LIBERIA,LBR,0,1,1,0,1,English,,,,,6.428055,-9.429499,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,Low income
+110,LIBYA,LBY,1,0,0,1,1,Arabic,,,,,26.3351,17.228331,Africa,Northern Africa,Northern Africa,2.0,15.0,0.0,Upper middle income
+111,LIECHTENSTEIN,LIE,1,0,0,0,0,German,,,,,47.166,9.555373,Europe,Western Europe,Western Europe,150.0,155.0,0.0,High income
+112,LITHUANIA,LTU,1,0,0,0,0,Lithuanian,,,,Russian,55.169438,23.881275,Europe,Northern Europe,Northern Europe,150.0,154.0,0.0,High income
+113,LUXEMBOURG,LUX,1,0,0,0,0,French/German/Luxembourgish,,,Luxembourgish,,49.815273,6.129583,Europe,Western Europe,Western Europe,150.0,155.0,0.0,High income
+114,MACAO,MAC,1,0,0,0,0,Cantonese/Portuguese,,,Mandarin/Patua,,22.198745,113.543873,Asia,Eastern Asia,Eastern Asia,142.0,30.0,0.0,High income
+115,MACEDONIA,MKD,1,0,0,0,0,Macedonian/Albanian,,,,,41.608635,21.745275,Europe,Southern Europe,Southern Europe,150.0,39.0,0.0,Upper middle income
+116,MADAGASCAR,MDG,1,0,1,0,1,French/Malagasy,,,Malagasy,,-18.766947,46.869107,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Low income
+117,MALAWI,MWI,0,1,1,0,1,English/Chichewa,,,Chichewa,,-13.254308,34.301525,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Low income
+118,MALAYSIA,MYS,0,1,1,1,1,Malay/English,,,Malaysian,Mandarin/Cantonese/Tamil,4.210484,101.975766,Asia,South-eastern Asia,South-eastern Asia,142.0,35.0,0.0,Upper middle income
+119,MALDIVES,MDV,0,0,0,1,0,Dhivehi,,,,,3.202778,73.22068,Asia,Southern Asia,Southern Asia,142.0,34.0,0.0,Upper middle income
+120,MALI,MLI,1,0,1,0,1,French,Tamazight,,,,17.570692,-3.996166,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,Low income
+121,FALKLAND ISLES,FLK,0,1,0,0,0,English,,Spanish,,,-51.796253,-59.523613,Americas,Latin America and the Caribbean,South America,19.0,419.0,5.0,High income
+122,MALTA,MLT,1,1,0,0,1,Maltese/English,,,Maltese,,35.937496,14.375416,Europe,Southern Europe,Southern Europe,150.0,39.0,0.0,High income
+123,MARSHALL ISLANDS,MHL,0,1,0,0,0,English,,,Marshallese,,7.131474,171.184478,Oceania,Micronesia,Micronesia,9.0,57.0,0.0,Upper middle income
+124,MARTINIQUE,MTQ,1,0,0,0,0,French,,,,Creole,14.641528,-61.024174,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,High income
+125,MAURITANIA,MRT,1,0,0,1,1,Arabic,,,Arabic/Fula/Soninke/Wolof,French,21.00789,-10.940835,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,Lower middle income
+126,MAURITIUS,MUS,1,1,0,0,1,English,,,French,,-20.348404,57.552152,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Upper middle income
+127,MAYOTTE,MYT,1,0,0,0,0,French,,Kibushi/Shindzwani/Shingazidja/Arabic,Shimaore,,-12.8275,45.166244,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,High income
+128,MEXICO,MEX,1,0,0,0,0,Spanish,,,Spanish,,23.634501,-102.552784,Americas,Latin America and the Caribbean,Central America,19.0,419.0,13.0,Upper middle income
+129,MICRONESIA,FSM,0,1,1,0,1,English,Chuukese/Kosraean/Pohnpeian/Yapese,,,,7.425554,150.550812,Oceania,Micronesia,Micronesia,9.0,57.0,0.0,Lower middle income
+130,MOLDOVA,MDA,1,0,0,0,0,Romanian,Gagauz/Russian/Ukrainian,,,,47.411631,28.369885,Europe,Eastern Europe,Eastern Europe,150.0,151.0,0.0,Upper middle income
+131,MONACO,MCO,1,0,0,0,0,French,,,,Monégasque,43.750298,7.412841,Europe,Western Europe,Western Europe,150.0,155.0,0.0,High income
+132,MONGOLIA,MNG,1,0,1,0,1,Mongolian,,,,,46.862496,103.846656,Asia,Eastern Asia,Eastern Asia,142.0,30.0,0.0,Lower middle income
+133,MONTSERRAT,MSR,0,1,0,0,0,English,,,Irish,,16.742498,-62.187366,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,High income
+134,MONTENEGRO,MNE,1,0,0,0,0,Montenegrin/Albanian/Bosnian/Croatian/Serbian,,,,,42.708678,19.37439,Europe,Southern Europe,Southern Europe,150.0,39.0,0.0,Upper middle income
+135,MOROCCO,MAR,1,0,0,1,1,Arabic/Tamazight,,,Arabic,Darija,31.791702,-7.09262,Africa,Northern Africa,Northern Africa,2.0,15.0,0.0,Lower middle income
+136,MOZAMBIQUE,MOZ,1,0,1,0,1,Portuguese,,,,,-18.665695,35.529562,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Low income
+137,MYANMAR,MMR,0,1,1,0,1,Burmese,Chin/Kachin/Karen/Karenni/Mon/Rakhine/Shan,,,,21.913965,95.956223,Asia,South-eastern Asia,South-eastern Asia,142.0,35.0,0.0,Lower middle income
+138,NAMIBIA,NAM,1,1,0,0,1,English,German/Oshiwambo,,Afrikaans,,-22.95764,18.49041,Africa,Sub-Saharan Africa,Southern Africa,2.0,202.0,18.0,Upper middle income
+139,NAURU,NRU,0,1,0,0,0,English/Nauruan,,,,,-0.522778,166.931503,Oceania,Micronesia,Micronesia,9.0,57.0,0.0,High income
+140,NEPAL,NPL,0,1,1,0,1,Nepali,,,,,28.394857,84.124008,Asia,Southern Asia,Southern Asia,142.0,34.0,0.0,Lower middle income
+141,NETHERLANDS,NLD,1,0,0,0,0,Dutch,English/Papiamento/West Frisian,Saxon/Limburgish/Sinte Romani/Yiddish,,,52.132633,5.291266,Europe,Western Europe,Western Europe,150.0,155.0,0.0,High income
+142,NETHERLANDS ANTILLES,ANT,1,0,0,0,0,Dutch/Papiamentu/English,,Creole,,,12.226079,-69.060087,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,High income
+143,NEW CALEDONIA,NCL,1,0,0,0,0,French,,,Melanese/Drehu/Nengone,,-20.904305,165.618042,Oceania,Melanesia,Melanesia,9.0,54.0,0.0,High income
+144,NEW ZEALAND,NZL,0,1,0,0,0,English/Maori,,,,,-40.900557,174.885971,Oceania,Australia and New Zealand,Australia and New Zealand,9.0,53.0,0.0,High income
+145,NICARAGUA,NIC,1,0,0,0,0,Spanish,,,,,12.865416,-85.207229,Americas,Latin America and the Caribbean,Central America,19.0,419.0,13.0,Lower middle income
+146,NIGER,NER,1,0,1,0,1,French,,,Arabic/Hausa/Fulfulde/Gulmancema/Kanuri/Zarma/Tamazight,,17.607789,8.081666,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,Low income
+147,NIGERIA,NGA,0,1,1,1,1,English,,,Hausa/Yoruba/Igbo/Tiv,,9.081999,8.675277,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,Lower middle income
+148,NIUE,NIU,0,1,0,0,0,English/Niuean,,,,,-19.054445,-169.867233,Oceania,Polynesia,Polynesia,9.0,61.0,0.0,Upper middle income
+149,NORFOLK ISLAND,NFK,0,1,0,0,0,English/Norfuk,,,,,-29.040835,167.954712,Oceania,Australia and New Zealand,Australia and New Zealand,9.0,53.0,0.0,High income
+150,NORWAY,NOR,1,0,0,0,0,Norwegian/Sami,Northern Sami,Kven/Scandoromani,Bokmål/Nynorsk/Sami,Bokmål/Nynorsk/Sami/Romani,60.472024,8.468946,Europe,Northern Europe,Northern Europe,150.0,154.0,0.0,High income
+151,OMAN,OMN,1,0,1,1,1,Arabic,,,,,21.512583,55.923255,Asia,Western Asia,Western Asia,142.0,145.0,0.0,High income
+152,PAKISTAN,PAK,0,1,0,1,1,Urdu/English,,,Urdu,Punjabi/Balochi/Sindhi/Pashto,30.375321,69.345116,Asia,Southern Asia,Southern Asia,142.0,34.0,0.0,Lower middle income
+153,PALAU,PLW,0,1,0,0,0,English/Palauan,Sonsorolese/Tobian/Japanese,,,,7.51498,134.58252,Oceania,Micronesia,Micronesia,9.0,57.0,0.0,High income
+154,PALESTINE,PSE,1,0,0,1,1,Arabic,,,,English/Hebrew,31.952162,35.233154,Asia,Western Asia,Western Asia,142.0,145.0,0.0,Lower middle income
+155,PANAMA,PAN,1,0,0,0,0,Spanish,,,,,8.537981,-80.782127,Americas,Latin America and the Caribbean,Central America,19.0,419.0,13.0,Upper middle income
+156,PAPUA NEW GUINEA,PNG,0,1,1,0,1,English/Hiri Motu/Tok Pisin,,,,,-6.314993,143.95555,Oceania,Melanesia,Melanesia,9.0,54.0,0.0,Lower middle income
+157,PARAGUAY,PRY,1,0,0,0,0,Spanish/Guaraní,,,,,-23.442503,-58.443832,Americas,Latin America and the Caribbean,South America,19.0,419.0,5.0,Upper middle income
+158,PERU,PER,1,0,0,0,0,Spanish/Aymara/Quechua,,,,,-9.189967,-75.015152,Americas,Latin America and the Caribbean,South America,19.0,419.0,5.0,Upper middle income
+159,PHILIPPINES,PHL,1,1,0,0,1,Filipino/English,Aklanon/Bikol/Cebuano/Chavacano/Hiligaynon/Ibanag/Ilocano/Ivatan/Kapampangan/Kinaray/Maguindanao/Maranao/Pangasinan/Sambal/Tagalog/Tausug/Waray/Yakan,Arabic/Spanish,Filipino,,12.879721,121.774017,Asia,South-eastern Asia,South-eastern Asia,142.0,35.0,0.0,Lower middle income
+160,PITCAIRN,PCN,0,1,0,0,0,Pitkern/English,,Norfulk,,,-24.703615,-127.439308,Oceania,Polynesia,Polynesia,9.0,61.0,0.0,Upper middle income
+161,POLAND,POL,1,0,0,0,0,Polish,Kashubian,German/Lithuanian/Belarusian/Czech/Hebrew/Yiddish/Lemko/Karaim/Armenian/Romani/Russian/Slovak/Tatar/Ukrainian,,,51.919438,19.145136,Europe,Eastern Europe,Eastern Europe,150.0,151.0,0.0,High income
+162,PORTO RICO,PRI,1,1,0,0,1,Spanish/English,,,,Spanish,18.220833,-66.590149,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,High income
+163,PORTUGAL,PRT,1,0,0,0,0,Portuguese,Mirandese,,,,39.399872,-8.224454,Europe,Southern Europe,Southern Europe,150.0,39.0,0.0,High income
+164,QATAR,QAT,1,1,1,1,1,Arabic,,,,,25.354826,51.183884,Asia,Western Asia,Western Asia,142.0,145.0,0.0,High income
+165,REUNION,REU,1,0,0,0,0,French,,Comorian/Creole,,,-21.115141,55.536384,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,High income
+166,ROMANIA,ROU,1,0,0,0,0,Romanian,,Armenian/German/Hungarian/Romani/Russian/Serbian/Slovak/Tatar/Turkish/Ukrainian,,Aromanian,45.943161,24.96676,Europe,Eastern Europe,Eastern Europe,150.0,151.0,0.0,Upper middle income
+167,RUSSIA,RUS,1,0,0,0,0,Russian,,,,,61.52401,105.318756,Europe,Eastern Europe,Eastern Europe,150.0,151.0,0.0,Upper middle income
+168,RWANDA,RWA,1,0,1,0,1,English/French/Kinyarwanda/Swahili,,,,,-1.940278,29.873888,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Low income
+169,SAINT HELENA,SHN,0,1,0,0,0,English,,,,,-24.143474,-10.030696,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,High income
+170,SAINT KITTS AND NEVIS,KNA,0,1,0,0,0,English,,,,,17.357822,-62.782998,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,High income
+171,SAINT LUCIA,LCA,1,1,0,0,1,English,,,,,13.909444,-60.978893,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,Upper middle income
+172,SAINT PIERRE AND MIQUELON,SPM,1,0,0,0,0,French,,,,,46.941936,-56.27111,Americas,Northern America,Northern America,19.0,21.0,0.0,High income
+173,SAINT VINCENT AND THE GRANADINES,VCT,0,1,0,0,0,English,,,,,12.984305,-61.287228,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,Upper middle income
+174,SAMOA,WSM,0,0,1,0,1,English/Samoan,,,Samoan,,-13.759029,-172.104629,Oceania,Polynesia,Polynesia,9.0,61.0,0.0,Lower middle income
+175,"SAMOA, AMERICAN",ASM,0,1,0,0,0,English/Samoan,,Tongan,,,-14.270972,-170.132217,Oceania,Polynesia,Polynesia,9.0,61.0,0.0,High income
+176,SAN MARINO,SMR,1,0,0,0,0,Italian,,,,,43.94236,12.457777,Europe,Southern Europe,Southern Europe,150.0,39.0,0.0,High income
+177,SAO TOMÉ AND PRINCIPE,STP,1,0,1,0,1,Portuguese,,,,,0.18636,6.613081,Africa,Sub-Saharan Africa,Middle Africa,2.0,202.0,17.0,Lower middle income
+178,SAUDI ARABIA,SAU,0,0,0,1,0,Arabic,,,,,23.885942,45.079162,Asia,Western Asia,Western Asia,142.0,145.0,0.0,High income
+179,SENEGAL,SEN,1,0,1,0,1,French,,,Jola-Fogny/Mandinka/Pulaar/Serer/Soninke/Wolof,,14.497401,-14.452362,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,Lower middle income
+180,SERBIA,SRB,1,0,0,0,0,Serbian,,,,,44.016521,21.005859,Europe,Southern Europe,Southern Europe,150.0,39.0,0.0,Upper middle income
+181,SEYCHELLES,SYC,1,1,0,0,1,English/French/Creole,,,,,-4.679574,55.491977,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,High income
+182,SIERRA LEONE,SLE,0,1,1,0,1,English,,,Krio,,8.460555,-11.779889,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,Low income
+183,SINGAPORE,SGP,0,1,0,1,1,English/Malay/Mandarin/Tamil,,,Malay,,1.352083,103.819836,Asia,South-eastern Asia,South-eastern Asia,142.0,35.0,0.0,High income
+184,SLOVAKIA,SVK,1,0,0,0,0,Slovak,,Bulgarian/Czech/German/Hungarian/Polish/Romani/Rusyn/Serbian/Ukrainian,,,48.669026,19.699024,Europe,Eastern Europe,Eastern Europe,150.0,151.0,0.0,High income
+185,SLOVENIA,SVN,1,0,0,0,0,Slovene,,Hungarian/Italian/Croatian,,,46.151241,14.995463,Europe,Southern Europe,Southern Europe,150.0,39.0,0.0,High income
+186,SOLOMON ISLANDS,SLB,0,1,1,0,1,English,,,,,-9.64571,160.156194,Oceania,Melanesia,Melanesia,9.0,54.0,0.0,Lower middle income
+187,SOMALIA,SOM,1,1,1,1,1,Arabic,,,Somali,,5.152149,46.199616,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Low income
+188,SOUTH AFRICA,ZAF,1,1,0,0,1,Afrikaans/English/Southern Ndebele/Sotho/Swazi/Tsonga/Tswana/Venda/Xhosa/Zulu,,,,,-30.559482,22.937506,Africa,Sub-Saharan Africa,Southern Africa,2.0,202.0,18.0,Upper middle income
+189,SOUTH GEORGIA AND SANDWICH ISLANDS,SGS,0,1,0,0,0,English,,,,,-54.429579,-36.587909,Americas,Latin America and the Caribbean,South America,19.0,419.0,5.0,High income
+190,SPAIN,ESP,1,0,0,0,0,Spanish,Catalan/Galician/Occitan/Basque,Astur/Aragonese/Fala/French/Portuguese,,,40.463667,-3.74922,Europe,Southern Europe,Southern Europe,150.0,39.0,0.0,High income
+191,SRI LANKA,LKA,1,1,1,0,1,Sinhala/Tamil,,,Sinhala/Tamil,,7.873054,80.771797,Asia,Southern Asia,Southern Asia,142.0,34.0,0.0,Lower middle income
+192,SUDAN,SDN,0,1,0,1,1,Arabic/English,,,,,12.862807,30.217636,Africa,Northern Africa,Northern Africa,2.0,15.0,0.0,Low income
+193,"SUDAN, SOUTH",SSD,0,0,1,0,0,English,,,Arabic/Bar/Dinka/Luo/Murle/Nuer/Zande,,6.876991,31.306978,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Low income
+194,SURINAME,SUR,1,0,0,0,0,Dutch,,,Sranan Tongo,,3.919305,-56.027783,Americas,Latin America and the Caribbean,South America,19.0,419.0,5.0,Upper middle income
+195,SWAZILAND,SWZ,1,0,1,0,1,English/Swazi,,,,,-26.522503,31.465866,Africa,Sub-Saharan Africa,Southern Africa,2.0,202.0,18.0,Lower middle income
+196,SWEDEN,SWE,1,0,0,0,0,Swedish,,Finnish/Meänkieli/Sami,,English/Romani/Yiddish,60.128161,18.643501,Europe,Northern Europe,Northern Europe,150.0,154.0,0.0,High income
+197,SWITZERLAND,CHE,1,0,0,0,0,French/German/Italian/Romansh,,,,,46.818188,8.227512,Europe,Western Europe,Western Europe,150.0,155.0,0.0,High income
+198,SYRIA,SYR,1,0,0,1,1,Arabic,Kurdish,,,,34.802075,38.996815,Asia,Western Asia,Western Asia,142.0,145.0,0.0,Low income
+199,TAIWAN,TWN,1,0,1,0,1,Mandarin,,,Formosan/Hakka/Mandarin[/Taiwanese,,23.69781,120.960515,Asia,Eastern Asia,Eastern Asia,142.0,30.0,0.0,High income
+200,TAJIKISTAN,TJK,1,0,0,0,0,Tajik,,,Tajik,Russian,38.861034,71.276093,Asia,Central Asia,Central Asia,142.0,143.0,0.0,Lower middle income
+201,TANZANIA,TZA,0,1,1,0,1,English,,,Swahili,,-6.369028,34.888822,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Lower middle income
+202,THAILAND,THA,1,0,0,0,0,Thai,,,,,15.870032,100.992541,Asia,South-eastern Asia,South-eastern Asia,142.0,35.0,0.0,Upper middle income
+203,TOGO,TGO,1,0,1,0,1,French,,,,,8.619543,0.824782,Africa,Sub-Saharan Africa,Western Africa,2.0,202.0,11.0,Low income
+204,TOKELAU,TKL,0,1,0,0,0,English/Tokelauan,,,,,-8.967363,-171.855881,Oceania,Polynesia,Polynesia,9.0,61.0,0.0,Upper middle income
+205,TONGA,TON,0,1,0,0,0,English/Tongan,,,,,-21.178986,-175.198242,Oceania,Polynesia,Polynesia,9.0,61.0,0.0,Upper middle income
+206,TRINIDAD AND TOBAGO,TTO,0,1,0,0,0,English,,,,,10.691803,-61.222503,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,High income
+207,TUNISIA,TUN,1,0,0,1,1,Tunisian/Arabic/French,,,Arabic,Tunisian,33.886917,9.537499,Africa,Northern Africa,Northern Africa,2.0,15.0,0.0,Lower middle income
+208,TURKEY,TUR,1,0,0,0,0,Turkish,,Kurdish,,,38.963745,35.243322,Asia,Western Asia,Western Asia,142.0,145.0,0.0,Upper middle income
+209,TURKMENISTAN,TKM,1,0,0,0,0,Turkmen,,,Turkmen,Russian,38.969719,59.556278,Asia,Central Asia,Central Asia,142.0,143.0,0.0,Upper middle income
+210,TURKS AND CAICOS,TCA,0,1,0,0,0,English,,Spanish,,Creole,21.694025,-71.797928,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,High income
+211,TUVALU,TUV,0,1,0,0,0,Tuvaluan/English,,,Tuvaluan/English,,-7.109535,177.64933,Oceania,Polynesia,Polynesia,9.0,61.0,0.0,Upper middle income
+212,UGANDA,UGA,0,1,1,0,1,English/Swahili,,,,,1.373333,32.290275,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Low income
+213,UKRAINE,UKR,1,0,0,0,0,Ukrainian,Russian/Tatar,,,,48.379433,31.16558,Europe,Eastern Europe,Eastern Europe,150.0,151.0,0.0,Lower middle income
+214,UNITED ARAB EMIRATES,ARE,0,0,1,1,1,Arabic,,,,,23.424076,53.847818,Asia,Western Asia,Western Asia,142.0,145.0,0.0,High income
+215,UNITED KINGDOM,GBR,0,1,0,0,0,English,Cornish/Irish/Scottish/Welsh/Pitcairnese/Guernésiais/Jèrriais/Manx,French,English,,55.378051,-3.435973,Europe,Northern Europe,Northern Europe,150.0,154.0,0.0,High income
+216,UNITED STATES OF AMERICA,USA,0,1,0,0,0,English,,,,Spanish,37.09024,-95.712891,Americas,Northern America,Northern America,19.0,21.0,0.0,High income
+217,URUGUAY,URY,1,0,0,0,0,Spanish,,,,,-32.522779,-55.765835,Americas,Latin America and the Caribbean,South America,19.0,419.0,5.0,High income
+218,UZBEKISTAN,UZB,1,0,0,0,0,Uzbek,,Uzbek/Karakalpak,,Russian,41.377491,64.585262,Asia,Central Asia,Central Asia,142.0,143.0,0.0,Lower middle income
+219,VANUATU,VUT,1,1,1,0,1,English/French,,,Bislama,,-15.376706,166.959158,Oceania,Melanesia,Melanesia,9.0,54.0,0.0,Lower middle income
+220,VENEZUELA,VEN,1,0,0,0,0,Spanish,,,,,6.42375,-66.58973,Americas,Latin America and the Caribbean,South America,19.0,419.0,5.0,Lower middle income
+221,VIETNAM,VNM,1,0,0,0,0,Vietnamese,,,Vietnamese,,14.058324,108.277199,Asia,South-eastern Asia,South-eastern Asia,142.0,35.0,0.0,Lower middle income
+222,"VIRGIN ISLANDS, U.S.",VIR,0,1,0,0,0,English,,Spanish/French,,Creole,18.335765,-64.896335,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,High income
+223,"VIRGIN ISLANDS, BRITISH",VGB,0,1,0,0,0,English,,Spanish,,,18.420695,-64.639968,Americas,Latin America and the Caribbean,Caribbean,19.0,419.0,29.0,High income
+224,WALLIS AND FUTUNA,WLF,1,0,0,0,0,French,,Futunan,,Wallisian,-13.768752,-177.156097,Oceania,Polynesia,Polynesia,9.0,61.0,0.0,High income
+225,YEMEN,YEM,1,1,1,1,1,Arabic,,,,,15.552727,48.516388,Asia,Western Asia,Western Asia,142.0,145.0,0.0,Low income
+226,ZAMBIA,ZMB,0,1,1,0,1,English,,,,,-13.133897,27.849332,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Lower middle income
+227,ZIMBABWE,ZWE,1,1,1,0,1,English,,Tsonga/Sotho/Ndau,,Shona/Ndebele,-19.015438,29.154857,Africa,Sub-Saharan Africa,Eastern Africa,2.0,202.0,14.0,Lower middle income

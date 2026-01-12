@@ -1,33 +1,12 @@
 import pandas as pd
 
-import sys
-sys.path.append('/root/country')
+from src.utils import config, io
 
-from src import addresses
-
-def get_oecd_countries(data_address):
-    try:
-        oecd_df = pd.read_csv(addresses.country_BE_address + 'intermed_data/oecd/oecd_rating_matrix_raw.csv')
-    except FileNotFoundError:
-        raise FileNotFoundError('No OECD Matrix, so we can\'t get oecd_countries. Run set_oecd script') 
-        
-    oecd_countries = list(oecd_df['ISO3_COUNTRY_CODE'].unique())
-    oecd_countries_df = pd.DataFrame(oecd_countries, columns=['ISO3_COUNTRY_CODE']).sort_values(by=['ISO3_COUNTRY_CODE'], ascending=True).reset_index(drop=True)
-    
-    return oecd_countries_df
-
-try:
-    oecd_countries = list(pd.read_csv(addresses.country_BE_address + 'raw_data/oecd_countries.csv', index_col=0)['ISO3_COUNTRY_CODE'])
-except FileNotFoundError:
-    oecd_countries = helper_functions.get_oecd_countries(intermed_data_address)
-    oecd_countries.to_csv(addresses.country_BE_address + 'raw_data/oecd_countries.csv')
-    
-Countries = CountriesInfo(addresses.country_BE_address + 'raw_data/country_mapping.csv')
-
-class CountriesInfo:
+class CountriesRegistry:
     def __init__(self, address):
         self.address = address
-
+        self.country_mapping = pd.DataFrame()
+        
         self.__set_country_mapping()
         self.__set_ISO2_list()
         self.__set_ISO3_list()
@@ -40,11 +19,8 @@ class CountriesInfo:
     # Set Functions
     def __set_country_mapping(self):
         try:
-            self.country_mapping = pd.read_csv(self.address, keep_default_na=False, na_values=[''])
+            self.country_mapping = io.load_csv(self.address, keep_default_na=False, na_values=[''])
         except FileNotFoundError:
-            # try:
-            #     self.country_mapping = pd.read_csv('./affinity_score/' + self.address, keep_default_na=False, na_values=[''])
-            # except FileNotFoundError:
             raise Exception('Country Mapping file not found at:\n\t' + self.address)
 
     def __set_ISO2_list(self):
@@ -155,3 +131,12 @@ class CountriesInfo:
 
     def check_ISO3_in_countries(self, iso3: str):
         return iso3 in self.iso3_list    
+    
+country_info_columns = [
+    'Info-Country_Name', 'Legal_Systems-Civil_Law', 'Legal_Systems-Common_Law', 'Legal_Systems-Customary', 'Legal_Systems-Muslim', 'Legal_Systems-Mixed', 
+    'Languages-Official_language', 'Languages-Regional_language', 'Languages-Minority_language', 'Languages-National_language', 'Languages-Widely_spoken', 'Geography-x_coord',
+    'Geography-y_coord', 'Geography-Region', 'Geography-Sub_Region', 'Geography-Intermediate_Region', 'Geography-Region_Code', 'Geography-Sub_Region_Code', 
+    'Geography-Intermediate_Region_Code', 'Economy-Income_Group'
+]
+
+country_registry = CountriesRegistry(config.METADATA_DIR / 'country_mapping.csv')
