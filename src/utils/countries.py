@@ -10,6 +10,8 @@ class CountriesRegistry:
         self.__set_country_mapping()
         self.__set_ISO2_list()
         self.__set_ISO3_list()
+        self.__set_OECD_ISO2_list()
+        self.__set_OECD_ISO3_list()
         self.__set_ISO2_to_ISO3()
         self.__set_ISO3_to_ISO2()
         self.__set_name_to_ISO3()
@@ -28,6 +30,12 @@ class CountriesRegistry:
 
     def __set_ISO3_list(self):
         self.iso3_list = list(self.country_mapping['ISO'])
+
+    def __set_OECD_ISO2_list(self):
+        self.oecd_iso2_list = list(self.country_mapping[self.country_mapping['OECD Country'] == True]['ISO 2-Alpha'])
+
+    def __set_OECD_ISO3_list(self):
+        self.oecd_iso3_list = list(self.country_mapping[self.country_mapping['OECD Country'] == True]['ISO'])
 
     def __set_ISO2_to_ISO3(self):
         self.iso2_to_iso3 = dict(self.country_mapping.set_index('ISO 2-Alpha')['ISO'])
@@ -65,7 +73,21 @@ class CountriesRegistry:
             list of strings: list of all the ISO Alpha-3 codes of the countries we have data on
         """
         return self.iso3_list
-            
+
+    def get_OECD_ISO2_list(self):
+        """
+        Returns:
+            list of strings: list of all the ISO Alpha-2 codes of the countries part of OECD Dataset.
+        """
+        return self.oecd_iso2_list
+      
+    def get_OECD_ISO3_list(self):
+        """
+        Returns:
+            list of strings: list of all the ISO Alpha-3 codes of the countries part of OECD Dataset.
+        """
+        return self.oecd_iso3_list
+
     def get_ISO3_df(self):
         """
         Returns:
@@ -132,6 +154,12 @@ class CountriesRegistry:
     def check_ISO3_in_countries(self, iso3: str):
         return iso3 in self.iso3_list    
     
+    def check_ISO2_in_oecd(self, iso3: str):
+        return iso3 in self.oecd_iso2_list    
+
+    def check_ISO3_in_oecd(self, iso3: str):
+        return iso3 in self.oecd_iso3_list    
+
 country_info_columns = [
     'Info-Country_Name', 'Legal_Systems-Civil_Law', 'Legal_Systems-Common_Law', 'Legal_Systems-Customary', 'Legal_Systems-Muslim', 'Legal_Systems-Mixed', 
     'Languages-Official_language', 'Languages-Regional_language', 'Languages-Minority_language', 'Languages-National_language', 'Languages-Widely_spoken', 'Geography-x_coord',

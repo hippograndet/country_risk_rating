@@ -1,0 +1,172 @@
+Provider Id,Provider Name,Provider Region,Dataset Id,Dataset Name
+IMF,International Monetary Fund,World,AFRREO,Sub-Saharan Africa Regional Economic Outlook (AFRREO)
+IMF,International Monetary Fund,World,APDREO,Asia and Pacific Regional Economic Outlook (APDREO)
+IMF,International Monetary Fund,World,BOP,Balance of Payments (BOP)
+IMF,International Monetary Fund,World,BOPAGG,"Balance of Payments (BOP), World and Regional Aggregates"
+IMF,International Monetary Fund,World,CDIS,Coordinated Direct Investment Survey (CDIS)
+IMF,International Monetary Fund,World,COFER,Currency Composition of Official Foreign Exchange Reserves (COFER)
+IMF,International Monetary Fund,World,CPI,Consumer Price Index (CPI)
+IMF,International Monetary Fund,World,CPIS,Coordinated Portfolio Investment Survey (CPIS)
+IMF,International Monetary Fund,World,DOT,Direction of Trade Statistics (DOTS)
+IMF,International Monetary Fund,World,FAS,Financial Access Survey (FAS)
+IMF,International Monetary Fund,World,FDI,Financial Development Index
+IMF,International Monetary Fund,World,FISCALDECENTRALIZATION,Fiscal Decentralization
+IMF,International Monetary Fund,World,FM,Fiscal Monitor (FM)
+IMF,International Monetary Fund,World,FSI,Financial Soundness Indicators (FSIs)
+IMF,International Monetary Fund,World,FSIRE,Financial Soundness Indicators: Reporting entities
+IMF,International Monetary Fund,World,GENDER_BUDGETING,Gender Budgeting
+IMF,International Monetary Fund,World,GENDER_EQUALITY,Gender Equality
+IMF,International Monetary Fund,World,GFSCOFOG,"Government Finance Statistics (GFS), Expenditure by Function of Government (COFOG)"
+IMF,International Monetary Fund,World,GFSE,"Government Finance Statistics (GFS), Expense"
+IMF,International Monetary Fund,World,GFSFALCS,"Government Finance Statistics (GFS), Financial Assets and Liabilities by Counterpart Sector"
+IMF,International Monetary Fund,World,GFSIBS,"Government Finance Statistics (GFS), Integrated Balance Sheet (Stock Positions and Flows in Assets and Liabilities)"
+IMF,International Monetary Fund,World,GFSMAB,"Government Finance Statistics (GFS), Main Aggregates and Balances"
+IMF,International Monetary Fund,World,GFSR,"Government Finance Statistics (GFS), Revenue"
+IMF,International Monetary Fund,World,GFSSSUC,"Government Finance Statistics (GFS), Statement of Sources and Uses of Cash"
+IMF,International Monetary Fund,World,HPDD,Historical Public Debt (HPDD)
+IMF,International Monetary Fund,World,IFS,International Financial Statistics (IFS)
+IMF,International Monetary Fund,World,IRFCL,International Reserves and Foreign Currency Liquidity (IRFCL)
+IMF,International Monetary Fund,World,MCDREO,Middle East and Central Asia Regional Economic Outlook (MCDREO)
+IMF,International Monetary Fund,World,MFS,Monetary and Financial Statistics (MFS)
+IMF,International Monetary Fund,World,NAMAIN_IDC_N,"System of National Accounts (SNA), NA_MAIN"
+IMF,International Monetary Fund,World,PCPS,Primary Commodity Price System (PCPS)
+IMF,International Monetary Fund,World,PCTOT,Commodity Terms of Trade
+IMF,International Monetary Fund,World,PGCS,Private and Public Capital Stock Dataset
+IMF,International Monetary Fund,World,PGI,Principal Global Indicators (PGI)
+IMF,International Monetary Fund,World,PSBSFAD,Public Sector Balance Sheet (PSBS)(FAD)
+IMF,International Monetary Fund,World,UNSDG_IMF_INPUTS,"Sustainable Development Goals, IMF Inputs"
+IMF,International Monetary Fund,World,WEO,World Economic Outlook
+IMF,International Monetary Fund,World,WHDREO,Western Hemisphere Regional Economic Outlook (WHDREO)
+IMF,International Monetary Fund,World,WoRLD,World Revenue Longitudinal Data (WoRLD)
+WB,World Bank,World,commodity_prices,Commodity Prices: History and Projections
+WB,World Bank,World,DBS,Doing Business
+WB,World Bank,World,ESY,Enterprise Surveys
+WB,World Bank,World,FDX,Global Financial Inclusion
+WB,World Bank,World,GEM,Global Economic Monitor
+WB,World Bank,World,GEP,Global Economic Prospects
+WB,World Bank,World,IDA,IDA Results Measurement System
+WB,World Bank,World,JED,Joint External Debt Hub
+WB,World Bank,World,JOB,Jobs
+WB,World Bank,World,PSD,Quarterly Public Sector Debt
+WB,World Bank,World,QDG,Quarterly External Debt Statistics GDDS
+WB,World Bank,World,QDS,Quarterly External Debt Statistics SDDS
+WB,World Bank,World,WDI,World Development Indicators
+WB,World Bank,World,WGI,Worldwide Governance Indicators
+OECD,Organisation for Economic Co-operation and Development,World,AGR,Agriculture and fisheries
+OECD,Organisation for Economic Co-operation and Development,World,DEV,Development
+OECD,Organisation for Economic Co-operation and Development,World,ECO,Economy
+OECD,Organisation for Economic Co-operation and Development,World,EDU,Education and skills
+OECD,Organisation for Economic Co-operation and Development,World,ENV,Environment and climate change
+OECD,Organisation for Economic Co-operation and Development,World,FIN,Finance and investment
+OECD,Organisation for Economic Co-operation and Development,World,GEO,"Regional, rural and urban development"
+OECD,Organisation for Economic Co-operation and Development,World,GOV,Public governance
+OECD,Organisation for Economic Co-operation and Development,World,HEA,Health
+OECD,Organisation for Economic Co-operation and Development,World,INT,"Science, technology and innovation"
+OECD,Organisation for Economic Co-operation and Development,World,JOB,Employment
+OECD,Organisation for Economic Co-operation and Development,World,SOC,Society
+OECD,Organisation for Economic Co-operation and Development,World,STI,"Industry, business and entrepreneurship"
+OECD,Organisation for Economic Co-operation and Development,World,TAX,Taxation
+OECD,Organisation for Economic Co-operation and Development,World,TRA,Transport
+OECD,Organisation for Economic Co-operation and Development,World,TRD,Trade
+OECD,Organisation for Economic Co-operation and Development,World,LEGACY,Legacy datasets (before OECD https://data-explorer.oecd.org/)
+OECD,Organisation for Economic Co-operation and Development,World,OECDCS1,Topic
+OECD,Organisation for Economic Co-operation and Development,World,OECDCS1_CLOUD,Topic CLOUD
+Eurostat,Eurostat,EU,agric,"Agriculture, forestry and fisheries"
+Eurostat,Eurostat,EU,cc,Cross cutting topics
+Eurostat,Eurostat,EU,economy,Economy and finance
+Eurostat,Eurostat,EU,envir,Environment and energy
+Eurostat,Eurostat,EU,external,International trade
+Eurostat,Eurostat,EU,general,General and regional statistics
+Eurostat,Eurostat,EU,icts,"Industry, trade and services"
+Eurostat,Eurostat,EU,popul,Population and social conditions
+Eurostat,Eurostat,EU,science,"Science, technology, digital society"
+Eurostat,Eurostat,EU,tb_eu,Tables on EU policy
+Eurostat,Eurostat,EU,transp,Transport
+Eurostat,Eurostat,EU,data,Database by themes
+BIS,Bank for International Settlements,World,BISWEB_CATSCHEME,"BISWEB_CATSCHEME
+        "
+BIS,Bank for International Settlements,World,BIS_DP,"Dataportal Category Scheme
+        "
+UNCTAD,United Nation Conference on Trade and Development,World,,International merchandise trade
+UNCTAD,United Nation Conference on Trade and Development,World,,International trade in services
+UNCTAD,United Nation Conference on Trade and Development,World,,Digital economy
+UNCTAD,United Nation Conference on Trade and Development,World,,Creative economy
+UNCTAD,United Nation Conference on Trade and Development,World,,Iron ore
+UNCTAD,United Nation Conference on Trade and Development,World,,Maritime transport
+UNCTAD,United Nation Conference on Trade and Development,World,,Balance of payments
+UNCTAD,United Nation Conference on Trade and Development,World,,Output and income
+UNCTAD,United Nation Conference on Trade and Development,World,,Productive capacities
+UNCTAD,United Nation Conference on Trade and Development,World,,Inflation and exchange rates
+UNCTAD,United Nation Conference on Trade and Development,World,,Commodity prices
+UNCTAD,United Nation Conference on Trade and Development,World,,Population
+UNCTAD,United Nation Conference on Trade and Development,World,,Trade and Biodiversity
+FAO,Food and Agriculture Organization of the United Nations,UN,,ASTI R&D Indicators
+FAO,Food and Agriculture Organization of the United Nations,UN,,Agri-Environmental Indicators
+FAO,Food and Agriculture Organization of the United Nations,UN,,Emergency Response
+FAO,Food and Agriculture Organization of the United Nations,UN,,Emissions - Agriculture
+FAO,Food and Agriculture Organization of the United Nations,UN,,Emissions - Land Use
+FAO,Food and Agriculture Organization of the United Nations,UN,,Food Balance
+FAO,Food and Agriculture Organization of the United Nations,UN,,Forestry
+FAO,Food and Agriculture Organization of the United Nations,UN,,Inputs
+FAO,Food and Agriculture Organization of the United Nations,UN,,Investment
+FAO,Food and Agriculture Organization of the United Nations,UN,,Macro-Statistics
+FAO,Food and Agriculture Organization of the United Nations,UN,,Population
+FAO,Food and Agriculture Organization of the United Nations,UN,,Prices
+FAO,Food and Agriculture Organization of the United Nations,UN,,Production
+FAO,Food and Agriculture Organization of the United Nations,UN,,Supply Utilization Accounts
+FAO,Food and Agriculture Organization of the United Nations,UN,,Trade
+FAO,Food and Agriculture Organization of the United Nations,UN,,Emissions
+FAO,Food and Agriculture Organization of the United Nations,UN,,Climate Change
+FAO,Food and Agriculture Organization of the United Nations,UN,,Discontinued archives and data series
+FAO,Food and Agriculture Organization of the United Nations,UN,,"Land, Inputs and Sustainability"
+FAO,Food and Agriculture Organization of the United Nations,UN,,Macro-Economic Indicators
+FAO,Food and Agriculture Organization of the United Nations,UN,,Population and Employment
+FAO,Food and Agriculture Organization of the United Nations,UN,,Food Balances
+FAO,Food and Agriculture Organization of the United Nations,UN,,SDG Indicators
+FAO,Food and Agriculture Organization of the United Nations,UN,,Cost and Affordability of a Healthy Diet
+FAO,Food and Agriculture Organization of the United Nations,UN,,Food Security and Nutrition
+FAO,Food and Agriculture Organization of the United Nations,UN,,Food Value Chain
+FAO,Food and Agriculture Organization of the United Nations,UN,,World Census of Agriculture
+FAO,Food and Agriculture Organization of the United Nations,UN,,Food and Diet
+ILO,International Labour Organization,World,CHL,Child labour
+ILO,International Labour Organization,World,CPI,Consumer price indices
+ILO,International Labour Organization,World,EAR,Earnings
+ILO,International Labour Organization,World,EMP,Employment
+ILO,International Labour Organization,World,POV,Working poverty
+ILO,International Labour Organization,World,IR,Industrial relations
+ILO,International Labour Organization,World,IFL,Informal sector and informal employment
+ILO,International Labour Organization,World,LAC,Labour cost
+ILO,International Labour Organization,World,LAP,Labour income
+ILO,International Labour Organization,World,MIG,Labour migration
+ILO,International Labour Organization,World,LPY,Labour productivity
+ILO,International Labour Organization,World,INJ,Occupational injuries
+ILO,International Labour Organization,World,EAP,Labour force
+ILO,International Labour Organization,World,OSH,Safety and health at work
+ILO,International Labour Organization,World,SOC,Social protection
+ILO,International Labour Organization,World,LUU,Other measures of labour underutilization
+ILO,International Labour Organization,World,VOL,Volunteer work
+ILO,International Labour Organization,World,WOM,Women
+ILO,International Labour Organization,World,HOW,Hours of work
+ILO,International Labour Organization,World,CLD,Child labour
+ILO,International Labour Organization,World,CBC,Collective bargaining
+ILO,International Labour Organization,World,EES,Employees
+ILO,International Labour Organization,World,MFL,International migrant flow
+ILO,International Labour Organization,World,MST,International migrant stock
+ILO,International Labour Organization,World,LAI,Labour inspection
+ILO,International Labour Organization,World,MNA,Nationals abroad
+ILO,International Labour Organization,World,POP,Population
+ILO,International Labour Organization,World,PSE,Public sector workers
+ILO,International Labour Organization,World,YTH,School-to-work transition
+ILO,International Labour Organization,World,STR,Strikes and lockouts
+ILO,International Labour Organization,World,TRU,Time-related underemployment
+ILO,International Labour Organization,World,TUM,Trade union membership
+ILO,International Labour Organization,World,UNE,Unemployment
+ILO,International Labour Organization,World,UNP,Unpaid work
+ILO,International Labour Organization,World,CAR,Care paid workers
+ILO,International Labour Organization,World,TOU,Tourism sector workers
+ILO,International Labour Organization,World,STM,Workers in STEM occupations
+ILO,International Labour Organization,World,STW,School-to-work transition
+ILO,International Labour Organization,World,WBL,Work-based learning
+FH,Freedom House,World,FIW,"All data, Freedom in the world since 2013"
+FH,Freedom House,World,CTRS,Country and Territory Ratings and Statuses
+GGDC,"Groningen Growth and Development Center, University of Groningen",World,penn10,Penn World Table 10.0

@@ -1,229 +1,229 @@
-ISO,ISO 2-Alpha,Country Name 1,Country Name 2,Country Name 3,Country Name 4
-AFG,AF,Afghanistan,"Afghanistan, Islamic Rep. of",,
-ALB,AL,Albania,,,
-DZA,DZ,Algeria,,,
-AND,AD,Andorra,,,
-AGO,AO,Angola,,,
-ATG,AG,Antigua and Barbuda,,,
-ARG,AR,Argentina,,,
-ARM,AM,Armenia,"Armenia, Rep. of",,
-AUS,AU,Australia,,,
-AUT,AT,Austria,,,
-AZE,AZ,Azerbaijan,"Azerbaijan, Rep. of",,
-BHS,BS,Bahamas,"Bahamas, The",,
-BHR,BH,Bahrain,"Bahrain, Kingdom of",,
-BGD,BD,Bangladesh,,,
-BRB,BB,Barbados,,,
-BLR,BY,Belarus,"Belarus, Rep. of",,
-BEL,BE,Belgium,,,
-BLZ,BZ,Belize,,,
-BEN,BJ,Benin,,,
-BTN,BT,Bhutan,,,
-BOL,BO,Bolivia,"Bolivia, Plurinational State of",,
-BIH,BA,Bosnia and Herzegovina,,,
-BWA,BW,Botswana,,,
-BRA,BR,Brazil,,,
-BRN,BN,Brunei,Brunei Darussalam,,
-BGR,BG,Bulgaria,,,
-BFA,BF,Burkina Faso,,,
-BDI,BI,Burundi,,,
-CPV,CV,Cape Verde,Cabo Verde,,
-KHM,KH,Cambodia,,,
-CMR,CM,Cameroon,,,
-CAN,CA,Canada,,,
-CAF,CF,Central African Republic,Central African Rep.,,
-TCD,TD,Chad,,,
-CHL,CL,Chile,,,
-CHN,CN,China,China (People's Republic of),"China, P.R.: Mainland",
-TWN,TW,Taiwan,Chinese Taipei,Taiwan Province of China,
-COL,CO,Colombia,,,
-COM,KM,Comoros,"Comoros, Union of the",,
-COG,CG,Congo,"Congo, Rep. of","Congo, the Democratic Republic of the",
-COK,CK,Cook Islands,,,
-CRI,CR,Costa Rica,,,
-CIV,CI,Ivory Coast,Cote d'Ivoire,Côte d'Ivoire,
-HRV,HR,Croatia,"Croatia, Rep. of",,
-CUB,CU,Cuba,,,
-CYP,CY,Cyprus,,,
-CZE,CZ,Czech Republic,Czech Rep.,,
-PRK,KP,Democratic People's Republic of Korea,"Korea, Dem. People's Rep. of","Korea, Democratic People's Republic of",
-COD,CD,Democratic Republic of the Congo,"Congo, Dem. Rep. of the",,
-DNK,DK,Denmark,,,
-DJI,DJ,Djibouti,,,
-DMA,DM,Dominica,,,
-DOM,DO,Dominican Republic,Dominican Rep.,,
-ECU,EC,Ecuador,,,
-EGY,EG,Egypt,"Egypt, Arab Rep. of",,
-SLV,SV,El Salvador,,,
-GNQ,GQ,Equatorial Guinea,"Equatorial Guinea, Rep. of",,
-ERI,ER,Eritrea,"Eritrea, The State of",,
-EST,EE,Estonia,"Estonia, Rep. of",,
-SWZ,SZ,Swaziland,"Eswatini, Kingdom of",Eswatini,
-ETH,ET,Ethiopia,"Ethiopia, The Federal Dem. Rep. of",,
-FLK,FK,Falkland Isles,Falkland Islands (Islas Malvinas),Falkland Islands (Malvinas),
-FRO,FO,Faroe Islands,Faeroe Islands,,
-FJI,FJ,Fiji,"Fiji, Rep. of",,
-FIN,FI,Finland,,,
-FRA,FR,France,,,
-GUF,GF,French Guyana,French Guiana,,
-PYF,PF,French Polynesia,,,
-GAB,GA,Gabon,,,
-GMB,GM,Gambia,"Gambia, The",The Gambia,
-GEO,GE,Georgia,,,
-DEU,DE,Germany,,,
-GHA,GH,Ghana,,,
-GIB,GI,Gibraltar,,,
-GRC,GR,Greece,,,
-GRL,GL,Greenland,,,
-GRD,GD,Grenada,,,
-GLP,GP,Guadeloupe,,,
-GUM,GU,Guam,,,
-GTM,GT,Guatemala,,,
-GGY,GG,Guernsey,,,
-GIN,GN,Guinea,,,
-GNB,GW,Guinea-Bissau,,,
-GUY,GY,Guyana,,,
-HTI,HT,Haiti,,,
-HND,HN,Honduras,,,
-HKG,HK,Hong Kong,Hong Kong (China),"China, P.R.: Hong Kong","Hong Kong, China"
-HUN,HU,Hungary,,,
-ISL,IS,Iceland,,,
-IND,IN,India,,,
-IDN,ID,Indonesia,,,
-IRN,IR,Iran,"Iran, Islamic Rep. of","Iran, Islamic Republic of",
-IRQ,IQ,Iraq,,,
-IRL,IE,Ireland,,,
-ISR,IL,Israel,,,
-ITA,IT,Italy,,,
-JAM,JM,Jamaica,,,
-JPN,JP,Japan,,,
-JEY,JE,Jersey,,,
-JOR,JO,Jordan,,,
-KAZ,KZ,Kazakhstan,"Kazakhstan, Rep. of",,
-KEN,KE,Kenya,,,
-KIR,KI,Kiribati,,,
-KOR,KR,South Korea,Korea,"Korea, Rep. of","Korea, Republic of"
-XKX,XK,Kosovo,"Kosovo, Rep. of",UNMIK/Kosovo,"Kosovo, Republic of"
-KWT,KW,Kuwait,"Kuwait, the State of",,
-KGZ,KG,Kyrgyzstan,Kyrgyz Rep.,Kyrgyz Republic,
-LAO,LA,Laos,Lao People's Democratic Republic,Lao People's Dem. Rep.,
-LVA,LV,Latvia,,,
-LBN,LB,Lebanon,Lebanese Republic,,
-LSO,LS,Lesotho,"Lesotho, Kingdom of",,
-LBR,LR,Liberia,,,
-LBY,LY,Libya,,,
-LIE,LI,Liechtenstein,,,
-LTU,LT,Lithuania,,,
-LUX,LU,Luxembourg,,,
-MAC,MO,Macao,Macau (China),"China, P.R.: Macao","Macao, China"
-MDG,MG,Madagascar,"Madagascar, Rep. of",,
-MWI,MW,Malawi,,,
-MYS,MY,Malaysia,,,
-MDV,MV,Maldives,,,
-MLI,ML,Mali,,,
-MLT,MT,Malta,,,
-MHL,MH,Marshall Islands,"Marshall Islands, Rep. of the",,
-MTQ,MQ,Martinique,,,
-MRT,MR,Mauritania,"Mauritania, Islamic Rep. of",,
-MUS,MU,Mauritius,,,
-MYT,YT,Mayotte,,,
-MEX,MX,Mexico,,,
-FSM,FM,Micronesia,"Micronesia, Federated States of",,
-MDA,MD,Moldova,"Moldova, Rep. of","Moldova, Republic of",
-MCO,MC,Monaco,,,
-MNG,MN,Mongolia,,,
-MNE,ME,Montenegro,,,
-MSR,MS,Montserrat,,,
-MAR,MA,Morocco,,,
-MOZ,MZ,Mozambique,"Mozambique, Rep. of",,
-MMR,MM,Myanmar,,,
-NAM,NA,Namibia,,,
-NRU,NR,Nauru,"Nauru, Rep. of",,
-NPL,NP,Nepal,,,
-NLD,NL,Netherlands,"Netherlands, The",,
-ANT,AN,Netherlands Antilles,,,
-NCL,NC,New Caledonia,,,
-NZL,NZ,New Zealand,,,
-NIC,NI,Nicaragua,,,
-NER,NE,Niger,,,
-NGA,NG,Nigeria,,,
-NIU,NU,Niue,,,
-NFK,NF,Norfolk Island,,,
-MKD,MK,Northern Macedonia,"North Macedonia, Republic of",North Macedonia,"Macedonia, the former Yugoslav Republic of"
-NOR,NO,Norway,,,
-OMN,OM,Oman,,,
-PAK,PK,Pakistan,,,
-PLW,PW,Palau,"Palau, Rep. of",,
-PAN,PA,Panama,,,
-PNG,PG,Papua New Guinea,,,
-PRY,PY,Paraguay,,,
-PER,PE,Peru,,,
-PHL,PH,Philippines,,,
-PCN,PN,Pitcairn,,,
-POL,PL,Poland,"Poland, Rep. of",,
-PRI,PR,Porto Rico,,,
-PRT,PT,Portugal,,,
-QAT,QA,Qatar,,,
-REU,RE,Reunion,Réunion,,
-ROU,RO,Romania,,,
-RUS,RU,Russia,Russian Federation,,
-RWA,RW,Rwanda,,,
-SHN,SH,Saint Helena,"Saint Helena, Ascension and Tristan da Cunha",,
-KNA,KN,Saint Kitts and Nevis,St. Kitts and Nevis,,
-LCA,LC,Saint Lucia,St. Lucia,,
-SPM,PM,Saint Pierre and Miquelon,,,
-VCT,VC,Saint Vincent and the Grenadines,St. Vincent and the Grenadines,,
-WSM,WS,Samoa,,,
-ASM, AS,American Samoa,"Samoa, American",,
-SMR,SM,San Marino,"San Marino, Rep. of",,
-STP,ST,Sao Tome and Principe,"São Tomé and Príncipe, Dem. Rep. of",,
-SAU,SA,Saudi Arabia,"Saudi Arabia, Kingdom of",,
-SEN,SN,Senegal,,,
-SRB,RS,Serbia,"Serbia, Rep. of",,
-SYC,SC,Seychelles,,,
-SLE,SL,Sierra Leone,,,
-SGP,SG,Singapore,,,
-SVK,SK,Slovakia,Slovak Republic,Slovak Rep.,
-SVN,SI,Slovenia,"Slovenia, Rep. of",,
-SLB,SB,Solomon Islands,,,
-SOM,SO,Somalia,,,
-ZAF,ZA,South Africa,,,
-SGS,GS,South Georgia and Sandwich Islands,South Georgia and the South Sandwich Islands,,
-SSD,SS,South Sudan,"South Sudan, Rep. of",,
-ESP,ES,Spain,,,
-LKA,LK,Sri Lanka,,,
-SDN,SD,Sudan,,,
-SUR,SR,Suriname,,,
-SWE,SE,Sweden,,,
-CHE,CH,Switzerland,,,
-SYR,SY,Syrian Arab Republic,Syrian Arab Rep.,,
-TJK,TJ,Tajikistan,"Tajikistan, Rep. of",,
-TZA,TZ,Tanzania,"Tanzania, United Rep. of","Tanzania, United Republic of",
-THA,TH,Thailand,,,
-TLS,TL,Timor-Leste,"Timor-Leste, Dem. Rep. of",,
-TGO,TG,Togo,,,
-TKL,TK,Tokelau,,,
-TON,TO,Tonga,,,
-TTO,TT,Trinidad and Tobago,,,
-TUN,TN,Tunisia,,,
-TUR,TR,Turkey,,,
-TKM,™,Turkmenistan,,,
-TCA,TC,Turks and Caicos,Turks and Caicos Islands,,
-TUV,TV,Tuvalu,,,
-UGA,UG,Uganda,,,
-UKR,UA,Ukraine,,,
-ARE,AE,United Arab Emirates,,,
-GBR,GB,United Kingdom,,,
-USA,US,United States of America,United States,,
-URY,UY,Uruguay,,,
-UZB,UZ,Uzbekistan,"Uzbekistan, Rep. of",,
-VUT,VU,Vanuatu,,,
-VEN,VE,Venezuela,"Venezuela, Rep. Bolivariana de","Venezuela, Bolivarian Republic of","Venezuela, Bolivarian Republic"
-VNM,VN,Vietnam,Viet Nam,,
-VGB,VG,"Virgin Islands, British",,,
-VIR,VI,"Virgin Islands, U.S.",,,
-WLF,WF,Wallis and Futuna,Wallis and Futuna Islands,,
-PSE,PS,West Bank and Gaza,Palestine,"Palestinian Territory, Occupied","Palestine, State of"
-YEM,YE,Yemen,"Yemen, Rep. of",,
-ZMB,ZM,Zambia,,,
-ZWE,ZW,Zimbabwe,,,
+ISO,ISO 2-Alpha,Country Name 1,Country Name 2,Country Name 3,Country Name 4,OECD Country
+AFG,AF,Afghanistan,"Afghanistan, Islamic Rep. of",,,True
+ALB,AL,Albania,,,,True
+DZA,DZ,Algeria,,,,True
+AND,AD,Andorra,,,,True
+AGO,AO,Angola,,,,True
+ATG,AG,Antigua and Barbuda,,,,True
+ARG,AR,Argentina,,,,True
+ARM,AM,Armenia,"Armenia, Rep. of",,,True
+AUS,AU,Australia,,,,True
+AUT,AT,Austria,,,,True
+AZE,AZ,Azerbaijan,"Azerbaijan, Rep. of",,,True
+BHS,BS,Bahamas,"Bahamas, The",,,True
+BHR,BH,Bahrain,"Bahrain, Kingdom of",,,True
+BGD,BD,Bangladesh,,,,True
+BRB,BB,Barbados,,,,True
+BLR,BY,Belarus,"Belarus, Rep. of",,,True
+BEL,BE,Belgium,,,,True
+BLZ,BZ,Belize,,,,True
+BEN,BJ,Benin,,,,True
+BTN,BT,Bhutan,,,,True
+BOL,BO,Bolivia,"Bolivia, Plurinational State of",,,True
+BIH,BA,Bosnia and Herzegovina,,,,True
+BWA,BW,Botswana,,,,True
+BRA,BR,Brazil,,,,True
+BRN,BN,Brunei,Brunei Darussalam,,,True
+BGR,BG,Bulgaria,,,,True
+BFA,BF,Burkina Faso,,,,True
+BDI,BI,Burundi,,,,True
+CPV,CV,Cape Verde,Cabo Verde,,,True
+KHM,KH,Cambodia,,,,True
+CMR,CM,Cameroon,,,,True
+CAN,CA,Canada,,,,True
+CAF,CF,Central African Republic,Central African Rep.,,,True
+TCD,TD,Chad,,,,True
+CHL,CL,Chile,,,,True
+CHN,CN,China,China (People's Republic of),"China, P.R.: Mainland",,True
+TWN,TW,Taiwan,Chinese Taipei,Taiwan Province of China,,True
+COL,CO,Colombia,,,,True
+COM,KM,Comoros,"Comoros, Union of the",,,True
+COG,CG,Congo,"Congo, Rep. of","Congo, the Democratic Republic of the",,True
+COK,CK,Cook Islands,,,,False
+CRI,CR,Costa Rica,,,,True
+CIV,CI,Ivory Coast,Cote d'Ivoire,Côte d'Ivoire,,True
+HRV,HR,Croatia,"Croatia, Rep. of",,,True
+CUB,CU,Cuba,,,,True
+CYP,CY,Cyprus,,,,True
+CZE,CZ,Czech Republic,Czech Rep.,,,True
+PRK,KP,Democratic People's Republic of Korea,"Korea, Dem. People's Rep. of","Korea, Democratic People's Republic of",,True
+COD,CD,Democratic Republic of the Congo,"Congo, Dem. Rep. of the",,,True
+DNK,DK,Denmark,,,,True
+DJI,DJ,Djibouti,,,,True
+DMA,DM,Dominica,,,,True
+DOM,DO,Dominican Republic,Dominican Rep.,,,True
+ECU,EC,Ecuador,,,,True
+EGY,EG,Egypt,"Egypt, Arab Rep. of",,,True
+SLV,SV,El Salvador,,,,True
+GNQ,GQ,Equatorial Guinea,"Equatorial Guinea, Rep. of",,,True
+ERI,ER,Eritrea,"Eritrea, The State of",,,True
+EST,EE,Estonia,"Estonia, Rep. of",,,True
+SWZ,SZ,Swaziland,"Eswatini, Kingdom of",Eswatini,,True
+ETH,ET,Ethiopia,"Ethiopia, The Federal Dem. Rep. of",,,True
+FLK,FK,Falkland Isles,Falkland Islands (Islas Malvinas),Falkland Islands (Malvinas),,False
+FRO,FO,Faroe Islands,Faeroe Islands,,,False
+FJI,FJ,Fiji,"Fiji, Rep. of",,,True
+FIN,FI,Finland,,,,True
+FRA,FR,France,,,,True
+GUF,GF,French Guyana,French Guiana,,,False
+PYF,PF,French Polynesia,,,,False
+GAB,GA,Gabon,,,,True
+GMB,GM,Gambia,"Gambia, The",The Gambia,,True
+GEO,GE,Georgia,,,,True
+DEU,DE,Germany,,,,True
+GHA,GH,Ghana,,,,True
+GIB,GI,Gibraltar,,,,False
+GRC,GR,Greece,,,,True
+GRL,GL,Greenland,,,,False
+GRD,GD,Grenada,,,,True
+GLP,GP,Guadeloupe,,,,False
+GUM,GU,Guam,,,,False
+GTM,GT,Guatemala,,,,True
+GGY,GG,Guernsey,,,,False
+GIN,GN,Guinea,,,,True
+GNB,GW,Guinea-Bissau,,,,True
+GUY,GY,Guyana,,,,True
+HTI,HT,Haiti,,,,True
+HND,HN,Honduras,,,,True
+HKG,HK,Hong Kong,Hong Kong (China),"China, P.R.: Hong Kong","Hong Kong, China",True
+HUN,HU,Hungary,,,,True
+ISL,IS,Iceland,,,,True
+IND,IN,India,,,,True
+IDN,ID,Indonesia,,,,True
+IRN,IR,Iran,"Iran, Islamic Rep. of","Iran, Islamic Republic of",,True
+IRQ,IQ,Iraq,,,,True
+IRL,IE,Ireland,,,,True
+ISR,IL,Israel,,,,True
+ITA,IT,Italy,,,,True
+JAM,JM,Jamaica,,,,True
+JPN,JP,Japan,,,,True
+JEY,JE,Jersey,,,,False
+JOR,JO,Jordan,,,,True
+KAZ,KZ,Kazakhstan,"Kazakhstan, Rep. of",,,True
+KEN,KE,Kenya,,,,True
+KIR,KI,Kiribati,,,,True
+KOR,KR,South Korea,Korea,"Korea, Rep. of","Korea, Republic of",True
+XKX,XK,Kosovo,"Kosovo, Rep. of",UNMIK/Kosovo,"Kosovo, Republic of",False
+KWT,KW,Kuwait,"Kuwait, the State of",,,True
+KGZ,KG,Kyrgyzstan,Kyrgyz Rep.,Kyrgyz Republic,,True
+LAO,LA,Laos,Lao People's Democratic Republic,Lao People's Dem. Rep.,,True
+LVA,LV,Latvia,,,,True
+LBN,LB,Lebanon,Lebanese Republic,,,True
+LSO,LS,Lesotho,"Lesotho, Kingdom of",,,True
+LBR,LR,Liberia,,,,True
+LBY,LY,Libya,,,,True
+LIE,LI,Liechtenstein,,,,True
+LTU,LT,Lithuania,,,,True
+LUX,LU,Luxembourg,,,,True
+MAC,MO,Macao,Macau (China),"China, P.R.: Macao","Macao, China",True
+MDG,MG,Madagascar,"Madagascar, Rep. of",,,True
+MWI,MW,Malawi,,,,True
+MYS,MY,Malaysia,,,,True
+MDV,MV,Maldives,,,,True
+MLI,ML,Mali,,,,True
+MLT,MT,Malta,,,,True
+MHL,MH,Marshall Islands,"Marshall Islands, Rep. of the",,,True
+MTQ,MQ,Martinique,,,,False
+MRT,MR,Mauritania,"Mauritania, Islamic Rep. of",,,True
+MUS,MU,Mauritius,,,,True
+MYT,YT,Mayotte,,,,False
+MEX,MX,Mexico,,,,True
+FSM,FM,Micronesia,"Micronesia, Federated States of",,,True
+MDA,MD,Moldova,"Moldova, Rep. of","Moldova, Republic of",,True
+MCO,MC,Monaco,,,,True
+MNG,MN,Mongolia,,,,True
+MNE,ME,Montenegro,,,,True
+MSR,MS,Montserrat,,,,False
+MAR,MA,Morocco,,,,True
+MOZ,MZ,Mozambique,"Mozambique, Rep. of",,,True
+MMR,MM,Myanmar,,,,True
+NAM,,Namibia,,,,True
+NRU,NR,Nauru,"Nauru, Rep. of",,,True
+NPL,NP,Nepal,,,,True
+NLD,NL,Netherlands,"Netherlands, The",,,True
+ANT,AN,Netherlands Antilles,,,,False
+NCL,NC,New Caledonia,,,,False
+NZL,NZ,New Zealand,,,,True
+NIC,NI,Nicaragua,,,,True
+NER,NE,Niger,,,,True
+NGA,NG,Nigeria,,,,True
+NIU,NU,Niue,,,,False
+NFK,NF,Norfolk Island,,,,False
+MKD,MK,Northern Macedonia,"North Macedonia, Republic of",North Macedonia,"Macedonia, the former Yugoslav Republic of",True
+NOR,NO,Norway,,,,True
+OMN,OM,Oman,,,,True
+PAK,PK,Pakistan,,,,True
+PLW,PW,Palau,"Palau, Rep. of",,,True
+PAN,PA,Panama,,,,True
+PNG,PG,Papua New Guinea,,,,True
+PRY,PY,Paraguay,,,,True
+PER,PE,Peru,,,,True
+PHL,PH,Philippines,,,,True
+PCN,PN,Pitcairn,,,,False
+POL,PL,Poland,"Poland, Rep. of",,,True
+PRI,PR,Porto Rico,,,,False
+PRT,PT,Portugal,,,,True
+QAT,QA,Qatar,,,,True
+REU,RE,Reunion,Réunion,,,False
+ROU,RO,Romania,,,,True
+RUS,RU,Russia,Russian Federation,,,True
+RWA,RW,Rwanda,,,,True
+SHN,SH,Saint Helena,"Saint Helena, Ascension and Tristan da Cunha",,,False
+KNA,KN,Saint Kitts and Nevis,St. Kitts and Nevis,,,True
+LCA,LC,Saint Lucia,St. Lucia,,,True
+SPM,PM,Saint Pierre and Miquelon,,,,False
+VCT,VC,Saint Vincent and the Grenadines,St. Vincent and the Grenadines,,,True
+WSM,WS,Samoa,,,,True
+ASM, AS,American Samoa,"Samoa, American",,,False
+SMR,SM,San Marino,"San Marino, Rep. of",,,True
+STP,ST,Sao Tome and Principe,"São Tomé and Príncipe, Dem. Rep. of",,,True
+SAU,SA,Saudi Arabia,"Saudi Arabia, Kingdom of",,,True
+SEN,SN,Senegal,,,,True
+SRB,RS,Serbia,"Serbia, Rep. of",,,True
+SYC,SC,Seychelles,,,,True
+SLE,SL,Sierra Leone,,,,True
+SGP,SG,Singapore,,,,True
+SVK,SK,Slovakia,Slovak Republic,Slovak Rep.,,True
+SVN,SI,Slovenia,"Slovenia, Rep. of",,,True
+SLB,SB,Solomon Islands,,,,True
+SOM,SO,Somalia,,,,True
+ZAF,ZA,South Africa,,,,True
+SGS,GS,South Georgia and Sandwich Islands,South Georgia and the South Sandwich Islands,,,False
+SSD,SS,South Sudan,"South Sudan, Rep. of",,,True
+ESP,ES,Spain,,,,True
+LKA,LK,Sri Lanka,,,,True
+SDN,SD,Sudan,,,,True
+SUR,SR,Suriname,,,,True
+SWE,SE,Sweden,,,,True
+CHE,CH,Switzerland,,,,True
+SYR,SY,Syrian Arab Republic,Syrian Arab Rep.,,,True
+TJK,TJ,Tajikistan,"Tajikistan, Rep. of",,,True
+TZA,TZ,Tanzania,"Tanzania, United Rep. of","Tanzania, United Republic of",,True
+THA,TH,Thailand,,,,True
+TLS,TL,Timor-Leste,"Timor-Leste, Dem. Rep. of",,,True
+TGO,TG,Togo,,,,True
+TKL,TK,Tokelau,,,,False
+TON,TO,Tonga,,,,True
+TTO,TT,Trinidad and Tobago,,,,True
+TUN,TN,Tunisia,,,,True
+TUR,TR,Turkey,,,,True
+TKM,™,Turkmenistan,,,,True
+TCA,TC,Turks and Caicos,Turks and Caicos Islands,,,False
+TUV,TV,Tuvalu,,,,True
+UGA,UG,Uganda,,,,True
+UKR,UA,Ukraine,,,,True
+ARE,AE,United Arab Emirates,,,,True
+GBR,GB,United Kingdom,,,,True
+USA,US,United States of America,United States,,,True
+URY,UY,Uruguay,,,,True
+UZB,UZ,Uzbekistan,"Uzbekistan, Rep. of",,,True
+VUT,VU,Vanuatu,,,,True
+VEN,VE,Venezuela,"Venezuela, Rep. Bolivariana de","Venezuela, Bolivarian Republic of","Venezuela, Bolivarian Republic",True
+VNM,VN,Vietnam,Viet Nam,,,True
+VGB,VG,"Virgin Islands, British",,,,False
+VIR,VI,"Virgin Islands, U.S.",,,,False
+WLF,WF,Wallis and Futuna,Wallis and Futuna Islands,,,False
+PSE,PS,West Bank and Gaza,Palestine,"Palestinian Territory, Occupied","Palestine, State of",True
+YEM,YE,Yemen,"Yemen, Rep. of",,,True
+ZMB,ZM,Zambia,,,,True
+ZWE,ZW,Zimbabwe,,,,True

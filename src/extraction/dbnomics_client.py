@@ -1,50 +1,32 @@
-import pandas as pd
-import dbnomics
+import requests
 
-def format_api_link(provider: str, dataset: str, indicator: str) -> str:
-    """get api link for the indicator.
+BASE_URL = "https://api.db.nomics.world/v22"
 
-    Args:
-        provider (string): name of the provider of the indicator.
-        dataset (string): name of the dataset of the indicator.
-        indicator (string): name of the indicator.
+class DBnomicsClient:
+    def __init__(self, timeout=30):
+        self.timeout = timeout
 
-    Returns:
-        string: formated api link, to get indicator df from dbnomics api.
-    """
+    def _get(self, endpoint, params=None):
+        url = f"{BASE_URL}{endpoint}"
+        r = requests.get(url, params=params, timeout=self.timeout)
+        r.raise_for_status()
+        return r.json()
 
-    link_p1 = 'https://api.db.nomics.world/v22/series/'
-    link_p3 = '%22%5D%7D&observations=1'
+    # ---- METADATA ----
+    def list_datasets(self, provider_code):
+        return self._get(f"/providers/{provider_code}")
 
-    if provider == 'WB':
-        link_p2 = '?dimensions=%7B%22indicator%22%3A%5B%22'
-    elif provider == 'IMF':
-        link_p2 = '?dimensions=%7B%22INDICATOR%22%3A%5B%22'
-        # link_p3 = link_p3 + '&q=imf'
-    else:
-        return ''
-
-    api_link = link_p1 + provider + '/' + dataset + link_p2 + indicator + link_p3
-    return api_link
-
-def fetch_indicator(provider: str, dataset: str, indicator: str) -> pd.DataFrame:
-    """get unformated indicator df from dbnomics api.
-    Args:
-        provider (string): name of the provider of the indicator.
-        dataset (string): name of the dataset of the indicator.
-        indicator (string): name of the indicator.
-    Returns:
-        DataFrame: indicator df from dbnomics api.
-    """
-
-    api_link = format_api_link(provider, dataset, indicator)
-    try:
-        df_indicator = dbnomics.fetch_series_by_api_link(
-            api_link,
-            max_nb_series=600
+    def list_series(self, provider_code, dataset_code, limit=1000, offset=0):
+        return self._get(
+            f"/series/{provider_code}/{dataset_code}",
+            params={"limit": limit, "offset": offset}
         )
-    except Exception:
-        print('Error Fetching Series for indicator', indicator)
-        df_indicator = pd.DataFrame()
 
-    return df_indicator
+    # ---- DATA ----
+    def get_series(self, provider_code, dataset_code, series_code):
+        return self._get(
+            f"/series/{provider_code}/{dataset_code}/{series_code}"
+        )
+
+# def clean_providers_query(d):
+    
