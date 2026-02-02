@@ -1,8 +1,7 @@
 import pandas as pd
 
-from extraction import dbnomics_lib_client
 from src.utils import config, io, templates
-from src.extraction import dbnomics_formatting_raw_data
+from src.extraction import dbnomics_formatting_raw_data, dbnomics_lib_client
 
 def get_data_indicator(provider: str, dataset: str, indicator: str) -> pd.DataFrame:
     """get from dbnomics api specific indicator, then format it.

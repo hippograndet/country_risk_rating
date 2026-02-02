@@ -16,45 +16,24 @@ def list_all_series(client, provider, dataset):
 
     return all_series
 
-def check_countries_covered(dataset_dimensions_dict, threshold=2/3):
-    covered_oecd_countries = []
-
-    ref_area_col_name = ''
-    if 'COU' in dataset_dimensions_dict.keys():
-        ref_area_col_name = 'COU'
-    elif 'country' in dataset_dimensions_dict.keys():
-        ref_area_col_name = 'country'
-    elif 'REF_AREA' in dataset_dimensions_dict.keys():
-        ref_area_col_name = 'REF_AREA'
-    elif 'ref_area' in dataset_dimensions_dict.keys():
-        ref_area_col_name = 'ref_area'
-    elif 'area' in dataset_dimensions_dict.keys():
-        ref_area_col_name = 'area'
-    elif 'economy' in dataset_dimensions_dict.keys():
-        ref_area_col_name = 'economy'
-    elif 'co_ter' in dataset_dimensions_dict.keys():
-        ref_area_col_name = 'co_ter'
-    elif 'BORROWERS_CTY' in dataset_dimensions_dict.keys():
-        ref_area_col_name = 'BORROWERS_CTY'
-    elif 'L_REP_CTY' in dataset_dimensions_dict.keys():
-        ref_area_col_name = 'L_REP_CTY'
+def check_countries_covered(dataset_dimensions_dict, country_key='REF_AREA', country_format='ISO3', threshold=2/3):
+    
+    covered_countries = []
+    if country_format == 'ISO3':
+        covered_countries = list(dataset_dimensions_dict[country_key].keys())
+    elif country_format == 'ISO2':
+        covered_countries = list(dataset_dimensions_dict[country_key].keys())
+        covered_countries = [countries.country_registry.get_ISO3_from_ISO2(c_code) for c_code in covered_countries]
     else:
-        print('Couldn\'t find Country dimension values')
-        # Suppose it is.
-        return True
+        covered_countries = list(dataset_dimensions_dict[country_key].values())
+        covered_countries = [countries.country_registry.get_ISO3_from_name(c_code) for c_code in covered_countries]
 
-        
-    covered_countries = list(dataset_dimensions_dict[ref_area_col_name].keys()) + list(dataset_dimensions_dict[ref_area_col_name].values())
-    for c_code in covered_countries:
-        c_code_iso3 = ''
-        if len(c_code) == 3:
-            c_code_iso3 = c_code
-        elif len(c_code) == 2:
-            c_code_iso3 = countries.country_registry.get_ISO3_from_ISO2(c_code)
-        else:
-            c_code_iso3 = countries.country_registry.get_ISO3_from_name(c_code)
+    covered_oecd_countries = []
+    for c_code_iso3 in covered_countries:
+        if countries.country_registry.check_ISO3_in_oecd(c_code_iso3):
+            covered_oecd_countries.append(c_code_iso3)
 
-        covered_oecd_countries.append(c_code_iso3)
+    print(covered_oecd_countries)
 
     countries_covered_r = len(covered_oecd_countries) / len(countries.country_registry.get_OECD_ISO3_list())
     print('Percent of OECD Countries covered:', round(countries_covered_r * 100, 2), '%')
@@ -64,27 +43,14 @@ def check_countries_covered(dataset_dimensions_dict, threshold=2/3):
     else:
         return False
     
-def check_valid_frequency(dataset_dimensions_dict):
-    freq_col_name = ''
-    if 'FREQ' in dataset_dimensions_dict.keys():
-        freq_col_name = 'FREQ'
-    elif 'freq' in dataset_dimensions_dict.keys():
-        freq_col_name = 'freq'
-    elif 'frequency' in dataset_dimensions_dict.keys():
-        freq_col_name = 'frequency'
-    
-    if freq_col_name != '':
-        freq_dict = dataset_dimensions_dict[freq_col_name]
+def check_valid_frequency(dataset_dimensions_dict, freq_key='FREQ', freq_annual_value='A'):
 
-        if 'A' in freq_dict.keys():
-            return True
-        else:
-            print('No annual frequency data:', freq_dict)
-            return False
-    else:
-        print('Not found Frequency Dimension in keys', dataset_dimensions_dict.keys())
-        ## Suppose it is
+    freq_dict = dataset_dimensions_dict[freq_key]
+    if freq_annual_value in freq_dict.keys():
         return True
+    else:
+        print('No annual frequency data:', freq_dict)
+        return False
     
 def get_indicators_rows_for_dataset(dataset_dimensions_dict, prev_row):
 

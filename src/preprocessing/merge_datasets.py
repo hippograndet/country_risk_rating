@@ -17,15 +17,13 @@ def format_oecd_df(oecd_df, template_df):
 
     return formated_oecd_df        
 
-def merge_info_and_dbnomics_datasets(formated_dbnomics_features_df, countries_info_df):
+def add_info_datasets(df, countries_info_df):
 
-    df_merged = formated_dbnomics_features_df.copy()
     for info_column in countries_info_df.columns:
         formated_column = info_column[0].replace(' ', '_') + '-' + info_column[1].replace(' ', '_')
-        
-        df_merged.loc[:, formated_column] = df_merged['ISO3_COUNTRY_CODE'].map(countries_info_df[info_column])
+        df.loc[:, formated_column] = df['ISO3_COUNTRY_CODE'].map(countries_info_df[info_column])
 
-    return df_merged
+    return df
 
 
 def merge_info_features_ratings_datasets(formated_oecd_df, formated_features_df):

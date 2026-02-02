@@ -1,0 +1,37 @@
+,Provider Id,Provider Name,Provider Region,Dataset Id,Dataset Name,Subgroup 1 Id,Subgroup 1 Name,Subgroup 2 Id,Subgroup 2 Name,Country Param Name,Country Param Format,Frequency Param Name,Frequency Annual,Other Param Name
+0,IMF,International Monetary Fund,World,BOP,Balance of Payments (BOP),,,,,REF_AREA,ISO2,FREQ,A,INDICATOR
+2,IMF,International Monetary Fund,World,CPI,Consumer Price Index (CPI),,,,,REF_AREA,ISO2,FREQ,A,INDICATOR
+3,IMF,International Monetary Fund,World,FDI,Financial Development Index,,,,,REF_AREA,ISO2,FREQ,A,INDICATOR
+4,IMF,International Monetary Fund,World,FM,Fiscal Monitor (FM),,,,,REF_AREA,ISO2,FREQ,A,INDICATOR
+5,IMF,International Monetary Fund,World,FSI,Financial Soundness Indicators (FSIs),,,,,REF_AREA,ISO2,FREQ,A,INDICATOR
+6,IMF,International Monetary Fund,World,GENDER_EQUALITY,Gender Equality,,,,,REF_AREA,ISO2,FREQ,A,INDICATOR
+7,IMF,International Monetary Fund,World,GFSMAB,"Government Finance Statistics (GFS), Main Aggregates and Balances",,,,,REF_AREA,ISO2,FREQ,A,CLASSIFICATION/REF_SECTOR/UNIT_MEASURE
+8,IMF,International Monetary Fund,World,HPDD,Historical Public Debt (HPDD),,,,,REF_AREA,ISO2,FREQ,A,INDICATOR
+9,IMF,International Monetary Fund,World,IFS,International Financial Statistics (IFS),,,,,REF_AREA,ISO2,FREQ,A,INDICATOR
+10,IMF,International Monetary Fund,World,IRFCL,International Reserves and Foreign Currency Liquidity (IRFCL),,,,,REF_AREA,ISO2,FREQ,A,INDICATOR/REF_SECTOR
+11,IMF,International Monetary Fund,World,MFS,Monetary and Financial Statistics (MFS),,,,,REF_AREA,ISO2,FREQ,A,INDICATOR
+13,IMF,International Monetary Fund,World,PGCS,Private and Public Capital Stock Dataset,,,,,REF_AREA,NAME,FREQ,A,INDICATOR
+15,IMF,International Monetary Fund,World,PSBSFAD,Public Sector Balance Sheet (PSBS)(FAD),,,,,REF_AREA,NAME,FREQ,A,INDICATOR
+16,IMF,International Monetary Fund,World,WoRLD,World Revenue Longitudinal Data (WoRLD),,,,,REF_AREA,ISO2,FREQ,A,INDICATOR
+17,WB,World Bank,World,DBS,Doing Business,,,,,country,ISO3,frequency,A,indicator
+18,WB,World Bank,World,ESY,Enterprise Surveys,,,,,country,ISO3,frequency,A,indicator
+19,WB,World Bank,World,FDX,Global Financial Inclusion,,,,,country,ISO3,frequency,A,indicator
+20,WB,World Bank,World,GEM,Global Economic Monitor,,,,,country,ISO3,frequency,A,indicator
+21,WB,World Bank,World,GEP,Global Economic Prospects,,,,,country,ISO3,frequency,A,indicator
+24,WB,World Bank,World,JOB,Jobs,,,,,country,ISO3,frequency,A,indicator
+25,WB,World Bank,World,WDI,World Development Indicators,,,,,country,ISO3,frequency,A,indicator
+26,WB,World Bank,World,WGI,Worldwide Governance Indicators,,,,,country,ISO3,frequency,A,indicator
+27,BIS,Bank for International Settlements,World,WS_GLI,Global liquidity indicators,BISWEB_CATSCHEME,BISWEB_CATSCHEME,WEBSTATS_GLI,Global liquidity,BORROWERS_CTY,ISO2,FREQ,A,BORROWERS_SECTOR/CURR_DENOM/LENDERS_SECTOR/L_INSTR/L_POS_TYPE/UNIT_MEASURE
+29,BIS,Bank for International Settlements,World,WS_CREDIT_GAP,BIS credit-to-GDP gaps,BISWEB_CATSCHEME,BISWEB_CATSCHEME,WEBSTATS_CREDGAP,Credit gaps,BORROWERS_CTY,ISO2,FREQ,A,CG_DTYPE/TC_BORROWERS/TC_LENDERS
+32,UNCTAD,United Nation Conference on Trade and Development,World,MTTASA,"Merchandise: Total trade and share, annual",,International merchandise trade,,Trade value and volume,economy,NAME,frequency,A,flow/measure
+33,UNCTAD,United Nation Conference on Trade and Development,World,MTBA,"Merchandise: Trade balance, annual",,International merchandise trade,,Trade value and volume,economy,NAME,frequency,A,measure
+34,UNCTAD,United Nation Conference on Trade and Development,World,MTTGRA,"Merchandise: Total trade growth rates, annual",,International merchandise trade,,Trade value and volume,economy,NAME,frequency,A,flow/measure
+35,UNCTAD,United Nation Conference on Trade and Development,World,MPCADIOEAIA,"Merchandise: Product concentration and diversification indices of exports and imports, annual",,International merchandise trade,,Trade indicators,economy,NAME,frequency,A,flow/measure
+36,UNCTAD,United Nation Conference on Trade and Development,World,GASBTBIA,"Goods and services (BPM6): Trade balance indicators, annual",,Balance of payments,,,economy,NAME,frequency,A,flow/measure/series
+37,UNCTAD,United Nation Conference on Trade and Development,World,GASBTOIA,"Goods and services (BPM6): Trade openness indicators, annual",,Balance of payments,,,economy,NAME,frequency,A,flow/measure/series
+38,UNCTAD,United Nation Conference on Trade and Development,World,FDIIAOFASA,"Foreign direct investment: Inward and outward flows and stock, annual",,Balance of payments,,,economy,NAME,frequency,A,direction/measure/mode
+39,UNCTAD,United Nation Conference on Trade and Development,World,GDPTAPCCAC2PA,"Gross domestic product: Total and per capita, current and constant (2015) prices, annual",,Output and income,,,economy,NAME,frequency,A,measure
+40,UNCTAD,United Nation Conference on Trade and Development,World,RGDPTAPCGRA,"Real gross domestic product: Total and per capita, growth rates, annual",,Output and income,,,economy,NAME,frequency,A,measure
+41,UNCTAD,United Nation Conference on Trade and Development,World,NGTAPCA,"Nominal GNI, total and per capita, annual",,Output and income,,,economy,NAME,frequency,A,measure
+43,UNCTAD,United Nation Conference on Trade and Development,World,TAUPA,"Total and urban population, annual",,Population,,,economy,NAME,frequency,A,measure
+44,UNCTAD,United Nation Conference on Trade and Development,World,TPGRA,"Total population growth rates, annual",,Population,,,economy,NAME,frequency,A,measure

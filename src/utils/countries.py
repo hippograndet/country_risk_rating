@@ -153,9 +153,6 @@ class CountriesRegistry:
 
     def check_ISO3_in_countries(self, iso3: str):
         return iso3 in self.iso3_list    
-    
-    def check_ISO2_in_oecd(self, iso3: str):
-        return iso3 in self.oecd_iso2_list    
 
     def check_ISO3_in_oecd(self, iso3: str):
         return iso3 in self.oecd_iso3_list    
