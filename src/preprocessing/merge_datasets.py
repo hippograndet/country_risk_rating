@@ -20,8 +20,7 @@ def format_oecd_df(oecd_df, template_df):
 def add_info_datasets(df, countries_info_df):
 
     for info_column in countries_info_df.columns:
-        formated_column = info_column[0].replace(' ', '_') + '-' + info_column[1].replace(' ', '_')
-        df.loc[:, formated_column] = df['ISO3_COUNTRY_CODE'].map(countries_info_df[info_column])
+        df.loc[:, info_column] = df['ISO3_COUNTRY_CODE'].map(countries_info_df[info_column])
 
     return df
 

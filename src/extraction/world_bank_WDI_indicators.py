@@ -42,7 +42,7 @@ WORLD_BANK_INDICATORS = {
     'GC.TAX.INTT.RV.ZS': 'Taxes on international trade (% of revenue)',
     'BM.KLT.DINV.WD.GD.ZS': 'Foreign direct investment, net outflows (% of GDP)',
     'BX.KLT.DINV.WD.GD.ZS': 'Foreign direct investment, net inflows (% of GDP)',
-    'DT.DOD.PVLX.GN.ZS': 'Present value of external debt (% of GNI)',
+    # 'DT.DOD.PVLX.GN.ZS': 'Present value of external debt (% of GNI)',
     'DT.DOD.DECT.GN.ZS': 'External debt stocks (% of GNI)', 
     'DT.DOD.DLXF.CD': 'External debt stocks, long-term (DOD, current US$)',
     'DT.DOD.DSTC.CD': 'External debt stocks, short-term (DOD, current US$)',
@@ -87,8 +87,8 @@ WORLD_BANK_INDICATORS = {
     # Institutional Structure
     'GE.EST': 'Government Effectiveness: Estimate',
     'RQ.EST': 'Regulatory Quality: Estimate',
-    'IC.BRE.BI.OS': 'B-READY: Business Insolvency: Overall Score',
-    'IC.BRE.BE.OS': 'B-READY: Business Entry: Overall Score',
+    # 'IC.BRE.BI.OS': 'B-READY: Business Insolvency: Overall Score',
+    # 'IC.BRE.BE.OS': 'B-READY: Business Entry: Overall Score',
     'IQ.CPA.PADM.XQ': 'CPIA quality of public administration rating (1=low to 6=high)',
     'FS.AST.PRVT.GD.ZS': 'Domestic credit to private sector (% of GDP)',
     'FM.AST.PRVT.GD.ZS': 'Monetary Sector credit to private sector (% GDP)'
