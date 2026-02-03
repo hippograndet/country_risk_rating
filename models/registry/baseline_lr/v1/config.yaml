@@ -1,0 +1,13 @@
+model_type: 
+objective: 
+hyperparameters:
+  max_depth: 
+  learning_rate: 
+  n_estimators: 
+
+features:
+  -
+
+training:
+  seed: 
+  early_stopping_rounds:
