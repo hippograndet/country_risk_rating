@@ -1,0 +1,6 @@
+{
+  "description": "Forecasting split for future country risk prediction",
+  "train_years": [1999, 2015],
+  "val_years": [2016, 2018],
+  "test_years": [2019, 2024]
+}

@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 import pandas as pd
 import camelot
 
@@ -30,6 +31,13 @@ def load_csv(path: Path, **kwargs) -> pd.DataFrame:
         raise FileNotFoundError(f"File not found: {path}")
     return pd.read_csv(path, **kwargs)
 
+def load_json(path: Path, **kwargs) -> list:
+    """
+    Load a json file into a python dictionnary.
+    """
+    if not path.exists():
+        raise FileNotFoundError(f"File not found: {path}")
+    return json.load(open(path))
 
 def save_csv(df: pd.DataFrame, path: Path, index: bool = False) -> None:
     """
