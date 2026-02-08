@@ -2,6 +2,6 @@
   "model": "baseline_lr",
   "version": "v1",
   "mlflow_run_id": "19e7ce582e774588a933156a2aadfff2",
-  "date": "2026-02-08 17:24:29.440452",
+  "date": "2026-02-08 17:42:15.410981",
   "split": "temporal_v1"
 }

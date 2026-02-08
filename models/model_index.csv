@@ -1,0 +1,2 @@
+model_name,framework,version,f1_score,path
+baseline_lr,sklearn,v1,0.49305878518271934,/Users/hippolytegrandet/Desktop/Dev/country_risk_rating/models/registry/baseline_lr/v1
