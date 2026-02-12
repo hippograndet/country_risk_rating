@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/hippolytegrandet/Desktop/Dev/country_risk_rating/notebooks/expirements/mlruns/0/82ebb84a3cc74d7c9332242f903ce211/artifacts
+end_time: 1770926899014
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 82ebb84a3cc74d7c9332242f903ce211
+run_name: logreg_expanding_cv
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1770926897773
+status: 3
+tags: []
+user_id: hippolytegrandet

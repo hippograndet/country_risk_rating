@@ -9,7 +9,6 @@ def filter_missingness(
     missing_ratio = X.isna().mean()
     keep_cols = missing_ratio[missing_ratio <= max_missing_ratio].index
 
-    
     return X[keep_cols]
 
 
@@ -31,9 +30,13 @@ def filter_correlated(
     X: pd.DataFrame,
     max_corr: float = 0.9
 ) -> pd.DataFrame:
-    corr = X.corr().abs()
+    
+    float_features = X.columns[X.dtypes==float]
+
+    corr = X[float_features].corr().abs()
     upper = corr.where(np.triu(np.ones(corr.shape), k=1).astype(bool))
     drop_cols = [c for c in upper.columns if any(upper[c] > max_corr)]
+
     return X.drop(columns=drop_cols)
 
 
@@ -42,7 +45,11 @@ def select_by_mutual_information(
     y: pd.Series,
     top_k: int = 100
 ) -> pd.DataFrame:
-    mi = mutual_info_regression(X.fillna(0), y)
-    scores = pd.Series(mi, index=X.columns)
+    
+    float_features = X.columns[X.dtypes==float]
+
+    mi = mutual_info_regression(X[float_features].fillna(0), y)
+    scores = pd.Series(mi, index=float_features)
     keep = scores.sort_values(ascending=False).head(top_k).index
+    
     return X[keep]
