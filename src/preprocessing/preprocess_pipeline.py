@@ -10,10 +10,16 @@ def build_preprocessor(X, params):
     preprocessor_l = []
 
     num_pipeline_l = []
-    if 'knn' in params['num_imputer'].keys():
-        num_imputer = KNNImputer(**params['num_imputer']['knn'])
-    elif 'uni' in params['num_imputer'].keys():
-        num_imputer = SimpleImputer(**params['num_imputer']['uni'])
+    if params['num_imputer'] == 'knn':
+        num_imputer = KNNImputer(
+            weights=params['num_imputer_knn_weights'],
+            n_neighbors=params['num_imputer_knn_n_neighbors']
+        )
+    elif params['num_imputer'] == 'knn':
+        num_imputer = SimpleImputer(
+            strategy=params['num_imputer_uni_strategy'],
+            fill_value=params['num_imputer_uni_fill_value']
+        )
     else:
         num_imputer = SimpleImputer(strategy='mean')
 
@@ -26,13 +32,12 @@ def build_preprocessor(X, params):
         ('num', Pipeline(num_pipeline_l), make_column_selector(dtype_exclude='object'))
     )
 
-    if 'cat_imputer' in params['cat'].keys():
-        cat_imputer_params = params['cat']['cat_imputer']
-        if cat_imputer_params == {}:
-            cat_imputer_params = {'strategy': 'most_frequent'}
-
+    if params['cat_imputer'] == 'uni':
         categorical_pipeline = Pipeline([
-            ('imputer', SimpleImputer(**cat_imputer_params)),
+            ('imputer', SimpleImputer(
+                strategy=params['cat_imputer_uni_strategy'],
+                fill_value=params['cat_imputer_uni_fill_value']
+            )),
             ('encoder', OneHotEncoder(handle_unknown='ignore', sparse_output=False))
         ])
         preprocessor_l.append(

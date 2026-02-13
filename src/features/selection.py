@@ -53,3 +53,40 @@ def select_by_mutual_information(
     keep = scores.sort_values(ascending=False).head(top_k).index
     
     return X[keep]
+
+
+def get_dataset_feature_selected(dataset, params, verbose=True):
+    # non_float_features_t = list(dataset.columns[dataset.dtypes!=float])
+
+    if verbose:
+        print('Initial Dataset Shape:', dataset.shape)
+    dataset = dataset[dataset['OECD_RATING'] != '-']
+    if verbose:
+        print('Drop Null Target Shape:', dataset.shape)
+    dataset = filter_missingness(
+        dataset, 
+        max_missing_ratio=params['max_missing_ratio']
+    )
+    if verbose:
+        print('Filter Missingness Shape:', dataset.shape)
+    dataset = filter_low_variance(
+        dataset, 
+        threshold=params['low_var_threshold']
+    )
+    if verbose:
+        print('Filter Low Variance Shape:', dataset.shape)
+    dataset = filter_correlated(
+        dataset,
+        max_corr=params['max_corr']
+    )
+    if verbose:
+        print('Filter Correlated Shape:', dataset.shape)
+    # dataset = selection.select_by_mutual_information(
+    #     dataset.drop(columns=['OECD_RATING']),
+    #     dataset['OECD_RATING'],
+    #     top_k=params['top_k_mi']
+    # )
+    # print('Filter Mutual Information Shape:', dataset.shape)
+    # print(params)
+    print('Final Dataset Shape:', dataset.shape)
+    return dataset
