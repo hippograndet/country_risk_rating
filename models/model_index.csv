@@ -1,2 +1,4 @@
 model_name,framework,version,f1_score,path
-baseline_lr,sklearn,v1,0.49305878518271934,/Users/hippolytegrandet/Desktop/Dev/country_risk_rating/models/registry/baseline_lr/v1
+baseline_lr,sklearn,v1,0.4930587851827193,/Users/hippolytegrandet/Desktop/Dev/country_risk_rating/models/registry/baseline_lr/v1
+xgboost,sklearn,v1,0.7637532474252685,/Users/hippolytegrandet/Desktop/Dev/country_risk_rating/models/registry/xgboost/v1
+xgboost,sklearn,v1,0.7470170040028957,/Users/hippolytegrandet/Desktop/Dev/country_risk_rating/models/registry/xgboost/v1

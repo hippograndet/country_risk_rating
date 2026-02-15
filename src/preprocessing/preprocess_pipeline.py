@@ -1,6 +1,7 @@
+import numpy as np
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer, make_column_selector
-from sklearn.preprocessing import StandardScaler, OneHotEncoder, Normalizer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.impute import KNNImputer, SimpleImputer
 
 def build_preprocessor(X, params):
@@ -9,24 +10,21 @@ def build_preprocessor(X, params):
     numeric_cols = X.columns[X.dtypes != 'object']
     preprocessor_l = []
 
-    num_pipeline_l = []
     if params['num_imputer'] == 'knn':
         num_imputer = KNNImputer(
-            weights=params['num_imputer_knn_weights'],
-            n_neighbors=params['num_imputer_knn_n_neighbors']
-        )
-    elif params['num_imputer'] == 'knn':
-        num_imputer = SimpleImputer(
-            strategy=params['num_imputer_uni_strategy'],
-            fill_value=params['num_imputer_uni_fill_value']
+            weights=params.get('num_imputer_knn_weights', 'uniform'),
+            n_neighbors=params.get('num_imputer_knn_n_neighbors', 5)
         )
     else:
-        num_imputer = SimpleImputer(strategy='mean')
+        num_imputer = SimpleImputer(
+            strategy=params.get('num_imputer_uni_strategy', 'mean'),
+            fill_value=params.get('num_imputer_uni_fill_value', np.nan)
+        )
 
-    num_pipeline_l.append(('imputer', num_imputer))
-
-    if params['num_scaler']:
-        num_pipeline_l.append(('scaler', StandardScaler()))
+    num_pipeline_l = [
+        ('imputer', num_imputer),
+        ('scaler', StandardScaler())
+    ]
 
     preprocessor_l.append(
         ('num', Pipeline(num_pipeline_l), make_column_selector(dtype_exclude='object'))
@@ -35,8 +33,8 @@ def build_preprocessor(X, params):
     if params['cat_imputer'] == 'uni':
         categorical_pipeline = Pipeline([
             ('imputer', SimpleImputer(
-                strategy=params['cat_imputer_uni_strategy'],
-                fill_value=params['cat_imputer_uni_fill_value']
+                strategy=params.get('cat_imputer_uni_strategy', 'constant'),
+                fill_value=params.get('cat_imputer_uni_fill_value', 'NaN')
             )),
             ('encoder', OneHotEncoder(handle_unknown='ignore', sparse_output=False))
         ])

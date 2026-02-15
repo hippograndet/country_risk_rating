@@ -79,14 +79,16 @@ def get_dataset_feature_selected(dataset, params, verbose=True):
         dataset,
         max_corr=params['max_corr']
     )
-    if verbose:
-        print('Filter Correlated Shape:', dataset.shape)
+    # if verbose:
+    #     print('Filter Correlated Shape:', dataset.shape)
     # dataset = selection.select_by_mutual_information(
     #     dataset.drop(columns=['OECD_RATING']),
     #     dataset['OECD_RATING'],
     #     top_k=params['top_k_mi']
     # )
     # print('Filter Mutual Information Shape:', dataset.shape)
-    # print(params)
-    print('Final Dataset Shape:', dataset.shape)
+    if verbose:
+        print(params)
+        print('Final Dataset Shape:', dataset.shape)
+        
     return dataset
