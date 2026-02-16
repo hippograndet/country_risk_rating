@@ -77,28 +77,6 @@ def clean_oecd_value(value: str) -> str:
 
     return v    
 
-def get_quarterly_dates(start_year: int = 1999, end_year: int = 2024) -> list:
-    """Given start and end year, return a list of the date of each quarter between the years, last year excluded.
-
-    Args:
-        start_year (int, optional): year to start getting quarters from. Defaults to 1999.
-        end_year (int, optional): year to stop getting quarters from. Defaults to 2024.
-
-    Returns:
-        list: datetime objects.
-    """
-    start_date = '01/01/' + str(start_year)
-    end_date = '01/01/' + str(end_year)
-
-    quarters = list(pd.date_range(
-        datetime.strptime(start_date, '%d/%m/%Y'), 
-        datetime.strptime(end_date, '%d/%m/%Y'), 
-        freq='QS', 
-            #inclusive='both'
-    ))
-
-    return quarters
-
 def get_yearly_dates(start_year: int = 1999, end_year: int = 2024) -> list:
     """Given start and end year, return a list of the date of each years start date between the years, last year excluded.
 
@@ -187,7 +165,7 @@ def pages_to_df(tables) -> pd.DataFrame:
     df_oecd = pd.concat(total_list, axis=1)
     return df_oecd
 
-def oecd_df_to_format(oecd_df_clean: pd.DataFrame, date_freq: str = 'Q') -> pd.DataFrame:
+def oecd_df_to_format(oecd_df_clean: pd.DataFrame) -> pd.DataFrame:
     """convert input df into formated df, specified by format.
 
     Args:
@@ -201,13 +179,7 @@ def oecd_df_to_format(oecd_df_clean: pd.DataFrame, date_freq: str = 'Q') -> pd.D
     earliest_date = oecd_df_clean.columns.min()
     latest_date = oecd_df_clean.columns.max()
 
-    if date_freq == 'Q':
-        dates_interval_l = get_quarterly_dates(start_year=config.start_year, end_year=latest_date.year + 1)
-    elif date_freq == 'Y':    
-        dates_interval_l = get_yearly_dates(start_year=config.start_year, end_year=latest_date.year + 1)
-    else:
-        print('Date Frequency', date_freq, 'not implemented.')
-        return oecd_df_clean
+    dates_interval_l = get_yearly_dates(start_year=config.start_year, end_year=latest_date.year + 1)
 
     formated_dates = []
     for d in dates_interval_l:
@@ -276,7 +248,7 @@ def create_raw_oecd_rating_dataset(oecd_fname):
 
     return oecd_fname, oecd_rating_dataset
 
-def get_clean_oecd_rating_df(oecd_fname: str = '30-06-2023', date_freq: str = 'Q') -> pd.DataFrame:
+def get_clean_oecd_rating_df(oecd_fname: str = '30-06-2023') -> pd.DataFrame:
     """get input pdf file as df, with rows as countries and columns as date.
 
     Args:
@@ -301,9 +273,6 @@ def get_clean_oecd_rating_df(oecd_fname: str = '30-06-2023', date_freq: str = 'Q
         io.save_csv(raw_oecd_rating_dataset, raw_oecd_rating_dataset_name, index=True)
 
     # Format Dataset to the sepecified time interval needed, format can be raw, yearly (Y), and quarterly (Q)
-    oecd_rating_dataset = oecd_df_to_format(
-        oecd_df_clean=raw_oecd_rating_dataset, 
-        date_freq=date_freq
-    )
+    oecd_rating_dataset = oecd_df_to_format(oecd_df_clean=raw_oecd_rating_dataset)
 
     return oecd_rating_dataset

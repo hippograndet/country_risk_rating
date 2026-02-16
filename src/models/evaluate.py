@@ -11,6 +11,11 @@ from sklearn.metrics import (
 )
 import numpy as np
 
+def get_distance_accuracy_ratio(y_test, y_pred):
+    y_diff = y_test['OECD_RATING'] - y_pred
+    
+    return y_diff.abs().sum() / len(y_test)
+
 def get_blurred_accuracy(y_test, y_pred):
 
     acc_1 = accuracy_score(y_test, y_pred)
@@ -26,7 +31,8 @@ def evaluate_classification(y_test, y_pred, prefix):
         prefix + 'precision': precision_score(y_test, y_pred, average='macro', zero_division=np.nan),
         prefix + 'recall': recall_score(y_test, y_pred, average='macro', zero_division=np.nan),
         prefix + 'f1': f1_score(y_test, y_pred, average='macro'),
-        prefix + 'blurred_accuracy': get_blurred_accuracy(y_test, y_pred)
+        prefix + 'blurred_accuracy': get_blurred_accuracy(y_test, y_pred),
+        prefix + 'dist_accuracy_ratio': get_distance_accuracy_ratio(y_test, y_pred)
         # 'roc_auc': roc_auc_score(y_test, y_proba, multi_class='ovr')
     }
     
@@ -87,3 +93,26 @@ def evaluate_model_regressor(model, X, y, prefix = '', verbose=True):
         print(confusion_matrix(y, y_pred_class))
 
     return results
+
+def evaluate_ensemble_model(models, X, y, prefix = '', verbose=True):
+
+    y_pred_clas = models['clas'].predict(X) + 1
+
+    y_pred_reg = models['reg'].predict(X)
+    y_pred_reg_class = np.round(np.clip(y_pred_reg, 1, 7))
+
+    y_pred_mean = (y_pred_clas + y_pred_reg) / 2
+    y_pred_mean_clas = np.round(np.clip(y_pred_mean, 1, 7))
+
+
+    results = evaluate_classification(y, y_pred_mean_clas, prefix + 'meanPred_')
+    results[prefix + 'meanPred_' + 'mae'] = mean_absolute_error(y, y_pred_mean)
+    results[prefix + 'meanPred_' + 'mse'] = mean_squared_error(y, y_pred_mean)
+
+    if verbose:
+        print(results)
+
+    return results
+
+
+
