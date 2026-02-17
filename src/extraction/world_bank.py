@@ -2,7 +2,22 @@ import wbgapi as wb
 import pandas as pd
 from typing import Dict, List
 
-def format_wb_query(df_query: pd.DataFrame, indicators) -> pd.DataFrame:
+#   Functions to retrieve and format data from the World Bank Database, using their Python Library wbgapi
+
+def format_wb_query(
+        df_query: pd.DataFrame, 
+        indicators: list
+) -> pd.DataFrame:
+    """Format a pandas DataFrame queried from the World Bank, by renaming columns, reshaping dataset and creating a new unique index.
+
+    Args:
+        df_query (DataFrame): df retrieved from WB API.
+        indicators (list): list of indicators queried, which varies the formatting process, if more than one.
+
+    Returns:
+        DataFrame: formatted dataset with index 'ISO Alpha 3 Code' - 'Year' (ex: FRA-2020)
+    """
+
     df_formatted = df_query.rename(columns={s: int(s[2:]) for s in df_query.columns})
 
     if len(indicators) == 1:
@@ -18,12 +33,24 @@ def format_wb_query(df_query: pd.DataFrame, indicators) -> pd.DataFrame:
 
     return df_formatted
 
-def fetch_wb_indicator(indicator: str,
-    countries: List[str],
-    start_year: int,
-    end_year: int,
+def fetch_wb_indicator(
+        indicator: str,
+        countries: List[str],
+        start_year: int,
+        end_year: int,
 ) -> pd.DataFrame:
-    
+     
+    """Given an indicator code, a list of countries (ISO Alpha 3 Code), a start and end year, fetch from World Bank Database the corresponding dataset.
+
+    Args:
+        indicator (str): Indicator Code of the World Bank.
+        countries (list): list of country codes (ISO Alpha 3 Code) to query data from.
+        start_year (int): first year to retrieve data from.
+        end_year (int): last year to retrieve data from.
+    Returns:
+        DataFrame: Extracted Unprocessed dataset from World Bank API (through their python library) 
+    """
+
     df = wb.data.DataFrame(
         indicator,
         economy=countries,
@@ -33,12 +60,22 @@ def fetch_wb_indicator(indicator: str,
     return format_wb_query(df, [indicator])
 
 def fetch_wb_subset_indicators(
-    indicators: List[str],
-    countries: List[str],
-    start_year: int,
-    end_year: int,
+        indicators: List[str],
+        countries: List[str],
+        start_year: int,
+        end_year: int,
 ) -> pd.DataFrame:
-        
+    """Fetch and return data from World Bank, for a given list of indicators, countries, and years.
+
+    Args:
+        indicators (list of str): Indicator Codes of the World Bank.
+        countries (list): list of country codes (ISO Alpha 3 Code) to query data from.
+        start_year (int): first year to retrieve data from.
+        end_year (int): last year to retrieve data from.
+    Returns:
+        DataFrame: Extracted Unprocessed dataset from World Bank API (through their python library) 
+    """
+
     df = wb.data.DataFrame(
         indicators,
         economy=countries,
@@ -48,10 +85,10 @@ def fetch_wb_subset_indicators(
     return format_wb_query(df, indicators)
 
 def get_world_bank_indicators(
-    indicators: Dict[str, str],
-    countries: List[str],
-    start_year: int,
-    end_year: int,
+        indicators: Dict[str, str],
+        countries: List[str],
+        start_year: int,
+        end_year: int,
 ) -> pd.DataFrame:
     """
     Fetches annual World Bank indicators and returns a tidy DataFrame

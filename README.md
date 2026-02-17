@@ -5,32 +5,28 @@
 
 ## 🔍 Overview
 
-This project builds a **reproducible machine learning pipeline** that predicts **OECD country risk ratings** using **macroeconomic indicators** from public international data sources.
+This project builds a **reproducible machine learning pipeline** that predicts **OECD country risk ratings** using **macroeconomic indicators** from World Bank public data.
 
-It focuses on **real-world data engineering, feature design, and applied ML**, rather than toy datasets or black-box modeling.
+It focuses on **real-world data engineering, feature design, and applied ML**.
 
 ---
 
 ## 🧠 What This Demonstrates
 
-- API-driven data ingestion (IMF, World Bank, DBnomics)
-- Cleaning and aligning heterogeneous economic time series
+- API-driven data ingestion (World Bank, OECD)
 - Feature engineering on macroeconomic indicators
-- Training and evaluating ML models
+- Efficient and Transparent Data Pipeline (sklearn)
+- Training and evaluating ML models (xgboost, mlflow)
 - Clean, modular, and reproducible project structure
-
-Designed for **clarity, realism, and ease of verification**.
 
 ---
 
 ## 📊 Data Sources (Public)
 
-- **IMF** – fiscal, monetary, balance-of-payments data  
-- **World Bank** – growth, development, demographic indicators  
-- **DBnomics** – harmonized macroeconomic time series  
-- **OECD / public sources** – country risk ratings (target variable)
+- **World Bank** – fiscal, monetary, balance-of-payments, growth, development, demographic indicators  
+- **OECD** – country risk ratings (target variable)
 
-All data is fetched programmatically via APIs.
+<!-- All data is fetched programmatically via APIs. -->
 
 ---
 
@@ -46,9 +42,9 @@ Multiple ML models are explored, including linear baselines and tree-based metho
 ## 🗂️ Repository Structure
 
 ├── data/           # Raw and processed datasets
-├── notebooks/      # Exploration, modeling, evaluation
-├── src/            # Ingestion, preprocessing, training
-├── models/         # Saved models
+├── notebooks/      # Exploration, evaluation and visualization jupyter notebooks
+├── src/            # Ingestion, preprocessing, training python scripts
+├── models/         # Logged models, using mlflow
 ├── results/        # Figures and metrics
 ├── requirements.txt
 └── README.md
