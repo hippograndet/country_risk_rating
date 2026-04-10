@@ -1,23 +1,44 @@
+"""
+World Bank data extraction for country risk rating prediction.
+
+Provides functions to fetch annual macroeconomic indicators from the World
+Bank API (via ``wbgapi``) and reshape them into a tidy DataFrame indexed by
+``COUNTRY_PERIOD_INDEX`` (e.g. ``'FRA-2020'``).
+"""
+
+import time
 import wbgapi as wb
 import pandas as pd
-from typing import Dict, List
+from pathlib import Path
+from typing import Dict, List, Optional
 
-#   Functions to retrieve and format data from the World Bank Database, using their Python Library wbgapi
 
 def format_wb_query(
-        df_query: pd.DataFrame, 
-        indicators: list
+    df_query: pd.DataFrame,
+    indicators: List[str]
 ) -> pd.DataFrame:
-    """Format a pandas DataFrame queried from the World Bank, by renaming columns, reshaping dataset and creating a new unique index.
-
-    Args:
-        df_query (DataFrame): df retrieved from WB API.
-        indicators (list): list of indicators queried, which varies the formatting process, if more than one.
-
-    Returns:
-        DataFrame: formatted dataset with index 'ISO Alpha 3 Code' - 'Year' (ex: FRA-2020)
     """
+    Reshape and reindex a raw World Bank API response.
 
+    Renames year columns from ``'YR<year>'`` strings to integers, unstacks
+    the multi-index into a tidy format, and creates the composite
+    ``COUNTRY_PERIOD_INDEX``.
+
+    Parameters
+    ----------
+    df_query : pd.DataFrame
+        DataFrame as returned by ``wbgapi.data.DataFrame``.
+    indicators : list of str
+        Indicator codes that were queried; governs whether single- or
+        multi-indicator reshaping logic is applied.
+
+    Returns
+    -------
+    pd.DataFrame
+        Tidy DataFrame indexed by ``COUNTRY_PERIOD_INDEX``
+        (e.g. ``'FRA-2020'``) with columns ``ISO3_COUNTRY_CODE``, ``YEAR``,
+        and one column per indicator.
+    """
     df_formatted = df_query.rename(columns={s: int(s[2:]) for s in df_query.columns})
 
     if len(indicators) == 1:
@@ -33,89 +54,164 @@ def format_wb_query(
 
     return df_formatted
 
+
 def fetch_wb_indicator(
-        indicator: str,
-        countries: List[str],
-        start_year: int,
-        end_year: int,
-) -> pd.DataFrame:
-     
-    """Given an indicator code, a list of countries (ISO Alpha 3 Code), a start and end year, fetch from World Bank Database the corresponding dataset.
-
-    Args:
-        indicator (str): Indicator Code of the World Bank.
-        countries (list): list of country codes (ISO Alpha 3 Code) to query data from.
-        start_year (int): first year to retrieve data from.
-        end_year (int): last year to retrieve data from.
-    Returns:
-        DataFrame: Extracted Unprocessed dataset from World Bank API (through their python library) 
-    """
-
-    df = wb.data.DataFrame(
-        indicator,
-        economy=countries,
-        time=range(start_year,end_year+1)
-    )
-
-    return format_wb_query(df, [indicator])
-
-def fetch_wb_subset_indicators(
-        indicators: List[str],
-        countries: List[str],
-        start_year: int,
-        end_year: int,
-) -> pd.DataFrame:
-    """Fetch and return data from World Bank, for a given list of indicators, countries, and years.
-
-    Args:
-        indicators (list of str): Indicator Codes of the World Bank.
-        countries (list): list of country codes (ISO Alpha 3 Code) to query data from.
-        start_year (int): first year to retrieve data from.
-        end_year (int): last year to retrieve data from.
-    Returns:
-        DataFrame: Extracted Unprocessed dataset from World Bank API (through their python library) 
-    """
-
-    df = wb.data.DataFrame(
-        indicators,
-        economy=countries,
-        time=range(start_year,end_year+1)
-    )
-
-    return format_wb_query(df, indicators)
-
-def get_world_bank_indicators(
-        indicators: Dict[str, str],
-        countries: List[str],
-        start_year: int,
-        end_year: int,
+    indicator: str,
+    countries: List[str],
+    start_year: int,
+    end_year: int,
+    retries: int = 5,
+    backoff: float = 10.0,
 ) -> pd.DataFrame:
     """
-    Fetches annual World Bank indicators and returns a tidy DataFrame
-    indexed by country and year.
+    Fetch a single World Bank indicator for a set of countries and years.
+
+    Retries automatically on transient API errors (503, connection errors)
+    with exponential backoff.
 
     Parameters
     ----------
-    indicators : dict
-        Mapping from World Bank indicator codes to readable names
-    countries : list
-        List of ISO country codes (e.g. ['USA', 'FRA', 'DEU'])
+    indicator : str
+        World Bank indicator code (e.g. ``'NY.GDP.MKTP.KD.ZG'``).
+    countries : list of str
+        ISO Alpha-3 country codes (e.g. ``['USA', 'FRA', 'DEU']``).
     start_year : int
+        First year to retrieve data for (inclusive).
     end_year : int
+        Last year to retrieve data for (inclusive).
+    retries : int, optional
+        Number of retry attempts on failure (default 5).
+    backoff : float, optional
+        Initial wait in seconds between retries; doubles each attempt (default 10).
 
     Returns
     -------
     pd.DataFrame
-        Columns: country, year, <indicator_1>, <indicator_2>, ...
+        Tidy DataFrame indexed by ``COUNTRY_PERIOD_INDEX`` with one column
+        for the requested indicator.
     """
+    wait = backoff
+    for attempt in range(retries + 1):
+        try:
+            df = wb.data.DataFrame(
+                indicator,
+                economy=countries,
+                time=range(start_year, end_year + 1)
+            )
+            return format_wb_query(df, [indicator])
+        except Exception as e:
+            if attempt == retries:
+                raise
+            print(f"  API error ({e}), retrying in {wait:.0f}s… (attempt {attempt + 1}/{retries})")
+            time.sleep(wait)
+            wait *= 2
+
+
+def fetch_wb_subset_indicators(
+    indicators: List[str],
+    countries: List[str],
+    start_year: int,
+    end_year: int,
+) -> pd.DataFrame:
+    """
+    Fetch multiple World Bank indicators in a single API call.
+
+    Parameters
+    ----------
+    indicators : list of str
+        World Bank indicator codes.
+    countries : list of str
+        ISO Alpha-3 country codes.
+    start_year : int
+        First year to retrieve data for (inclusive).
+    end_year : int
+        Last year to retrieve data for (inclusive).
+
+    Returns
+    -------
+    pd.DataFrame
+        Tidy DataFrame indexed by ``COUNTRY_PERIOD_INDEX`` with one column
+        per indicator.
+    """
+    df = wb.data.DataFrame(
+        indicators,
+        economy=countries,
+        time=range(start_year, end_year + 1)
+    )
+
+    return format_wb_query(df, indicators)
+
+
+def get_world_bank_indicators(
+    indicators: Dict[str, str],
+    countries: List[str],
+    start_year: int,
+    end_year: int,
+    cache_dir: Optional[Path] = None,
+) -> pd.DataFrame:
+    """
+    Fetch all indicators one by one and concatenate into a single DataFrame.
+
+    Fetches each indicator separately (to handle differing availability).
+    If ``cache_dir`` is provided, each successfully fetched indicator is
+    saved as a CSV there immediately, and any already-cached indicator is
+    loaded from disk instead of re-fetched — so a mid-run crash can be
+    resumed without re-downloading completed indicators.
+
+    Parameters
+    ----------
+    indicators : dict
+        Mapping from World Bank indicator codes to human-readable names
+        (names are printed as progress output; codes become column names).
+    countries : list of str
+        ISO Alpha-3 country codes.
+    start_year : int
+        First year to retrieve data for (inclusive).
+    end_year : int
+        Last year to retrieve data for (inclusive).
+    cache_dir : Path, optional
+        Directory to store per-indicator CSV caches.  If ``None``, caching
+        is disabled.
+
+    Returns
+    -------
+    pd.DataFrame
+        DataFrame indexed by ``COUNTRY_PERIOD_INDEX`` with one column per
+        indicator code.
+    """
+    # WB data typically lags by 1 year; years beyond that are not yet indexed
+    # and cause a 502 because wbgapi omits the 'YR' prefix for unknown years.
+    import datetime
+    safe_end = min(end_year, datetime.date.today().year - 1)
+    if safe_end < end_year:
+        print(f"Capping end year to {safe_end} (WB data not yet available beyond that)")
+    end_year = safe_end
+
+    if cache_dir is not None:
+        cache_dir = Path(cache_dir)
+        cache_dir.mkdir(parents=True, exist_ok=True)
 
     ind_series = []
-    for ind_code, ind_name in indicators.items():
-        print(ind_name, ind_code)
+    total = len(indicators)
+    for i, (ind_code, ind_name) in enumerate(indicators.items(), 1):
+        print(f"[{i}/{total}] {ind_name} ({ind_code})", end=' ')
 
-        df_ind = fetch_wb_indicator(ind_code, countries, start_year, end_year)
-        ind_series.append(df_ind[ind_code])
-    
-    final_df = pd.concat(ind_series, axis=1)
+        cache_path = cache_dir / f"{ind_code.replace('.', '_')}.csv" if cache_dir else None
 
-    return final_df
+        if cache_path and cache_path.exists():
+            print("(from cache)")
+            series = pd.read_csv(cache_path, index_col=0).squeeze()
+            series.name = ind_code
+        else:
+            print("(fetching…)")
+            try:
+                df_ind = fetch_wb_indicator(ind_code, countries, start_year, end_year)
+                series = df_ind[ind_code]
+                if cache_path:
+                    series.to_csv(cache_path)
+                ind_series.append(series)
+            except Exception as e:
+                print(f"  Skipping {ind_code} after all retries failed: {e}")
+                continue
+
+    return pd.concat(ind_series, axis=1)

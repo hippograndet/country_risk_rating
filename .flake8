@@ -1,0 +1,23 @@
+[flake8]
+max-line-length = 100
+
+# Pre-existing files with accumulated style debt — excluded from linting.
+# New files in src/ and tests/ are checked in full.
+exclude =
+    .venv,
+    .git,
+    __pycache__,
+    src/extraction/,
+    src/utils/countries.py,
+    src/utils/templates.py,
+    src/preprocessing/merge_datasets.py,
+    src/models/registry.py,
+    notebooks/
+
+# Ignore cosmetic whitespace/blank-line rules; catch real errors only.
+extend-ignore =
+    E302, E303, E305,
+    W291, W292, W293,
+    E261, E265,
+    E231, E251,
+    W391

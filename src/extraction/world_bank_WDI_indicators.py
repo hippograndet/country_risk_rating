@@ -85,8 +85,9 @@ WORLD_BANK_INDICATORS = {
     'SL.TLF.CACT.ZS': 'Labor force participation rate, total (% of total population ages 15+) (modeled ILO estimate)',
     # 'SL.UEM.LTRM.ZS': 'Unemployment, long-term (% of total unemployment)',
     # Institutional Structure
-    'GE.EST': 'Government Effectiveness: Estimate',
-    'RQ.EST': 'Regulatory Quality: Estimate',
+    'IQ.CPA.BREG.XQ': 'CPIA business regulatory environment rating (1=low to 6=high)',
+    # 'GE.EST': 'Government Effectiveness: Estimate',
+    # 'RQ.EST': 'Regulatory Quality: Estimate',
     # 'IC.BRE.BI.OS': 'B-READY: Business Insolvency: Overall Score',
     # 'IC.BRE.BE.OS': 'B-READY: Business Entry: Overall Score',
     'IQ.CPA.PADM.XQ': 'CPIA quality of public administration rating (1=low to 6=high)',

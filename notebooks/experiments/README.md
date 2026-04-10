@@ -1,9 +1,9 @@
 
-# Jupyter Notebooks for Expirementing with Data and Parameters
+# Jupyter Notebooks for Experimenting with Data and Parameters
 
 ## 🔍 Overview
 
-    The notebooks in this folder are not for external use. They are expiremental, uncleaned, used to run cross validations for models with varying parameters, to find the most optimal configurations for, feature selection, data preprocessing pipeline (imputation, sclarization), and individual model hyperparameters.
+    The notebooks in this folder are not for external use. They are experimental, uncleaned, used to run cross validations for models with varying parameters, to find the most optimal configurations for, feature selection, data preprocessing pipeline (imputation, scaling), and individual model hyperparameters.
 
     - Feature_Engineering.ipynb
     Explores Features to engineer from original data, and feature selection thresholds for different criterias (correlation, missingness, low variance). Also explores different imputation methods for missing values.

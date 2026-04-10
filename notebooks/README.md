@@ -3,7 +3,7 @@
 
 ## 🔍 Overview
 
-    The notebooks that explore the sequential steps of this project, from data extraction, integration, and analysis, to model training, evalution and final comparisons. There are also experiment notebooks (expirements folder) for personal use, to explore optimal parameters.
+    The notebooks that explore the sequential steps of this project, from data extraction, integration, and analysis, to model training, evaluation and final comparisons. There are also experiment notebooks (experiments folder) for personal use, to explore optimal parameters.
 
 ---
 
@@ -33,12 +33,6 @@ Applying preprocessing pipeline to dataset and creating Train, test split. Then 
 
 ---
 
-### 05-Model_Comparing.ipynb
+### 05-Model_Analysis.ipynb
 
-Comparing the results of the different models with a more thorough evaluation, to understand predictions better.
-
----
-
-### 06-Results_and_Interpretation.ipynb
-
-Analyzing and interpretting results from trained models.
+In-depth model comparison and interpretation. Per-class F1 breakdown, error distribution analysis, subgroup performance (by income group and region), and SHAP-based interpretability of the best model.
