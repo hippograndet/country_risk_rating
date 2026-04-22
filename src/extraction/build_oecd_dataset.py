@@ -81,9 +81,26 @@ def clean_oecd_value(value: str) -> str:
     """
     Normalise a raw rating string read from the OECD PDF table.
 
-    Handles multi-character strings that encode special values (e.g.
-    asterisk-annotated ratings), and maps rating ``'0'`` to ``'1'`` so
-    that the scale is balanced from 1 to 7.
+    When camelot parses the OECD PDF, cells that carry a footnote marker
+    (a superscript reference number printed next to the rating) are
+    concatenated into a multi-character string.  The second character of
+    that string encodes the footnote reference.  The footnotes are defined
+    on the last page of the OECD country risk PDF:
+
+    +------+---------------------------------------------------------------+---------------+
+    | Ref. | Meaning                                                       | Treatment     |
+    +------+---------------------------------------------------------------+---------------+
+    | (5)  | Currently not reviewed or classified                          | unrated → '-' |
+    | (6)  | High Income OECD Country, not reviewed or classified          | → '1' (min)   |
+    | (7)  | High Income Euro area Country, not reviewed or classified     | → '1' (min)   |
+    | (8)  | European micro-state (euro via monetary agreement), unclass.  | take last char|
+    | (9)  | Art. 23 — sovereign flagged above country risk                | → '1' (min)   |
+    +------+---------------------------------------------------------------+---------------+
+
+    High-income unclassified countries ((6), (7), (9)) are assigned the
+    minimum risk rating ('1') as a conservative approximation.  Rating
+    '0', which occasionally appears in older PDFs, is also remapped to
+    '1' to keep the scale balanced from 1 to 7.
 
     Parameters
     ----------
@@ -106,15 +123,16 @@ def clean_oecd_value(value: str) -> str:
     if len(s) == 1:
         v = s
     else:
-        if s[1] == '5':
+        # s[1] encodes the OECD footnote reference number (see table above)
+        if s[1] == '5':    # (5) not reviewed/classified
             v = '-'
-        elif s[1] == '6':
+        elif s[1] == '6':  # (6) high-income OECD, unclassified → min risk
             v = '0'
-        elif s[1] == '7':
+        elif s[1] == '7':  # (7) high-income Euro area, unclassified → min risk
             v = '0'
-        elif s[1] == '8':
+        elif s[1] == '8':  # (8) European micro-state → extract last character
             v = s[-1]
-        elif s[1] == '9':
+        elif s[1] == '9':  # (9) Art. 23 sovereign flag → min risk
             v = '0'
         else:
             v = s[-1]

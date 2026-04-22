@@ -55,7 +55,7 @@ def load_pdf(path: Path, **kwargs) -> camelot.core.TableList:
         raise FileNotFoundError(f"File not found: {path}")
     return camelot.read_pdf(
         filepath=path,
-        pages='all', #'all'
+        pages='all',
     )
 
 

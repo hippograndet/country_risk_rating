@@ -98,8 +98,8 @@ mlflow ui --backend-store-uri models/mlruns
 git clone https://github.com/hippograndet/country_risk_rating.git
 cd country_risk_rating
 
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements-dev.txt
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 **Train a model** (uses pre-built `data/3-processed/X.csv`):

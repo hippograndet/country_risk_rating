@@ -40,6 +40,8 @@ def get_model(
         model = xgb.XGBRegressor(**params)
     else:
         print('No model architecture with name', model_name)
+        print('Getting Default Model, XGBoost Classifier')
+        model = xgb.XGBClassifier(**params)
 
     return model
 

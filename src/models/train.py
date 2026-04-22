@@ -28,7 +28,7 @@ from src.utils import config, io
 
 PREPROCESSOR_PARAMS = {
     "num_imputer": "uni",
-    "num_imputer_uni_strategy": "most_frequent",
+    "num_imputer_uni_strategy": "mean",
     "cat_imputer": "uni",
     "cat_imputer_uni_strategy": "most_frequent",
 }
