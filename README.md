@@ -97,22 +97,44 @@ mlflow ui --backend-store-uri models/mlruns
 ```bash
 git clone https://github.com/hippograndet/country_risk_rating.git
 cd country_risk_rating
+make setup
+```
 
-python3 -m venv .venv && source .venv/bin/activate
+If you prefer manual setup:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-**Train a model** (uses pre-built `data/3-processed/X.csv`):
+### Most common workflows
+
+**1) Run tests**
 ```bash
-python -m src.train                              # XGBoost classifier (default)
-python -m src.train --model logistic_regression
-python -m src.train --model xgboost_regressor
-python -m src.train --model xgboost_classifier --register  # register in MLflow
+make test
 ```
 
-**Explore interactively:**
+**2) Train models** (uses pre-built `data/3-processed/X.csv`)
 ```bash
-jupyter notebook notebooks/
+make train          # default: xgboost_classifier
+make train-lr
+make train-xgb-reg
+make train-xgb-cls
+```
+
+Equivalent direct command:
+```bash
+python -m src.models.train
+```
+
+**3) Inspect experiments in MLflow**
+```bash
+make mlflow-ui
+```
+
+**4) Explore notebooks/results**
+```bash
+make notebooks
 ```
 
 > **Note on data:** `data/3-processed/X.csv` is included so the pipeline runs immediately. To rebuild it from scratch, download the latest OECD country risk PDF from [country-risk.oecd.org](https://country-risk.oecd.org) and place it in `data/1-raw/`, then run notebooks 01 → 03 in sequence.
@@ -153,6 +175,29 @@ jupyter notebook notebooks/
 
 `notebooks/` explain the reasoning behind decisions.  
 `src/` contains the reproducible pipeline code used for training.
+
+---
+
+## Start Here (by profile)
+
+### If you want to **run and experiment**
+1. `make setup`
+2. `make test`
+3. `make train`
+4. `make mlflow-ui`
+
+### If you want to **understand data and results only**
+1. Open `reports/Model_Report.md` and `reports/Model_Improvement.md`
+2. Review plots in `reports/` (`model_comparison.png`, `feature_importance_xgb.png`, etc.)
+3. Walk through notebooks in order:
+   - `notebooks/00-Summary.ipynb`
+   - `notebooks/04-Modeling_and_Evaluation.ipynb`
+   - `notebooks/05-Model_Analysis.ipynb`
+
+### If you want to **extend the pipeline**
+1. Read `docs/ARCHITECTURE.md`
+2. Modify the relevant module under `src/`
+3. Re-run `make test` and `make train`
 
 ---
 
