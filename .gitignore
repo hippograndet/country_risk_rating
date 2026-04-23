@@ -19,3 +19,20 @@ data/2-interim/**
 !data/2-interim/README.md
 
 models/mlruns/**
+mlruns/**
+
+# Registry model binaries / large artifacts
+models/registry/**/model/**
+
+# Python environment / caches
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+
+# Claude Files
+.claude/
+CLAUDE.local.md
+CLAUDE.md
+docs/
+.claudeignore

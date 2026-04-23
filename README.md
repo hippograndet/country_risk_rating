@@ -97,22 +97,67 @@ mlflow ui --backend-store-uri models/mlruns
 ```bash
 git clone https://github.com/hippograndet/country_risk_rating.git
 cd country_risk_rating
-
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements-dev.txt
+make setup
 ```
 
-**Train a model** (uses pre-built `data/3-processed/X.csv`):
+### macOS SSL fix (recommended)
+
+If you see warnings like `NotOpenSSLWarning` (LibreSSL backend), use the OpenSSL-backed setup target:
+
 ```bash
-python -m src.train                              # XGBoost classifier (default)
-python -m src.train --model logistic_regression
-python -m src.train --model xgboost_regressor
-python -m src.train --model xgboost_classifier --register  # register in MLflow
+make setup-openssl-macos
 ```
 
-**Explore interactively:**
+This installs Homebrew Python 3.11 and recreates `.venv` with an OpenSSL-linked interpreter, then verifies SSL with:
+
 ```bash
-jupyter notebook notebooks/
+make verify-ssl
+```
+
+If you prefer manual setup:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+---
+
+## ✅ Choose your path
+
+After running `make setup`, select one of these 3 options:
+
+### 📄 1. Read the General Report
+Get the full end-to-end analysis, results, and findings without running any code:
+```bash
+make report
+```
+This opens the complete project report including methodology, data analysis, model performance and conclusions.
+
+### 🔬 2. Explore as Data Scientist
+Walk through the full research process step-by-step with Jupyter notebooks:
+```bash
+make explore
+```
+Notebooks are ordered 00 → 05 and explain every decision made from raw data to final model.
+
+### 🤖 3. Train a model locally
+Train the production model on your machine:
+```bash
+make train           # Default: XGBoost Classifier (best performing)
+# Or choose model type:
+make train-classifier
+make train-regressor
+```
+Training uses the preprocessed dataset included in the repository. After training, use the `05-Model_Analysis.ipynb` notebook to explore your trained model.
+
+---
+
+### Additional commands
+```bash
+make test          # Run full test suite
+make mlflow-ui     # Launch MLflow experiment tracking UI
+make lint          # Run code quality checks
 ```
 
 > **Note on data:** `data/3-processed/X.csv` is included so the pipeline runs immediately. To rebuild it from scratch, download the latest OECD country risk PDF from [country-risk.oecd.org](https://country-risk.oecd.org) and place it in `data/1-raw/`, then run notebooks 01 → 03 in sequence.
@@ -153,6 +198,29 @@ jupyter notebook notebooks/
 
 `notebooks/` explain the reasoning behind decisions.  
 `src/` contains the reproducible pipeline code used for training.
+
+---
+
+## Start Here (by profile)
+
+### If you want to **run and experiment**
+1. `make setup`
+2. `make test`
+3. `make train`
+4. `make mlflow-ui`
+
+### If you want to **understand data and results only**
+1. Open `reports/Model_Report.md` and `reports/Model_Improvement.md`
+2. Review plots in `reports/` (`model_comparison.png`, `feature_importance_xgb.png`, etc.)
+3. Walk through notebooks in order:
+   - `notebooks/00-Summary.ipynb`
+   - `notebooks/04-Modeling_and_Evaluation.ipynb`
+   - `notebooks/05-Model_Analysis.ipynb`
+
+### If you want to **extend the pipeline**
+1. Read `docs/ARCHITECTURE.md`
+2. Modify the relevant module under `src/`
+3. Re-run `make test` and `make train`
 
 ---
 

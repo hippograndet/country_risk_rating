@@ -7,6 +7,7 @@ high-level evaluation functions for classifiers, regressors, and ensemble
 models.
 """
 
+from sklearn.pipeline import Pipeline
 from sklearn.metrics import (
     accuracy_score,
     precision_score,
@@ -21,14 +22,14 @@ import numpy as np
 import pandas as pd
 
 
-def get_distance_accuracy_ratio(
+def get_mean_rating_error(
     y_test: pd.DataFrame,
     y_pred: np.ndarray
 ) -> float:
     """
-    Mean absolute distance between predicted and true rating.
+    Mean absolute error between predicted and true rating (in rating steps).
 
-    Lower is better; a score of 0 means every prediction is exact.
+    Lower is better; 0 means every prediction is exact.
 
     Parameters
     ----------
@@ -107,7 +108,7 @@ def evaluate_classification(
             y_test, y_pred, average='macro', zero_division=np.nan),
         prefix + 'f1': f1_score(y_test, y_pred, average='macro'),
         prefix + 'blurred_accuracy': get_blurred_accuracy(y_test, y_pred),
-        prefix + 'dist_accuracy_ratio': get_distance_accuracy_ratio(y_test, y_pred)
+        prefix + 'mean_rating_error': get_mean_rating_error(y_test, y_pred)
         # 'roc_auc': roc_auc_score(y_test, y_proba, multi_class='ovr')
     }
 
@@ -115,7 +116,7 @@ def evaluate_classification(
 
 
 def evaluate_model_classifier(
-    model: object,
+    model: Pipeline,
     X: pd.DataFrame,
     y: pd.DataFrame,
     prefix: str = '',
@@ -166,7 +167,7 @@ def evaluate_model_classifier(
 
 
 def evaluate_model_regressor(
-    model: object,
+    model: Pipeline,
     X: pd.DataFrame,
     y: pd.DataFrame,
     prefix: str = '',
