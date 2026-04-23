@@ -46,7 +46,7 @@ class TestGetMeanRatingError:
 
     def test_lower_is_better(self):
         good_pred = get_mean_rating_error([1, 7], [2, 6])
-        bad_pred  = get_mean_rating_error([1, 7], [4, 4])
+        bad_pred = get_mean_rating_error([1, 7], [4, 4])
         assert good_pred < bad_pred
 
 

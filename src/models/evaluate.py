@@ -7,6 +7,7 @@ high-level evaluation functions for classifiers, regressors, and ensemble
 models.
 """
 
+from sklearn.pipeline import Pipeline
 from sklearn.metrics import (
     accuracy_score,
     precision_score,
@@ -115,7 +116,7 @@ def evaluate_classification(
 
 
 def evaluate_model_classifier(
-    model: object,
+    model: Pipeline,
     X: pd.DataFrame,
     y: pd.DataFrame,
     prefix: str = '',
@@ -166,7 +167,7 @@ def evaluate_model_classifier(
 
 
 def evaluate_model_regressor(
-    model: object,
+    model: Pipeline,
     X: pd.DataFrame,
     y: pd.DataFrame,
     prefix: str = '',

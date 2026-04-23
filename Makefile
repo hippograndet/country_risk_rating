@@ -1,20 +1,37 @@
-.PHONY: help setup test lint train train-lr train-xgb-reg train-xgb-cls mlflow-ui notebooks
+.PHONY: help setup setup-openssl-macos verify-ssl test lint train report explore train-classifier train-regressor mlflow-ui notebooks
+
+PYTHON ?= python3
 
 help:
-	@echo "Available commands:"
+	@echo "✅ After setup, choose one of these 3 paths:"
+	@echo "  make report      📄 Read the full project report (start here)"
+	@echo "  make explore     🔬 Explore as Data Scientist (Jupyter Notebooks)"
+	@echo "  make train       🤖 Train model locally (default: XGBoost Classifier)"
+	@echo ""
+	@echo "Other commands:"
 	@echo "  make setup        - Create virtualenv and install dependencies"
+	@echo "  make setup-openssl-macos - macOS: OpenSSL-backed Python setup"
+	@echo "  make verify-ssl   - Verify SSL backend"
 	@echo "  make test         - Run test suite"
-	@echo "  make lint         - Run flake8 on src and tests"
-	@echo "  make train        - Train default model (xgboost_classifier)"
-	@echo "  make train-lr     - Train logistic regression baseline"
-	@echo "  make train-xgb-reg- Train xgboost regressor"
-	@echo "  make train-xgb-cls- Train and register xgboost classifier"
-	@echo "  make mlflow-ui    - Launch MLflow UI"
-	@echo "  make notebooks    - Launch Jupyter notebooks"
+	@echo "  make lint         - Run flake8 linter"
+	@echo "  make train-classifier - Train XGBoost Classifier model"
+	@echo "  make train-regressor  - Train XGBoost Regressor model"
+	@echo "  make mlflow-ui    - Launch MLflow experiment tracking UI"
 
 setup:
-	python3 -m venv .venv
+	$(PYTHON) -m venv .venv
 	. .venv/bin/activate && pip install -r requirements.txt
+
+setup-openssl-macos:
+	@command -v brew >/dev/null 2>&1 || (echo "Homebrew is required on macOS for this target: https://brew.sh" && exit 1)
+	brew install python@3.11 openssl@3
+	"$$(brew --prefix python@3.11)/bin/python3.11" -m venv .venv
+	. .venv/bin/activate && python -m pip install --upgrade pip setuptools wheel
+	. .venv/bin/activate && python -m pip install -r requirements.txt
+	$(MAKE) verify-ssl
+
+verify-ssl:
+	. .venv/bin/activate && python -c "import ssl,sys; v=ssl.OPENSSL_VERSION; print('SSL backend:', v); sys.exit(0 if v.startswith(('OpenSSL', 'LibreSSL')) else 1)"
 
 test:
 	PYTHONPATH=. pytest -q
@@ -22,20 +39,33 @@ test:
 lint:
 	flake8 src tests
 
-train:
-	python -m src.models.train
+report:
+	@echo "📄 Opening project report..."
+	@open reports/Model_Report.md
 
+explore:
+	@echo "🔬 Launching Jupyter Notebooks..."
+	. .venv/bin/activate && jupyter notebook notebooks/
+
+train:
+	. .venv/bin/activate && python -m src.models.train --model xgboost_classifier --register
+
+train-classifier:
+	. .venv/bin/activate && python -m src.models.train --model xgboost_classifier --register
+
+train-regressor:
+	. .venv/bin/activate && python -m src.models.train --model xgboost_regressor --register
+
+# Legacy aliases for backwards compatibility
 train-lr:
 	python -m src.models.train --model logistic_regression
 
-train-xgb-reg:
-	python -m src.models.train --model xgboost_regressor
+train-xgb-reg: train-regressor
 
-train-xgb-cls:
-	python -m src.models.train --model xgboost_classifier --register
+train-xgb-cls: train-classifier
 
 mlflow-ui:
-	mlflow ui --backend-store-uri models/mlruns
+	. .venv/bin/activate && mlflow ui --backend-store-uri models/mlruns
 
 notebooks:
-	jupyter notebook notebooks/
+	. .venv/bin/activate && jupyter notebook notebooks/

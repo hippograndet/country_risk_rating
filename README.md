@@ -100,6 +100,20 @@ cd country_risk_rating
 make setup
 ```
 
+### macOS SSL fix (recommended)
+
+If you see warnings like `NotOpenSSLWarning` (LibreSSL backend), use the OpenSSL-backed setup target:
+
+```bash
+make setup-openssl-macos
+```
+
+This installs Homebrew Python 3.11 and recreates `.venv` with an OpenSSL-linked interpreter, then verifies SSL with:
+
+```bash
+make verify-ssl
+```
+
 If you prefer manual setup:
 ```bash
 python3 -m venv .venv
@@ -107,34 +121,43 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### Most common workflows
+---
 
-**1) Run tests**
+## ✅ Choose your path
+
+After running `make setup`, select one of these 3 options:
+
+### 📄 1. Read the General Report
+Get the full end-to-end analysis, results, and findings without running any code:
 ```bash
-make test
+make report
 ```
+This opens the complete project report including methodology, data analysis, model performance and conclusions.
 
-**2) Train models** (uses pre-built `data/3-processed/X.csv`)
+### 🔬 2. Explore as Data Scientist
+Walk through the full research process step-by-step with Jupyter notebooks:
 ```bash
-make train          # default: xgboost_classifier
-make train-lr
-make train-xgb-reg
-make train-xgb-cls
+make explore
 ```
+Notebooks are ordered 00 → 05 and explain every decision made from raw data to final model.
 
-Equivalent direct command:
+### 🤖 3. Train a model locally
+Train the production model on your machine:
 ```bash
-python -m src.models.train
+make train           # Default: XGBoost Classifier (best performing)
+# Or choose model type:
+make train-classifier
+make train-regressor
 ```
+Training uses the preprocessed dataset included in the repository. After training, use the `05-Model_Analysis.ipynb` notebook to explore your trained model.
 
-**3) Inspect experiments in MLflow**
-```bash
-make mlflow-ui
-```
+---
 
-**4) Explore notebooks/results**
+### Additional commands
 ```bash
-make notebooks
+make test          # Run full test suite
+make mlflow-ui     # Launch MLflow experiment tracking UI
+make lint          # Run code quality checks
 ```
 
 > **Note on data:** `data/3-processed/X.csv` is included so the pipeline runs immediately. To rebuild it from scratch, download the latest OECD country risk PDF from [country-risk.oecd.org](https://country-risk.oecd.org) and place it in `data/1-raw/`, then run notebooks 01 → 03 in sequence.

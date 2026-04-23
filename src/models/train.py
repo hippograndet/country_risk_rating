@@ -185,8 +185,8 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--split",
-        default="temporal_v1",
-        help="Split config name under data/3-processed/splits/ (default: temporal_v1)",
+        default="temporal_v2",
+        help="Split config name under data/3-processed/splits/ (default: temporal_v2)",
     )
     parser.add_argument(
         "--experiment",
