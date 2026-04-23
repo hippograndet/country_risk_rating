@@ -210,7 +210,74 @@ def get_dataset_feature_selected(
     # )
     # print('Filter Mutual Information Shape:', dataset.shape)
     if verbose:
-        print(params)
         print('Final Dataset Shape:', dataset.shape)
 
     return dataset
+
+def get_dataset_feature_selected_counts(
+    dataset: pd.DataFrame,
+    params: dict,
+    verbose: bool = True
+) -> tuple[pd.DataFrame, dict]:
+    """
+    Apply the full column-level feature selection pipeline to a dataset.
+
+    Removes rows with an invalid OECD rating, then sequentially applies
+    missingness, low-variance, and correlation filters.
+
+    Parameters
+    ----------
+    dataset : pd.DataFrame
+        Merged dataset containing features and the ``OECD_RATING`` column.
+    params : dict
+        Selection thresholds with keys: ``max_missing_ratio``,
+        ``low_var_threshold``, ``max_corr``.
+    verbose : bool, optional
+        Print shape after each filter step (default True).
+
+    Returns
+    -------
+    pd.DataFrame
+        Feature-selected dataset.
+    """
+    # non_float_features_t = list(dataset.columns[dataset.dtypes!=float])
+    counts = {}
+    counts['Initial'] = dataset.shape
+    if verbose:
+        print('Initial Dataset Shape:', dataset.shape)
+    dataset = dataset[dataset['OECD_RATING'] != '-']
+    counts['Drop Null Target'] = dataset.shape
+    if verbose:
+        print('Drop Null Target Shape:', dataset.shape)
+    dataset = filter_missingness(
+        dataset,
+        max_missing_ratio=params['max_missing_ratio']
+    )
+    counts['Filter Missingness'] = dataset.shape
+    if verbose:
+        print('Filter Missingness Shape:', dataset.shape)
+    dataset = filter_low_variance(
+        dataset,
+        threshold=params['low_var_threshold']
+    )
+    counts['Filter Low Variance'] = dataset.shape
+    if verbose:
+        print('Filter Low Variance Shape:', dataset.shape)
+    dataset = filter_correlated(
+        dataset,
+        max_corr=params['max_corr']
+    )
+    counts['Filter Correlated'] = dataset.shape
+    # if verbose:
+    #     print('Filter Correlated Shape:', dataset.shape)
+    # dataset = selection.select_by_mutual_information(
+    #     dataset.drop(columns=['OECD_RATING']),
+    #     dataset['OECD_RATING'],
+    #     top_k=params['top_k_mi']
+    # )
+    # print('Filter Mutual Information Shape:', dataset.shape)
+    counts['Final'] = dataset.shape
+    if verbose:
+        print('Final Dataset Shape:', dataset.shape)
+
+    return dataset, counts
