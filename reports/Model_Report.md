@@ -14,10 +14,10 @@ The dataset combines two public sources:
 
 | Source | Content | Access |
 |---|---|---|
-| World Bank WDI | 94 macroeconomic indicators (1999–2024) | API (`wbgapi`) |
+| World Bank WDI | 74 macroeconomic indicators (1999–2026) | API (`wbgapi`) |
 | OECD Country Risk | Risk ratings 1–7 (target variable) | PDF extraction (`camelot-py`) |
 
-After merging by country and year, applying feature selection (missingness, variance, correlation, mutual information filters), and engineering domain features (growth rates, ratios, moving averages, z-scores), the final dataset contains **4,081 observations** across **63 features**.
+After merging by country and year, applying feature selection (missingness, variance, correlation filters), and engineering domain features (growth rates, ratios, moving averages), the final dataset contains **4,238 observations** across **64 features**.
 
 See [Data_Diagnostics.md](Data_Diagnostics.md) for the full data quality assessment and feature selection methodology.
 
@@ -25,15 +25,15 @@ See [Data_Diagnostics.md](Data_Diagnostics.md) for the full data quality assessm
 
 All experiments use a strict temporal split to prevent data leakage:
 
-- **Training**: 1999–2020 (3,368 observations)
-- **Test**: 2021–2024 (713 observations)
+- **Training**: 1999–2021 (3,755 observations)
+- **Test**: 2022–2026 (483 observations)
 
 No overlap between splits. Preprocessing is fit on training data only.
 
 ### Preprocessing pipeline
 
 All models share a common sklearn pipeline:
-- Median imputation for missing values
+- Imputation for missing values
 - Standard scaling for numerical features
 - One-hot encoding for categorical features
 
@@ -43,10 +43,11 @@ Multinomial logistic regression with L2 regularization and balanced class weight
 
 | Metric | Value |
 |---|---|
-| Macro F1 | 0.604 |
-| Accuracy | 0.711 |
+| Macro F1 | 0.592 |
+| Accuracy | 0.683 |
+| Blurred Accuracy (±1) | 0.876 |
 
-The baseline achieves reasonable performance but underfits non-linear relationships and feature interactions, particularly for mid-range ratings (3–5) where economic signals are more ambiguous.
+The baseline achieves reasonable performance but underfits non-linear relationships and feature interactions, particularly for mid-range ratings (3–5) where economic signals are more ambiguous. Per-class F1 drops as low as 0.26 for rating 4.
 
 ## 4. Improvement Strategy
 
@@ -54,7 +55,7 @@ Three limitations guided the search for better models:
 
 1. **Non-linear feature interactions** — economic indicators interact in ways linear models cannot capture (e.g., debt burden matters differently depending on GDP growth)
 2. **Temporal feature importance shifts** — the relative importance of indicators changes across economic cycles
-3. **Minority class recall** — extreme ratings (1 and 7) are underrepresented and poorly predicted by the baseline
+3. **Minority class recall** — mid-range ratings (3–5) are underrepresented and poorly predicted by the baseline
 
 Hypothesis: tree-based models can address all three through their ability to learn feature interactions, handle heterogeneous feature types, and partition the feature space adaptively.
 
@@ -62,11 +63,11 @@ Hypothesis: tree-based models can address all three through their ability to lea
 
 ### XGBoost Regressor
 
-Gradient-boosted regression treating the rating as a continuous target, with predictions rounded to the nearest integer class. This approach captures ordinal structure but introduces rounding errors and struggles with class boundaries.
+Gradient-boosted regression treating the rating as a continuous target, with predictions rounded to the nearest integer class. This approach captures ordinal structure but introduces rounding errors and struggles with class boundaries. In practice, the regressor suffers from **median collapse**: MSE loss drives predictions toward the centre of the rating distribution, compressing extreme ratings (1 and 7) and producing many wrong-class predictions despite being within one step of the truth.
 
 ### XGBoost Classifier
 
-Gradient-boosted classification with multi-class softmax objective. Directly optimizes for class separation and produces calibrated class probabilities.
+Gradient-boosted classification with multi-class softmax objective. Directly optimises for class separation and produces calibrated class probabilities.
 
 All experiments were tracked using MLflow with identical temporal splits and evaluation metrics.
 
@@ -74,13 +75,29 @@ All experiments were tracked using MLflow with identical temporal splits and eva
 
 | Model | Macro F1 | Accuracy | Blurred Acc. (±1) |
 |---|---|---|---|
-| Logistic Regression (baseline) | 0.604 | 0.711 | — |
+| Logistic Regression (baseline) | 0.592 | 0.683 | 0.876 |
 | XGBoost Regressor | 0.487 | 0.560 | 0.896 |
-| **XGBoost Classifier** | **0.747** | **0.811** | **0.955** |
+| **XGBoost Classifier** | **0.761** | **0.812** | **0.917** |
 
 ![Model Comparison](plots/model_comparison.png)
 
-The XGBoost Classifier improves over the baseline by **+0.143 macro F1** and **+10 percentage points accuracy**. The regressor underperforms due to rounding artifacts and loss of class boundary information.
+The XGBoost Classifier improves over the baseline by **+0.169 macro F1** and **+13 percentage points accuracy**. The regressor underperforms due to median collapse — its predictions cluster around ratings 3–5, which after rounding produces many wrong-class predictions at the extremes (hence low F1) while still being within one step of the truth (hence decent blurred accuracy).
+
+### Per-class performance
+
+F1 scores vary substantially across rating categories:
+
+| Rating | LR | XGB Classifier | XGB Regressor |
+|---|---|---|---|
+| 1 (lowest risk) | 0.907 | 0.968 | 0.720 |
+| 2 | 0.718 | 0.769 | 0.371 |
+| 3 | 0.620 | 0.851 | 0.430 |
+| 4 | 0.256 | 0.667 | 0.356 |
+| 5 | 0.333 | 0.675 | 0.442 |
+| 6 | 0.452 | 0.721 | 0.520 |
+| 7 (highest risk) | 0.760 | 0.856 | 0.588 |
+
+The XGBoost Classifier is the only model with no per-class F1 below 0.66. The logistic regression baseline drops below 0.35 for ratings 4 and 5 — exactly the transitional economic zones where non-linear patterns matter most.
 
 ### Error analysis
 
@@ -91,6 +108,19 @@ The confusion matrix shows most misclassifications occur between adjacent rating
 Error rates vary systematically across ratings — high-rated countries (6–7) are predicted most reliably, while mid-range ratings (3–5) exhibit higher uncertainty, reflecting their transitional economic nature.
 
 ![Error by Class](plots/error_by_class.png)
+
+### Subgroup analysis
+
+Performance by income group and geographic region (XGBoost Classifier):
+
+| Income Group | n | Accuracy | Blurred Acc. (±1) |
+|---|---|---|---|
+| Low income | 60 | 0.933 | 0.950 |
+| High income | 160 | 0.862 | 0.956 |
+| Lower-middle | 131 | 0.832 | 0.969 |
+| Upper-middle | 129 | 0.783 | 0.961 |
+
+The model performs well across all income groups, though upper-middle-income countries are hardest to classify — these often sit at rating boundaries where small economic changes trigger rating shifts.
 
 ### Feature importance
 
@@ -110,8 +140,8 @@ SHAP analysis reveals how features influence predictions differently across the 
 
 **Key takeaways**:
 - Tree-based models capture non-linear interactions that linear models miss
-- Temporal splits are essential — random splits artificially inflate performance by ~15 percentage points
-- Macroeconomic indicators explain ~75% of rating variation; residual error reflects expert judgment not captured by public data
+- Temporal splits are essential — random splits artificially inflate performance
+- Macroeconomic indicators explain ~80% of rating variation; residual error reflects expert judgment not captured by public data
 
 ## 8. Future Directions
 

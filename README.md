@@ -8,13 +8,13 @@ End-to-end machine learning pipeline predicting OECD country risk ratings (1–7
 
 ## Results
 
-Test period: **2021–2024** (held-out temporal split, no data leakage)
+Test period: **2022–2026** (held-out temporal split, no data leakage)
 
 | Model | Macro F1 | Accuracy | Blurred Acc. (±1) |
 |---|---|---|---|
-| Logistic Regression (baseline) | 0.604 | 0.711 | — |
+| Logistic Regression (baseline) | 0.592 | 0.683 | 0.876 |
 | XGBoost Regressor | 0.487 | 0.560 | 0.896 |
-| **XGBoost Classifier** | **0.747** | **0.811** | **0.955** |
+| **XGBoost Classifier** | **0.761** | **0.812** | **0.917** |
 
 **Blurred accuracy** measures the fraction of predictions within one rating step of the true value — adjacent OECD ratings often reflect similar risk levels.
 
@@ -32,7 +32,7 @@ SHAP analysis reveals which economic dimensions drive predictions across the rat
 
 - Tree-based models capture non-linear interactions that linear models miss
 - Temporal splits are essential — random splits artificially inflate performance
-- Macroeconomic indicators explain ~75% of rating variation; residual error reflects expert judgment not captured by public data
+- Macroeconomic indicators explain ~80% of rating variation; residual error reflects expert judgment not captured by public data
 
 ---
 
@@ -41,7 +41,7 @@ SHAP analysis reveals which economic dimensions drive predictions across the rat
 ```
 ┌─────────────────────────────────────────┐
 │  DATA SOURCES                           │
-│  World Bank API  ──►  94 macro          │
+│  World Bank API  ──►  74 macro          │
 │  OECD PDF        ──►  risk ratings      │
 │  Country metadata──►  ISO codes         │
 └────────────────┬────────────────────────┘
@@ -57,14 +57,14 @@ SHAP analysis reveals which economic dimensions drive predictions across the rat
 │  FEATURE SELECTION  (notebooks / src)   │
 │  Missingness · Variance · Correlation   │
 │  + Feature engineering (ENG_* columns)  │
-│  → 63 features, 4 081 observations      │
+│  → 64 features, 4 238 observations      │
 └────────────────┬────────────────────────┘
                  │
                  ▼
 ┌─────────────────────────────────────────┐
 │  TRAINING  (src/models/train.py)        │
-│  Temporal split: train 1999–2020        │
-│                  test  2021–2024        │
+│  Temporal split: train 1999–2021        │
+│                  test  2022–2026        │
 │  sklearn preprocessing pipeline         │
 │  MLflow: params · metrics · artifacts   │
 └────────────────┬────────────────────────┘
@@ -105,7 +105,7 @@ The notebooks walk through the full research process step-by-step:
 
 | Source | Content | Access |
 |---|---|---|
-| [World Bank WDI](https://datatopics.worldbank.org/world-development-indicators/) | 94 macroeconomic indicators (1999–2024) | Free API (`wbgapi`) |
+| [World Bank WDI](https://datatopics.worldbank.org/world-development-indicators/) | 74 macroeconomic indicators (1999–2026) | Free API (`wbgapi`) |
 | [OECD Country Risk](https://country-risk.oecd.org) | Risk ratings 1–7 (target variable) | Free PDF download |
 
 ---

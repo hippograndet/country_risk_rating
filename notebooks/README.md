@@ -1,37 +1,30 @@
-# Jupyter Notebooks, that go through the steps of the project pipeline, with visualizations
+# Notebooks
 
+Sequential notebooks covering each stage of the project pipeline, with visualizations.
 
-## 🔍 Overview
+## Overview
 
-    The notebooks that explore the sequential steps of this project, from data extraction, integration, and analysis, to model training, evaluation and final comparisons. There are also experiment notebooks (experiments folder) for personal use, to explore optimal parameters.
+These notebooks explore the steps of this project, from data extraction and integration, to feature selection, model training, evaluation, and analysis.
+
+Experiment notebooks in the `experiments/` folder are for parameter exploration and are not part of the main pipeline.
 
 ---
-
-## Notebooks
 
 ### 01-Data_Extraction.ipynb
 
-In this notebook, we go through the steps retrieving and data from public datasets (OECD, WB) for later formatting for model prediction. Also has an initial mssing data observation.
-
----
+Retrieving data from public datasets (OECD, World Bank) and formatting for later use. Includes initial missing data observations.
 
 ### 02-Data_Integration.ipynb
 
-Merging and formatting dataset for preprocessing, from all sources
-
----
+Merging and formatting datasets from all sources into a single country-year indexed dataset.
 
 ### 03-Feature_Selection.ipynb
 
-Select from imported features, features that satisfy different selection criterias (missing values, correlation, ...).
-
----
+Feature selection pipeline (missingness, variance, correlation filters) and domain feature engineering.
 
 ### 04-Modeling_and_Evaluation.ipynb
 
-Applying preprocessing pipeline to dataset and creating Train, test split. Then training and evaluating different ML models on data.
-
----
+Applying the preprocessing pipeline, creating the temporal train/test split, then training and evaluating Logistic Regression, XGBoost Classifier, XGBoost Regressor, and Ensemble models.
 
 ### 05-Model_Analysis.ipynb
 

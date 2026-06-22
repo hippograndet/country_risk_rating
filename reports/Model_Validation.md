@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This report presents the temporal validation framework and performance analysis for the OECD country risk rating prediction models. The evaluation strategy employs a temporal split (train: 1999–2020, test: 2021–2024) to prevent data leakage and assess real-world forecasting capability. Three model types were evaluated: Logistic Regression (baseline), XGBoost Regressor, and XGBoost Classifier.
+This report presents the temporal validation framework and performance analysis for the OECD country risk rating prediction models. The evaluation strategy employs a temporal split (train: 1999–2021, test: 2022–2026) to prevent data leakage and assess real-world forecasting capability. Three model types were evaluated: Logistic Regression (baseline), XGBoost Regressor, and XGBoost Classifier.
 
 ## Temporal Evaluation
 
@@ -10,11 +10,11 @@ This report presents the temporal validation framework and performance analysis 
 
 The temporal split ensures that models are trained on historical data and evaluated on future observations, simulating real-world deployment conditions:
 
-- **Training period**: 1999–2020 (3,368 observations)
-- **Test period**: 2021–2024 (713 observations)
+- **Training period**: 1999–2021 (3,755 observations)
+- **Test period**: 2022–2026 (483 observations)
 - **No overlap**: Prevents temporal leakage that would artificially inflate performance
 
-The OECD rating distribution remains consistent across splits, validating the temporal separation:
+The OECD rating distribution across splits:
 
 ![OECD Rating Distribution](plots/oecd_rating_distribution.png)
 
@@ -24,9 +24,9 @@ Models were evaluated using multiple metrics to capture different aspects of pre
 
 | Model | Macro F1 | Accuracy | Blurred Accuracy (±1) |
 |---|---|---|---|
-| Logistic Regression | 0.604 | 0.711 | — |
+| Logistic Regression | 0.592 | 0.683 | 0.876 |
 | XGBoost Regressor | 0.487 | 0.560 | 0.896 |
-| XGBoost Classifier | **0.747** | **0.811** | **0.955** |
+| XGBoost Classifier | **0.761** | **0.812** | **0.917** |
 
 The XGBoost Classifier achieves the highest performance across all metrics, demonstrating superior ability to capture non-linear relationships in the data.
 
@@ -64,7 +64,7 @@ F1 scores by rating category demonstrate the model's reliability across the risk
 
 ![F1 Score per Rating](plots/f1_score_per_rating.png)
 
-The XGBoost Classifier maintains consistent performance across all ratings, with particularly strong results for the most common categories.
+The XGBoost Classifier maintains no per-class F1 below 0.66, with particularly strong results for ratings 1 and 3 (F1 > 0.85).
 
 ## Feature Importance and Interpretation
 
@@ -94,12 +94,11 @@ This insight can guide future feature engineering efforts and data collection pr
 
 ## Conclusion
 
-The XGBoost Classifier demonstrates robust temporal forecasting capability, achieving 81% exact accuracy and 95.5% near-miss accuracy on held-out future data. The temporal validation framework provides confidence in the model's real-world applicability, while the error analysis reveals systematic patterns that align with economic intuition.
+The XGBoost Classifier demonstrates robust temporal forecasting capability, achieving 81% exact accuracy and 92% near-miss accuracy on held-out future data. The temporal validation framework provides confidence in the model's real-world applicability, while the error analysis reveals systematic patterns that align with economic intuition.
 
 ## Further Directions
 
 - **Implement probabilistic predictions** to quantify uncertainty and enable risk-adjusted decision making.
 - **Explore ensemble methods** that combine multiple model types for improved robustness.
 - **Conduct stress testing** with extreme economic scenarios to assess model behavior under crisis conditions.
-- **Implement continuous learning** to adapt to evolving economic relationships over time.
 - **Validate on alternative temporal splits** to assess model stability across different time periods.

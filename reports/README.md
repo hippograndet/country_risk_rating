@@ -11,7 +11,7 @@ Stakeholder-facing overview of objectives, key results, and practical implicatio
 Technical report covering the full modeling journey — from logistic regression baseline to XGBoost classifier — with performance metrics, error analysis, feature importance, and future directions.
 
 ### [Data_Diagnostics.md](Data_Diagnostics.md)
-Data quality assessment, missingness analysis, and feature selection methodology. Covers the pipeline from 94 raw indicators to 63 engineered features.
+Data quality assessment, missingness analysis, and feature selection methodology. Covers the pipeline from 74 raw indicators to 64 final features.
 
 ### [Model_Validation.md](Model_Validation.md)
 Temporal evaluation framework, per-class performance breakdown, and SHAP-based model interpretation.

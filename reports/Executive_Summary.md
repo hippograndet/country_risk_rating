@@ -4,7 +4,7 @@
 
 This report summarizes the end-to-end machine learning project that predicts OECD country risk ratings (1–7) from publicly available macroeconomic indicators sourced from the World Bank. The central question is: *how well can macroeconomic data reproduce expert-assessed sovereign risk ratings?*
 
-The pipeline covers data extraction, feature engineering, model training with temporal validation, and experiment tracking. The best-performing model is an XGBoost Classifier, evaluated on a held-out temporal test set (2021–2024) to prevent data leakage.
+The pipeline covers data extraction, feature engineering, model training with temporal validation, and experiment tracking. The best-performing model is an XGBoost Classifier, evaluated on a held-out temporal test set (2022–2026) to prevent data leakage.
 
 ## Key Results
 
@@ -12,9 +12,9 @@ The XGBoost Classifier achieved the strongest performance across all metrics on 
 
 | Model | Macro F1 | Accuracy | Blurred Accuracy (±1) |
 |---|---|---|---|
-| Logistic Regression (baseline) | 0.604 | 0.711 | — |
+| Logistic Regression (baseline) | 0.592 | 0.683 | 0.876 |
 | XGBoost Regressor | 0.487 | 0.560 | 0.896 |
-| **XGBoost Classifier** | **0.747** | **0.811** | **0.955** |
+| **XGBoost Classifier** | **0.761** | **0.812** | **0.917** |
 
 Blurred accuracy measures the fraction of predictions within one rating step of the true value — a relevant metric because adjacent OECD ratings often reflect similar risk levels.
 
@@ -28,11 +28,11 @@ The confusion matrix for the XGBoost Classifier shows strong diagonal performanc
 
 Three key findings emerge from this analysis:
 
-1. **Tree-based models capture non-linear interactions** that linear models miss, explaining the gap between XGBoost and logistic regression performance.
+1. **Tree-based models capture non-linear interactions** that linear models miss, explaining the performance gap between XGBoost and logistic regression.
 
 2. **Temporal splits are essential** — random train/test splits artificially inflate performance by allowing future data to leak into training.
 
-3. **Macroeconomic indicators explain approximately 75% of rating variation**; the residual error reflects expert judgment and qualitative factors not captured by public data alone.
+3. **Macroeconomic indicators explain approximately 80% of rating variation**; the residual error reflects expert judgment and qualitative factors not captured by public data alone.
 
 The feature importance analysis reveals which economic dimensions drive predictions:
 
@@ -44,7 +44,7 @@ SHAP analysis provides model-agnostic insight into how features influence predic
 
 ## Conclusion
 
-The XGBoost Classifier reliably reproduces OECD country risk ratings from macroeconomic data, achieving 81% exact accuracy and 95.5% near-miss accuracy on held-out temporal data. This demonstrates that public economic indicators contain substantial signal about sovereign risk, though expert judgment adds nuance that models cannot fully capture.
+The XGBoost Classifier reliably reproduces OECD country risk ratings from macroeconomic data, achieving 81% exact accuracy and 92% near-miss accuracy on held-out temporal data. This demonstrates that public economic indicators contain substantial signal about sovereign risk, though expert judgment adds nuance that models cannot fully capture.
 
 ## Further Directions
 
