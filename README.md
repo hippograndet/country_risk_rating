@@ -1,28 +1,38 @@
 # OECD Country Risk Rating Prediction
 
-> End-to-end machine learning pipeline predicting OECD country risk ratings (1–7) from World Bank macroeconomic indicators.
+End-to-end machine learning pipeline predicting OECD country risk ratings (1–7) from World Bank macroeconomic indicators.
 
 **Hippolyte Grandet** · MSc Artificial Intelligence, University of Edinburgh
 
 ---
 
-## Overview
+## Results
 
-OECD country risk ratings reflect sovereign risk as assessed by expert committees. This project asks: *how well can publicly available macroeconomic data reproduce those assessments?*
+Test period: **2021–2024** (held-out temporal split, no data leakage)
 
-The pipeline covers the full data science lifecycle — API ingestion, feature engineering, model training with MLflow tracking, and temporal evaluation — built to demonstrate both data science and MLOps practices.
+| Model | Macro F1 | Accuracy | Blurred Acc. (±1) |
+|---|---|---|---|
+| Logistic Regression (baseline) | 0.604 | 0.711 | — |
+| XGBoost Regressor | 0.487 | 0.560 | 0.896 |
+| **XGBoost Classifier** | **0.747** | **0.811** | **0.955** |
 
----
+**Blurred accuracy** measures the fraction of predictions within one rating step of the true value — adjacent OECD ratings often reflect similar risk levels.
 
-## What this demonstrates
+![Model Comparison](reports/plots/model_comparison.png)
 
-| Area | Details |
-|---|---|
-| **Data engineering** | API-driven ingestion (World Bank), PDF extraction (OECD), multi-source alignment |
-| **Feature design** | 94 World Bank indicators across 6 economic dimensions + domain-derived engineered features |
-| **ML pipeline** | Modular sklearn pipelines, temporal train/test splits, multi-class classification & regression |
-| **MLOps** | MLflow experiment tracking, model registry, CLI training entrypoint (`src/train.py`) |
-| **Code quality** | Reproducible structure (raw → interim → processed), separation of notebooks and src/ |
+The confusion matrix shows most misclassifications occur between adjacent rating categories:
+
+![Confusion Matrix](reports/plots/confusion_matrix_xgb.png)
+
+SHAP analysis reveals which economic dimensions drive predictions across the rating spectrum:
+
+![SHAP Summary](reports/plots/shap_summary_rating_by_features.png)
+
+### Key findings
+
+- Tree-based models capture non-linear interactions that linear models miss
+- Temporal splits are essential — random splits artificially inflate performance
+- Macroeconomic indicators explain ~75% of rating variation; residual error reflects expert judgment not captured by public data
 
 ---
 
@@ -44,123 +54,59 @@ The pipeline covers the full data science lifecycle — API ingestion, feature e
                  │
                  ▼
 ┌─────────────────────────────────────────┐
-│  FEATURE SELECTION  (03-notebook / src) │
+│  FEATURE SELECTION  (notebooks / src)   │
 │  Missingness · Variance · Correlation   │
-│  + Feature engineering (ENG_* columns) │
+│  + Feature engineering (ENG_* columns)  │
 │  → 63 features, 4 081 observations      │
 └────────────────┬────────────────────────┘
                  │
                  ▼
 ┌─────────────────────────────────────────┐
-│  TRAINING  (src/train.py)               │
+│  TRAINING  (src/models/train.py)        │
 │  Temporal split: train 1999–2020        │
 │                  test  2021–2024        │
-│  sklearn preprocessing pipeline        │
-│  MLflow: params · metrics · artifacts  │
+│  sklearn preprocessing pipeline         │
+│  MLflow: params · metrics · artifacts   │
 └────────────────┬────────────────────────┘
                  │
                  ▼
 ┌─────────────────────────────────────────┐
-│  EVALUATION  (04-notebook / MLflow UI)  │
-│  Macro F1 · Accuracy · Blurred Acc.    │
+│  EVALUATION  (notebooks / MLflow UI)    │
+│  Macro F1 · Accuracy · Blurred Acc.     │
 └─────────────────────────────────────────┘
 ```
 
 ---
 
-## Results
+## Documentation
 
-Test period: **2021–2024** (held-out temporal split, no leakage)
+| Resource | Description |
+|---|---|
+| [Executive Summary](reports/Executive_Summary.md) | High-level overview of objectives, results, and implications |
+| [Model Report](reports/Model_Report.md) | Full technical report: baseline → XGBoost, error analysis, feature importance, future directions |
+| [Data Diagnostics](reports/Data_Diagnostics.md) | Data quality, missingness patterns, and feature selection methodology |
+| [Model Validation](reports/Model_Validation.md) | Temporal evaluation, per-class breakdown, and SHAP interpretation |
 
-| Model | Macro F1 | Accuracy | Blurred Acc. (±1) |
-|---|---|---|---|
-| Logistic Regression (baseline) | 0.604 | 0.711 | — |
-| XGBoost Regressor | 0.487 | 0.560 | 0.896 |
-| **XGBoost Classifier** | **0.747** | **0.811** | **0.955** |
+### Notebooks
 
-**Blurred accuracy** measures the fraction of predictions within one rating step of the true value — relevant here because adjacent OECD ratings often reflect similar risk levels.
+The notebooks walk through the full research process step-by-step:
 
-Key findings:
-- Tree-based models capture non-linear interactions that linear models miss
-- Temporal splits are essential — random splits artificially inflate performance
-- Macroeconomic indicators explain ~75% of rating variation; residual error reflects expert judgment not captured by public data
-
-Experiments are tracked in MLflow. Launch the UI with:
-```bash
-mlflow ui --backend-store-uri models/mlruns
-```
-
----
-
-## Quick Start
-
-```bash
-git clone https://github.com/hippograndet/country_risk_rating.git
-cd country_risk_rating
-make setup
-```
-
-### macOS SSL fix (recommended)
-
-If you see warnings like `NotOpenSSLWarning` (LibreSSL backend), use the OpenSSL-backed setup target:
-
-```bash
-make setup-openssl-macos
-```
-
-This installs Homebrew Python 3.11 and recreates `.venv` with an OpenSSL-linked interpreter, then verifies SSL with:
-
-```bash
-make verify-ssl
-```
-
-If you prefer manual setup:
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
+| Notebook | Topic |
+|---|---|
+| `01-Data_Extraction` | Retrieving data from World Bank API and OECD PDFs |
+| `02-Data_Integration` | Merging and aligning multi-source datasets |
+| `03-Feature_Selection` | Feature engineering, filtering, and selection |
+| `04-Modeling_and_Evaluation` | Preprocessing pipeline, training, and evaluation |
+| `05-Model_Analysis` | Per-class performance, subgroup analysis, and SHAP interpretability |
 
 ---
 
-## ✅ Choose your path
+## Data Sources
 
-After running `make setup`, select one of these 3 options:
-
-### 📄 1. Read the General Report
-Get the full end-to-end analysis, results, and findings without running any code:
-```bash
-make report
-```
-This opens the complete project report including methodology, data analysis, model performance and conclusions.
-
-### 🔬 2. Explore as Data Scientist
-Walk through the full research process step-by-step with Jupyter notebooks:
-```bash
-make explore
-```
-Notebooks are ordered 00 → 05 and explain every decision made from raw data to final model.
-
-### 🤖 3. Train a model locally
-Train the production model on your machine:
-```bash
-make train           # Default: XGBoost Classifier (best performing)
-# Or choose model type:
-make train-classifier
-make train-regressor
-```
-Training uses the preprocessed dataset included in the repository. After training, use the `05-Model_Analysis.ipynb` notebook to explore your trained model.
-
----
-
-### Additional commands
-```bash
-make test          # Run full test suite
-make mlflow-ui     # Launch MLflow experiment tracking UI
-make lint          # Run code quality checks
-```
-
-> **Note on data:** `data/3-processed/X.csv` is included so the pipeline runs immediately. To rebuild it from scratch, download the latest OECD country risk PDF from [country-risk.oecd.org](https://country-risk.oecd.org) and place it in `data/1-raw/`, then run notebooks 01 → 03 in sequence.
+| Source | Content | Access |
+|---|---|---|
+| [World Bank WDI](https://datatopics.worldbank.org/world-development-indicators/) | 94 macroeconomic indicators (1999–2024) | Free API (`wbgapi`) |
+| [OECD Country Risk](https://country-risk.oecd.org) | Risk ratings 1–7 (target variable) | Free PDF download |
 
 ---
 
@@ -173,65 +119,55 @@ make lint          # Run code quality checks
 │   ├── 2-interim/         # Intermediate outputs (merged, feature-selected)
 │   └── 3-processed/       # Final X.csv / y.csv + split configs
 │
-├── notebooks/
-│   ├── 01-Data_Extraction.ipynb
-│   ├── 02-Data_Integration.ipynb
-│   ├── 03-Feature_Selection.ipynb   # feature engineering + selection
-│   ├── 04-Modeling_and_Evaluation.ipynb
-│   ├── 05-Model_Comparing.ipynb
-│   └── 06-Results_and_Interpretation.ipynb
+├── notebooks/             # Step-by-step analysis (01 → 05)
 │
 ├── src/
 │   ├── extraction/        # World Bank API + OECD PDF parsing
 │   ├── preprocessing/     # sklearn preprocessing pipeline
 │   ├── features/          # Feature selection, pruning, engineering
 │   ├── models/            # Model factory, evaluation, registry
-│   ├── utils/             # Config, I/O, country utilities
-│   └── train.py           # CLI training entrypoint
+│   └── utils/             # Config, I/O, country utilities
 │
 ├── models/
 │   ├── mlruns/            # MLflow experiment tracking
 │   └── registry/          # Versioned model artifacts
 │
-└── reports/               # Analysis and model reports
+└── reports/               # Analysis reports and plots
 ```
 
-`notebooks/` explain the reasoning behind decisions.  
-`src/` contains the reproducible pipeline code used for training.
-
 ---
 
-## Start Here (by profile)
+## Local Setup
 
-### If you want to **run and experiment**
-1. `make setup`
-2. `make test`
-3. `make train`
-4. `make mlflow-ui`
+```bash
+git clone https://github.com/hippograndet/country_risk_rating.git
+cd country_risk_rating
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
 
-### If you want to **understand data and results only**
-1. Open `reports/Model_Report.md` and `reports/Model_Improvement.md`
-2. Review plots in `reports/` (`model_comparison.png`, `feature_importance_xgb.png`, etc.)
-3. Walk through notebooks in order:
-   - `notebooks/00-Summary.ipynb`
-   - `notebooks/04-Modeling_and_Evaluation.ipynb`
-   - `notebooks/05-Model_Analysis.ipynb`
+### macOS SSL fix
 
-### If you want to **extend the pipeline**
-1. Read `docs/ARCHITECTURE.md`
-2. Modify the relevant module under `src/`
-3. Re-run `make test` and `make train`
+If you see `NotOpenSSLWarning` warnings:
 
----
+```bash
+make setup-openssl-macos
+make verify-ssl
+```
 
-## Data Sources
+### Commands
 
-| Source | Content | Access |
-|---|---|---|
-| [World Bank WDI](https://datatopics.worldbank.org/world-development-indicators/) | 94 macroeconomic indicators (1999–2024) | Free API (`wbgapi`) |
-| [OECD Country Risk](https://country-risk.oecd.org) | Risk ratings 1–7 (target variable) | Free PDF download |
+```bash
+make train              # Train XGBoost Classifier (best performing)
+make train-regressor    # Train XGBoost Regressor
+make test               # Run test suite
+make lint               # Run code quality checks
+make mlflow-ui          # Launch MLflow experiment tracking UI
+make explore            # Open Jupyter notebooks
+```
 
-OECD ratings reflect expert committee judgment on sovereign default risk. Rating 1 = highest risk, 7 = lowest risk. Not all countries are rated (OECD members and select others only).
+> **Note:** `data/3-processed/X.csv` is included so the pipeline runs immediately. To rebuild from scratch, download the latest OECD country risk PDF from [country-risk.oecd.org](https://country-risk.oecd.org), place it in `data/1-raw/`, and run notebooks 01 → 03 in sequence.
 
 ---
 

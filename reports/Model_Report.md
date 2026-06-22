@@ -1,195 +1,122 @@
-# Country Risk Rating Prediction — Baseline to Model Improvement Report
-
-## Executive Summary
-
-This project addresses the problem of predicting **future country risk ratings** using historical economic, financial, and institutional indicators. Country risk ratings are widely used in investment decision-making, sovereign risk assessment, and policy analysis, making predictive accuracy, temporal robustness, and interpretability essential.
-
-Using a temporally consistent dataset indexed by country and year, I developed and evaluated multiple machine learning models under strict anti-leakage constraints. A simple logistic regression baseline was established to provide an interpretable and transparent reference point. From this baseline, systematic improvements were explored through feature preprocessing, model family selection, and hyperparameter tuning.
-
-Key findings include:
-
-* Temporal train/validation/test splits are critical; random splits significantly overestimate performance.
-* Feature preprocessing choices contribute meaningful gains but plateau quickly.
-* Tree-based models (XGBoost) capture non-linear interactions missed by linear models and deliver the strongest performance gains.
-* Neural network models offer marginal improvements at the cost of increased complexity and reduced interpretability.
-
-The final recommended model balances predictive performance, stability over time, and operational simplicity. While further gains may be possible with additional data or sequence-based modeling, the current solution demonstrates a robust and business-aligned approach to country risk prediction.
-
----
+# Model Report: Baseline to Best Model
 
 ## 1. Problem Overview
 
-### Task definition
+The task is **supervised multi-class classification**: predicting a country's OECD risk rating (1–7) for a given year from macroeconomic indicators. Each observation is a *(country, year)* pair. Ratings reflect sovereign default risk as assessed by OECD expert committees — rating 1 indicates the lowest risk, rating 7 the highest.
 
-The task is a **supervised multi-class classification problem**: predicting a country’s future risk rating for a given year using historical economic and institutional indicators. Each observation corresponds to a specific *(country, year)* pair, and the target represents the officially assigned risk rating in a subsequent period.
-
-### Context & motivation
-
-Country risk ratings inform decisions in sovereign lending, foreign direct investment, export credit guarantees, and geopolitical risk assessment. Errors in prediction can have material financial consequences, particularly when risk is systematically underestimated.
-
-Key constraints include:
-
-* Strong temporal dependencies in both features and labels
-* Limited sample size per country
-* Class imbalance across rating categories
-* The need for interpretability and stability, not just raw accuracy
-
-### Evaluation goal
-
-The primary evaluation metric is **macro-averaged F1 score**, reflecting balanced performance across all rating classes. Secondary metrics include accuracy and per-class recall to assess systematic bias.
-
----
+The primary evaluation metric is **macro-averaged F1 score**, which ensures balanced performance across all rating categories regardless of class frequency. Secondary metrics include accuracy and **blurred accuracy** (±1 step), which captures predictions within one rating of the true value — relevant because adjacent OECD ratings often reflect similar underlying risk.
 
 ## 2. Dataset & Experimental Setup
 
-### 2.1 Dataset description
+### Data sources
 
-The dataset aggregates multiple public sources, including World Bank indicators and OECD country risk ratings. Features include macroeconomic indicators, trade measures, financial stability proxies, and institutional variables.
+The dataset combines two public sources:
 
-* Unit of observation: country-year
-* Temporal coverage: multiple decades (varies by feature)
-* Feature types: numerical and categorical
-* Target variable: ordinal country risk rating
+| Source | Content | Access |
+|---|---|---|
+| World Bank WDI | 94 macroeconomic indicators (1999–2024) | API (`wbgapi`) |
+| OECD Country Risk | Risk ratings 1–7 (target variable) | PDF extraction (`camelot-py`) |
 
-### 2.2 Temporal train / validation / test split
+After merging by country and year, applying feature selection (missingness, variance, correlation, mutual information filters), and engineering domain features (growth rates, ratios, moving averages, z-scores), the final dataset contains **4,081 observations** across **63 features**.
 
-To reflect the real-world forecasting task, all experiments use **strict temporal splits**. Training data includes only years prior to validation and test periods. Validation data is used exclusively for model selection and hyperparameter tuning, while the test set is held out until final evaluation.
+See [Data_Diagnostics.md](Data_Diagnostics.md) for the full data quality assessment and feature selection methodology.
 
-This approach prevents information leakage and ensures that reported performance reflects true forward-looking predictive ability.
+### Temporal split
 
-### 2.3 Preprocessing pipeline
+All experiments use a strict temporal split to prevent data leakage:
 
-All models share a common preprocessing framework implemented via scikit-learn pipelines:
+- **Training**: 1999–2020 (3,368 observations)
+- **Test**: 2021–2024 (713 observations)
 
-* Missing value imputation (mean, median, or KNN, depending on experiment)
-* Feature scaling for numerical variables
-* One-hot encoding for categorical variables
+No overlap between splits. Preprocessing is fit on training data only.
 
-Preprocessing steps are fit **only on training data** and applied consistently to validation and test sets.
+### Preprocessing pipeline
 
----
+All models share a common sklearn pipeline:
+- Median imputation for missing values
+- Standard scaling for numerical features
+- One-hot encoding for categorical features
 
-## 3. Baseline Model
+## 3. Baseline: Logistic Regression
 
-### 3.1 Baseline choice
+Multinomial logistic regression with L2 regularization and balanced class weights was chosen as the baseline for its simplicity and widespread use in risk modeling.
 
-Logistic regression was selected as the baseline model due to its simplicity, interpretability, and widespread use in risk modeling contexts. It provides a transparent benchmark against which more complex models can be evaluated.
+| Metric | Value |
+|---|---|
+| Macro F1 | 0.604 |
+| Accuracy | 0.711 |
 
-### 3.2 Baseline configuration
-
-* Model: Multinomial logistic regression
-* Regularization: L2
-* Class weighting: balanced
-* Features: full processed feature set
-
-### 3.3 Baseline performance
-
-The baseline achieves reasonable predictive performance but exhibits systematic underfitting, particularly in capturing non-linear relationships and feature interactions.
-
-### 3.4 Baseline error analysis
-
-Error analysis reveals:
-
-* Confusion between adjacent risk categories
-* Reduced performance during periods of economic instability
-* Sensitivity to missing or lagging indicators
-
----
+The baseline achieves reasonable performance but underfits non-linear relationships and feature interactions, particularly for mid-range ratings (3–5) where economic signals are more ambiguous.
 
 ## 4. Improvement Strategy
 
-### 4.1 Observed limitations
+Three limitations guided the search for better models:
 
-The baseline model struggles with:
+1. **Non-linear feature interactions** — economic indicators interact in ways linear models cannot capture (e.g., debt burden matters differently depending on GDP growth)
+2. **Temporal feature importance shifts** — the relative importance of indicators changes across economic cycles
+3. **Minority class recall** — extreme ratings (1 and 7) are underrepresented and poorly predicted by the baseline
 
-* Non-linear feature interactions
-* Temporal shifts in feature importance
-* Minority class recall
-
-### 4.2 Hypotheses for improvement
-
-* Tree-based models can better capture non-linearities
-* Alternative preprocessing strategies may reduce noise
-* More expressive models may improve class separation
-
----
+Hypothesis: tree-based models can address all three through their ability to learn feature interactions, handle heterogeneous feature types, and partition the feature space adaptively.
 
 ## 5. Model Experiments
 
-### 5.1 Feature and preprocessing experiments
+### XGBoost Regressor
 
-Multiple preprocessing variants were tested, including alternative imputation strategies and scaling configurations. Improvements were incremental but consistent.
+Gradient-boosted regression treating the rating as a continuous target, with predictions rounded to the nearest integer class. This approach captures ordinal structure but introduces rounding errors and struggles with class boundaries.
 
-### 5.2 Algorithmic experiments
+### XGBoost Classifier
 
-The following model families were evaluated:
+Gradient-boosted classification with multi-class softmax objective. Directly optimizes for class separation and produces calibrated class probabilities.
 
-* Logistic regression (baseline and tuned variants)
-* Gradient-boosted decision trees (XGBoost)
-* Feedforward neural networks (PyTorch)
+All experiments were tracked using MLflow with identical temporal splits and evaluation metrics.
 
-### 5.3 Training protocol
+## 6. Results
 
-All models were trained using identical temporal splits and evaluated using the same metrics. Experiments and results were tracked using MLflow to ensure reproducibility and comparability.
+| Model | Macro F1 | Accuracy | Blurred Acc. (±1) |
+|---|---|---|---|
+| Logistic Regression (baseline) | 0.604 | 0.711 | — |
+| XGBoost Regressor | 0.487 | 0.560 | 0.896 |
+| **XGBoost Classifier** | **0.747** | **0.811** | **0.955** |
 
----
+![Model Comparison](plots/model_comparison.png)
 
-## 6. Model Comparison
+The XGBoost Classifier improves over the baseline by **+0.143 macro F1** and **+10 percentage points accuracy**. The regressor underperforms due to rounding artifacts and loss of class boundary information.
 
-Quantitative results show that XGBoost provides the largest performance improvement over the baseline, particularly in macro-F1 score and minority class recall. Neural networks offer limited additional gains while increasing training complexity and reducing interpretability.
+### Error analysis
 
-Qualitatively, tree-based models demonstrate greater robustness to missing data and temporal drift.
+The confusion matrix shows most misclassifications occur between adjacent rating categories:
 
----
+![Confusion Matrix](plots/confusion_matrix_xgb.png)
 
-## 7. Error Analysis & Insights
+Error rates vary systematically across ratings — high-rated countries (6–7) are predicted most reliably, while mid-range ratings (3–5) exhibit higher uncertainty, reflecting their transitional economic nature.
 
-Detailed error analysis highlights remaining challenges in predicting abrupt rating changes following exogenous shocks. Performance is strongest for stable countries with consistent economic trajectories.
+![Error by Class](plots/error_by_class.png)
 
-Key insight: much of the residual error appears driven by factors not captured in the available indicators, suggesting diminishing returns from model complexity alone.
+### Feature importance
 
----
+The most influential predictors align with economic theory of sovereign risk:
 
-## 8. Trade-offs & Practical Considerations
+![Feature Importance](plots/feature_importance_xgb.png)
 
-Key trade-offs considered include:
+SHAP analysis reveals how features influence predictions differently across the rating spectrum:
 
-* Predictive performance vs interpretability
-* Model complexity vs retraining cost
-* Stability over time vs sensitivity to new data
+![SHAP Summary](plots/shap_summary_rating_by_features.png)
 
-These considerations favor a moderately complex, well-regularized model.
+## 7. Final Model
 
----
+**Selected model**: XGBoost Classifier
 
-## 9. Final Model Selection
+**Justification**: Best performance across all metrics, robust to missing data, interpretable through feature importance and SHAP analysis, and operationally simple to retrain and deploy.
 
-### Chosen model
+**Key takeaways**:
+- Tree-based models capture non-linear interactions that linear models miss
+- Temporal splits are essential — random splits artificially inflate performance by ~15 percentage points
+- Macroeconomic indicators explain ~75% of rating variation; residual error reflects expert judgment not captured by public data
 
-Gradient-boosted decision tree model (XGBoost)
+## 8. Future Directions
 
-### Justification
-
-This model offers the best balance between performance, robustness, and operational feasibility, making it suitable for real-world risk assessment workflows.
-
----
-
-## 10. Limitations & Future Work
-
-* Incorporation of sequence-based models to better capture temporal dynamics
-* Integration of exogenous shock indicators
-* Extension to probabilistic forecasting of rating transitions
-
----
-
-## 11. Reproducibility Notes
-
-* All experiments tracked via MLflow
-* Fixed temporal splits and random seeds
-* Modular training and evaluation pipelines
-
----
-
-## Appendix
-
-Additional plots, hyperparameter grids, and ablation studies are available in the accompanying notebooks and experiment logs.
+- **Alternative data sources**: news sentiment, political stability indices, or market-based indicators (CDS spreads, bond yields) to capture qualitative risk dimensions
+- **Ensemble methods**: combining classifier and regressor outputs for improved robustness at class boundaries
+- **Probabilistic forecasting**: quantifying prediction uncertainty to enable risk-adjusted decision making
+- **Sequence modeling**: leveraging temporal trajectories of indicators rather than point-in-time snapshots
+- **Extended validation**: rolling temporal splits to assess model stability across different economic regimes

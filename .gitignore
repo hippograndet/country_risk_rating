@@ -29,10 +29,3 @@ models/registry/**/model/**
 venv/
 __pycache__/
 .pytest_cache/
-
-# Claude Files
-.claude/
-CLAUDE.local.md
-CLAUDE.md
-docs/
-.claudeignore

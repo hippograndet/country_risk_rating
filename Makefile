@@ -1,22 +1,19 @@
-.PHONY: help setup setup-openssl-macos verify-ssl test lint train report explore train-classifier train-regressor mlflow-ui notebooks
+.PHONY: help setup setup-openssl-macos verify-ssl test lint train explore train-classifier train-regressor mlflow-ui notebooks
 
 PYTHON ?= python3
 
 help:
-	@echo "✅ After setup, choose one of these 3 paths:"
-	@echo "  make report      📄 Read the full project report (start here)"
-	@echo "  make explore     🔬 Explore as Data Scientist (Jupyter Notebooks)"
-	@echo "  make train       🤖 Train model locally (default: XGBoost Classifier)"
-	@echo ""
-	@echo "Other commands:"
-	@echo "  make setup        - Create virtualenv and install dependencies"
-	@echo "  make setup-openssl-macos - macOS: OpenSSL-backed Python setup"
-	@echo "  make verify-ssl   - Verify SSL backend"
-	@echo "  make test         - Run test suite"
-	@echo "  make lint         - Run flake8 linter"
-	@echo "  make train-classifier - Train XGBoost Classifier model"
-	@echo "  make train-regressor  - Train XGBoost Regressor model"
-	@echo "  make mlflow-ui    - Launch MLflow experiment tracking UI"
+	@echo "Usage:"
+	@echo "  make setup              Create virtualenv and install dependencies"
+	@echo "  make train              Train XGBoost Classifier (default, best performing)"
+	@echo "  make train-classifier   Train XGBoost Classifier"
+	@echo "  make train-regressor    Train XGBoost Regressor"
+	@echo "  make explore            Open Jupyter notebooks"
+	@echo "  make test               Run test suite"
+	@echo "  make lint               Run flake8 linter"
+	@echo "  make mlflow-ui          Launch MLflow experiment tracking UI"
+	@echo "  make setup-openssl-macos  macOS: OpenSSL-backed Python setup"
+	@echo "  make verify-ssl         Verify SSL backend"
 
 setup:
 	$(PYTHON) -m venv .venv
@@ -39,10 +36,6 @@ test:
 lint:
 	flake8 src tests
 
-report:
-	@echo "📄 Opening project report..."
-	@open reports/Model_Report.md
-
 explore:
 	@echo "🔬 Launching Jupyter Notebooks..."
 	. .venv/bin/activate && jupyter notebook notebooks/
@@ -55,14 +48,6 @@ train-classifier:
 
 train-regressor:
 	. .venv/bin/activate && python -m src.models.train --model xgboost_regressor --register
-
-# Legacy aliases for backwards compatibility
-train-lr:
-	python -m src.models.train --model logistic_regression
-
-train-xgb-reg: train-regressor
-
-train-xgb-cls: train-classifier
 
 mlflow-ui:
 	. .venv/bin/activate && mlflow ui --backend-store-uri models/mlruns
