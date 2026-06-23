@@ -5,16 +5,13 @@ Structured analysis reports and visualizations from the OECD country risk rating
 ## Reports
 
 ### [Executive_Summary.md](Executive_Summary.md)
-Stakeholder-facing overview of objectives, key results, and practical implications. Start here for a high-level understanding of the project.
+Project overview: objective, approach decisions, key results, and takeaways. Start here.
 
-### [Model_Report.md](Model_Report.md)
-Technical report covering the full modeling journey — from logistic regression baseline to XGBoost classifier — with performance metrics, error analysis, feature importance, and future directions.
+### [Model_Results.md](Model_Results.md)
+Detailed model performance, per-class breakdowns, error analysis, subgroup evaluation, SHAP interpretation, and future directions.
 
 ### [Data_Diagnostics.md](Data_Diagnostics.md)
-Data quality assessment, missingness analysis, and feature selection methodology. Covers the pipeline from 74 raw indicators to 64 final features.
-
-### [Model_Validation.md](Model_Validation.md)
-Temporal evaluation framework, per-class performance breakdown, and SHAP-based model interpretation.
+Data quality assessment, missingness analysis, feature selection pipeline, and engineered features.
 
 ## Plots
 

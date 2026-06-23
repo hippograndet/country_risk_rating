@@ -82,10 +82,9 @@ SHAP analysis reveals which economic dimensions drive predictions across the rat
 
 | Resource | Description |
 |---|---|
-| [Executive Summary](reports/Executive_Summary.md) | High-level overview of objectives, results, and implications |
-| [Model Report](reports/Model_Report.md) | Full technical report: baseline → XGBoost, error analysis, feature importance, future directions |
+| [Executive Summary](reports/Executive_Summary.md) | Project overview: objective, approach decisions, key results, and takeaways |
+| [Model Results](reports/Model_Results.md) | Detailed performance, error analysis, subgroup breakdowns, and SHAP interpretation |
 | [Data Diagnostics](reports/Data_Diagnostics.md) | Data quality, missingness patterns, and feature selection methodology |
-| [Model Validation](reports/Model_Validation.md) | Temporal evaluation, per-class breakdown, and SHAP interpretation |
 
 ### Notebooks
 
